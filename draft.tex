@@ -79,7 +79,7 @@ and Fourth Author$^{3}$
 \date{Accepted XXX. Received YYY; in original form ZZZ}
 
 % Enter the current year, for the copyright statements etc.
-\pubyear{2015}
+\pubyear{2020}
 
 % Don't change these lines
 \begin{document}
@@ -107,62 +107,83 @@ keyword1 -- keyword2 -- keyword3
 
 \section{Introduction}
 
-Type Ia supernovae (SNe Ia) are extensively used by cosmologists to measure relative distances in the Universe. The small intrinsic dispersion in their peak brightnesses can be reduced further through empirical relations between brightness and light curve properties, such as decline rate (stretch) or optical colour.
+Type Ia supernovae (SNe Ia) are explosions of white dwarves (WDs) at masses close to the Chandrasehkar limit of 1.44 $M_{\odot}$ extensively used by cosmologists to measure relative distances in the Universe. The small intrinsic dispersion in their peak brightnesses can be reduced further through empirical relations between brightness and light curve properties, such as decline rate (stretch) or optical colour.
 
-Despite reducing dispersions to \textbf{X mag} over samples with over one thousand SNe \citep{Scolnic2018}, 
+Despite reducing dispersions to \textbf{X mag} in samples with over one thousand SNe \citep{Scolnic2018}, the exact nature of the progenitor scenarios for SNe Ia is yet to be confirmed. While it is accepted that SNe Ia are caused by accretion of matter onto a WD from a companion star, multiple possible scenarios exist for the nature of that companion star. The leading models invovle a main sequence (MS) star in the single-degenerate (SD) scenario, a secondary white dwarf in the double-degenerate scenario (DD), while more exotic models such as the core-degenerate (CD) scenario invoke white dwarves merging with the cores of massive stars.
 
+The progenitors of a number of core-collapse SNe (CCSNe) have been identified in high-resolution pre-explosion images, allowing detailed analysis of the latter stages of massive star evolution. However, due to their lower luminosities this approach has not yet been successful in identifying a progenitor of a SN Ia. Conversely, it has been possible to search for remnants of the binary system -- main sequence or white dwarves left behind at the SN location or kicked. 
 
-\subsection{Maths}
-\label{sec:maths} % used for referring to this section from elsewhere
+Another method of inferring progenitor channels is the study of global properties of SN Ia host galaxies. By measuring characteristics of the stellar populations of hosts it is possible to constrain models of the delay-time distribution (DTD), which details the elapsed time from progenitor formation to SN explosion and contain signatures of the progenitor channels. Simple examples of such analyses are comparisons of the rates of SNe Ia in hosts that have been split by some observational property, such as morphology or colour, and have shown that SNe Ia rate per unit stellar mass (SNuM) is significantly larger in late-type spiral galaxies as well as in bluer galaxies \citep[e.g.][]{Mannucci2005}. These observations heavily imply that SNe Ia rates are dependent on recent or ongoing star-formation, and thus that the majority of SNe Ia explode after short delay times. Conversely, the SNuM in E/S0 and red galaxies is non-negligible, suggesting that there is a secondary, much older component to the DTD.
 
-Simple mathematics can be inserted into the flow of the text e.g. $2\times3=6$
-or $v=220$\,km\,s$^{-1}$, but more complicated expressions should be entered
-as a numbered equation:
-
+The rate of SNe per galaxy ($R$) per year in a transient survey can be approximated by the simple equation:
 \begin{equation}
-    x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.
-	\label{eq:quadratic}
+    R = \frac{N_{\mathrm{SN}}}{N_{\mathrm{G}}} \frac{A_{\mathrm{G}}}{A_{\mathrm{SN}}} \frac{1}{T_{\mathrm{SN  survey}}}\,,
+\label{eq:rate1}
 \end{equation}
-
-Refer back to them as e.g. equation~(\ref{eq:quadratic}).
-
-\subsection{Figures and tables}
-
-Figures and tables should be placed at logical positions in the text. Don't
-worry about the exact layout, which will be handled by the publishers.
-
-Figures are referred to as e.g. Fig.~\ref{fig:example_figure}, and tables as
-e.g. Table~\ref{tab:example_table}.
-
-% Example figure
-\begin{figure}
-	% To include a figure from a file named example.*
-	% Allowable file formats are eps or ps if compiling using latex
-	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=\columnwidth]{example}
-    \caption{This is an example figure. Captions appear below each figure.
-	Give enough detail for the reader to understand what they're looking at,
-	but leave detailed discussion to the main body of the text.}
-    \label{fig:example_figure}
-\end{figure}
-
-% Example table
+where $N_{\mathrm{SN}}$ and $N_{\mathrm{G}}$ are the respective number of SNe and galaxies detected, $A_{\mathrm{SN}}$ and $A_{\mathrm{G}}$ the sky areas from which the SNe and G samples were taken, and $T$ the duration of the SN survey in years. This rate can be split by 
 \begin{table}
 	\centering
-	\caption{This is an example table. Captions appear above each table.
-	Remember to define the quantities, symbols and units used.}
-	\label{tab:example_table}
+	\caption{Numbers of field galaxies and SN hosts passing various quality cuts.}
+	\label{tab:field_vuts}
 	\begin{tabular}{lccr} % four columns, alignment for each
 		\hline
-		A & B & C & D\\
+		Cut & N (galaxies, X3)  & N (SN hosts)\\
 		\hline
-		1 & 2 & 3 & 4\\
-		2 & 4 & 6 & 8\\
-		3 & 5 & 7 & 9\\
+		Chosen fields & 1364311  & 1766\\
+	    Kron mag in all bands & 1069004  & 1764 \\
+	    Masked chips & 816950  & - \\
+	    Has ugrizJHK photometry & 545748  & -\\
+	    Edge of chip & 481731 & 1716 \\
+	    Star/galaxy separation & 400051 &  1678\\
+	    Has good redshift & 395034 & 1678 \\
+	    SNR $\geq 3$& 338256  & 1678 \\
+	    $m_r \leq 26.5$ & 196109 &  1678 \\
+	    $0.2 \leq z \leq 0.8$ & 48177 & 1414\\ 
+	    
 		\hline
 	\end{tabular}
 \end{table}
 
+\section{Data \label{sec:data}}
+\subsection{Dark Energy Survey supernova programme \label{subsec:des}}
+The DES Supernova Programme (DES-SN) is a transient survey based on five six-month seasons of observations with the Dark Energy Camera (DECam; \citealt{Flaugher2015}), designed primarily to measure the light curves of SNe Ia for use as cosmological distance indicators. Transients were detected and processed using a difference imaging program \citep{Kessler2015} and vetted using a machine learning (ML) algorithm \citep{Goldstein2015}. Spectral follow-up was performed on a suite of large optical telescopes \citet{Smith2020b}, leading to the initial publication of a measurement of cosmological parameters using 207 spectroscopically confirmed SNe (\citealt{DESCollaboration2018a}, and references therein). 
+\subsection{Supernovae \label{subsec:host_sample}}
+\subsubsection{Photometric classification and quality cuts \label{subsubsec:sn_classify}}
+With over 30,000 transients passing ML cuts it was not possible to obtain spectral follow up of every object. Instead we make use of photometric classification techniques, in particular the recurrent neural network \texttt{superNNova} (SNN; \citealt{Moller2019}). We derive our SN Ia sample following the approach of \citet{Scolnic2020}, but use a threshold probability of $P(\mathrm{Ia})\geq0.5)$. The photometricially classified SNe Ia are then passed through the \texttt{SALT2} framework \citep{Betoule2014} and are subject to quality cuts on the light curve width (stretch; $x_1$) and colour ($c$) parameters: $-3 \leq x_1 \leq 3$, $-0.3 \leq c \leq 0.3$. These cuts help to reduce the potential contamination from core-collapse SNe (CCSNe) and outlying SNe Ia whose physical mechanisms may diverge from the general cosmologically useful population.
+
+\subsubsection{Host galaxy selection \label{subsubsec:sn_hosts}}
+Host galaxies for all transients in DES-SN are derived from the deep-stacked $g, r, i, z$-band images presented in \citet{Wiseman2020}. SN are associated to hosts using the directional light radius method \citep[e.g.][]{Sullivan2006,Gupta2016}, while spectroscopic redshifts are provided by OzDES \citep{Yuan2015,Childress2017,Lidman2020}, leading to an initial sample of 1766 SNe.
+
+\subsection{Field galaxies\label{subsec:field_sample}}
+A sample of field galaxies is obtained from the same catalogue to which the SNe are matched to obtain host galaxies. Since the vast majority of objects in this catalogue do not have a spectroscopic redshift measurement, we rely on photometric redshifts in order to proceed with the analysis. 
+\subsubsection{Photometric redshifts \label{subsubsec:photozs}}
+
+Photometric redshifts are estimated using the \texttt{EAZY} photometric redshift code \citep{Brammer2008} as described in \citet{Amon2020}. We supplement the DES optical data with DECam $u$-band data as well as near-infrared (NIR) $J$, $H$, and $K$-band imaging from the ultraVISTA and VIDEO surveys. We use the X3 and E2 fields, and .
+
+\section{Galaxy properties \label{sec:properties}}
+
+We estimate global galaxy properties for both the SN host and field galaxy samples by fitting the photometry with stellar population templates in a method outlined by \citet{Sullivan2006} and consistent to that used in previous DES-SN analyses \citep{Kelsey2020,Smith2020,Wiseman2020}. For SN hosts the redshift is fixed at the spectroscopically determined value, while for field galaxies we fix it at either the spectroscopic value if one exists (a minority of cases), or more commonly the photometrically derived value. The fitting procedure returns a best fitting template and corresponding stellar mass ($M_*$) and SFR averaged over the proceeding 250 Myr. Uncertainties on the properties are estimated by refitting the templates to the photometry that has been resampled from Gaussian PDFs formed by the photometric fluxes and their uncertainties. 
+
+
+\subsection{Use of multiwavelength data \label{subsec: fits_ugrizJHK}}
+
+\section{Incompleteness corrections \label{sec:incompleteness}}
+
+Although Eq. \ref{eq:rate1} serves as an approximation to the SN rate per galaxy per year, both the SN and field galaxy samples introduced in Sections \ref{subsec:host_sample} and \ref{subsec:field_sample} are affected by incompleteness, which is likely to be the dominant systematic effect in the analysis. In this section we describe our method of correcting for various sources incompleteness in the data.
+
+\subsection{Supernova hosts \label{subsec:incompletenss_SNe}}
+The limiting factor in the SN host sample is the requirement of a spectroscopic redshift. The majority of SN host spectroscopic redshifts in DES are provided by the dedicated follow-up survey OzDES, for which the limiting magnitude is around 24 to 24.5 mag in the $r$ band. The rate at which a host redshift is successfully measured given an apparent magnitude has been extensively modelled by \citetalias{V20} who provide the spectroscopic redshift efficiency as a function of host $r$-band magnitude, host galaxy colour, and the year in which the SN was discovered in order to allow for a longer possible exposure time for SNe discovered earlier in the survey. So that we reduce any bias towards SNe in bright hosts that are easier to obtain spectroscopic redshifts for, we assign each SN in the sample described in Section \ref{subsec:host_sample} a weight equal to the inverse of the spectroscopic efficiency for its host. This is equivalent to assuming that an efficiency of 0.1 means that for every ten SNe with hosts at that magnitude, only 1 will make it into the sample.
+
+\subsection{Field galaxies \label{subsec:incompleteness_field}}
+
+As we use photometric, rather than spectroscopic, redshifts for the field galaxies, they do not suffer from spectroscopic incompleteness as the SN hosts do. Instead, the inclusion of any given galaxy in the survey area in the sample is determined simply by whether it is detected above a prescribed threshold in signal-to-noise ratio, i.e. the sample is magnitude limited. To determine the apparent magnitude limit in each of the optical bands we employ the method of \citet[][hereafter Completeness I, II, III respectively]{Johnston2007,Teodoro2011,Johnston2012}. Test statistics $T_C$ and $T_V$ are computed based on absolute magnitude and distance modulus by calculating the rank of each galaxy's absolute magnitude (distance modulus) when compared to all other galaxies in a survey within a certain slice of distance modulus (absolute magnitude). For a galaxy of apparent magnitude $m < m_{\mathrm{lim, trial}}$ observed in a survey complete to magnitude $m_{\mathrm{lim, true}}$ where  $m_{\mathrm{lim, trial}} \leq m_{\mathrm{lim, true}}$, the expectation value of the rank is 0.5. However, if a trial limiting magnitude $m_{\mathrm{lim, trial}} \geq m_{\mathrm{lim, true}}$, there will be a lack of observed faint objects, such that the expectation value of the rank drops. Completeness I, II, and III show that for surveys with sharp, well defined magnitude limits the test statistics $T_C$ and $T_V$ drop sharply. The DES deep stacks present a more challenging case. They cover a wide area and are compiled from tens of separate CCDs, each with its own detection efficiency. Moreover, galaxy redshifts have been estimated using photometry only, and $K$-corrections performed using an imperfect template fit, potentially leading to large systematic and statistical fluctuations in absolute magnitudes and distance moduli. To reduce the inhomogeneity while still including  large sample of objects, we split the sample into the deep (X3) and shallow (E2) fields and calculate limiting magnitudes separately. Figs. \ref{fig:completeness_X3, fig:completenessE2} show the values of $T_C$ and $T_V$ for the two fields respectively. The values of the test statistics
+
+
+\section{Rates as a function of host galaxy properties \label{sec:rates}}
+
+\subsection{Dependence of the SN Ia rate on stellar mass \label{subsec:rates_mass}}
+
+\subsection{Dependence of the SN Ia rate on SFR \label{subsec:rates_sfr}}
 
 \section{Conclusions}
 
@@ -189,7 +210,7 @@ The inclusion of a Data Availability Statement is a requirement for articles pub
 % The best way to enter references is to use BibTeX:
 
 \bibliographystyle{mnras}
-\bibliography{example} % if your bibtex file is called example.bib
+\bibliography{PhilMendeley} % if your bibtex file is called example.bib
 
 
 % Alternatively you could enter them by hand, like this:
