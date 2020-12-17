@@ -113,23 +113,48 @@ Despite reducing dispersions to $\sim 0.1$ mag in samples with over one thousand
 
 The progenitors of a number of core-collapse SNe (CCSNe) have been identified in high-resolution pre-explosion images, allowing detailed analysis of the latter stages of massive star evolution. However, this approach has not yet been successful in identifying a progenitor of a SN Ia. Conversely, it has been possible to search for surviving remnants of the binary system -- main sequence stars or white dwarves left behind at the SN location or kicked \citep{Shen2018} -- displaying tentative evidence for a DD scenario. As yet, there is no conclusive evidence ruling out any progenitor channel from being a significant contribution to the total population of SNe Ia.
 
-Another method of inferring progenitor channels is the study of the SN Ia delay time distribution (DTD). The DTD can be interpreted as the rate at which SNe Ia occur as a function of the delay time $\tau$ since an episode of star-formation, and thus carries characteristic signatures of the progenitor channel (see \citealt{Wang2012} for a review). While the SD scenario is able to produce a broad range of functional forms of the DTD, the DD scenario predicts a power law of the form $t^{\beta}$, with $\beta \sim -1$ \citep[e.g]{Ruiter2009,Mennekens2010}.
+Another method of inferring progenitor channels is the study of the SN Ia delay time distribution (DTD). The DTD can be interpreted as the rate at which SNe Ia occur as a function of the delay time $\tau$ since an episode of star-formation, and thus carries characteristic signatures of the progenitor channel (see \citealt{Wang2012} for a review). While the SD scenario is able to produce a broad range of functional forms of the DTD, the DD scenario predicts a power law of the form $t^{\beta}$, with $\beta \sim -1$ \citep[e.g][]{Ruiter2009,Mennekens2010}.
 
-Given the vast range of timescales to which the DTD is sensitive, it is non-trivial to measure and various techniques have been developed to infer it indirectly. One such approach is to measure the evolution of the volumetric rate of SNe Ia as a function of redshift and comparing this evolution to the average cosmic star-formation history (CSFH) of the Universe \citep{Gal-Yam2004,Strolger2004,Dahlen2004,Dahlen2008}. This technique is also applicable to galaxy clusters, for which it is assumed that the star-formation histories are strongly peaked at some past epoch and thus that the rate of SNe Ia in clsuters as a function of redshift is a more direct measure of the DTD \citep{Maoz2004,Graur2014,Maoz2014}. Conversely, it is also possible to estimate the SFH of an individual galaxy through the modelling of its stellar populations via spectral energy distribution (SED) fitting. Works such as \citet{Maoz2011}, \citet{Maoz2012}, \citet{Graur2013} estimated the DTD by measuring SFHs for a sample of field galaxies and comparing them to the number of SNe detected in each galaxy. and has led to results that suggest a DTD power law with $\beta$ consistent with $-1$ \citep[e.g.][]{Maoz2011,Graur2013}.
+Given the vast range of timescales to which the DTD is sensitive, it is non-trivial to measure and various techniques have been developed to infer it indirectly. One such approach is to measure global properties of SN Ia host galaxies. Simple examples of such analyses are comparisons of the rates of SNe Ia in hosts that have been split by some observational property, such as morphology or colour, and have shown that SNe Ia rate per unit stellar mass (SNuM) is significantly larger in late-type spiral galaxies as well as in bluer galaxies \citep[e.g.][]{Mannucci2005}. These observations heavily imply that SNe Ia rates are dependent on recent or ongoing star-formation, and thus that the majority of SNe Ia explode after short delay times. Conversely, the SNuM in E/S0 and red galaxies is non-negligible, suggesting that there is a secondary, much older component to the DTD \citep{Sullivan2006,Smith2012}. The DTD is thus approximated by a two-component ("$A + B$") model, where $A$ and $B$ are the normalizations of the DTD for "prompt" (i.e. proportional to instantaneous SFR) and "tardy" (i.e. proportional to overall stellar mass) SNe, respectively A complementary technique involves measuring the evolution of the volumetric rate of SNe Ia as a function of redshift and comparing this evolution to the average cosmic star-formation history (CSFH) of the Universe \citep{Gal-Yam2004,Strolger2004,Dahlen2004,Dahlen2008}. This technique is also applicable to galaxy clusters, for which it is assumed that the star-formation histories are strongly peaked at some past epoch and thus that the rate of SNe Ia in clsuters as a function of redshift is a more direct measure of the DTD \citep{Maoz2004,Graur2014,Maoz2014}. Conversely, it is also possible to estimate the SFH of an individual galaxy through the modelling of its stellar populations via spectral energy distribution (SED) fitting. Works such as \citet{Maoz2011}, \citet{Maoz2012}, \citet{Graur2013} estimated the DTD by measuring SFHs for a sample of field galaxies and comparing them to the number of SNe detected in each galaxy. and has led to results that suggest a DTD power law with $\beta$ consistent with $-1$ \citep[e.g.][]{Maoz2011,Graur2013}. \citet{Childress2014} showed that the $A+B$ parameterisation arises as a direct consequence of the combination of a power-law DTD with the SFHs of galaxies.
 
-global properties of SN Ia host galaxies. By measuring characteristics of the stellar populations of hosts it is possible to constrain models of the delay-time distribution (DTD), which details the elapsed time from a burst of star formation to SN explosion and contain signatures of the progenitor channels. Simple examples of such analyses are comparisons of the rates of SNe Ia in hosts that have been split by some observational property, such as morphology or colour, and have shown that SNe Ia rate per unit stellar mass (SNuM) is significantly larger in late-type spiral galaxies as well as in bluer galaxies \citep[e.g.][]{Mannucci2005}. These observations heavily imply that SNe Ia rates are dependent on recent or ongoing star-formation, and thus that the majority of SNe Ia explode after short delay times. Conversely, the SNuM in E/S0 and red galaxies is non-negligible, suggesting that there is a secondary, much older component to the DTD \citep{Sullivan2006,Smith2012}. The DTD itself is often mathematically approximated by a power law taking the form:
+In this work, we combine parts of the above methods and derive a new, independent measurement of the SN Ia DTD. Instead of measuring the volumetric rate of SNe Ia, we measure the rate per galaxy as a function of stellar mass, as per \citet{Sullivan2006,Smith2012}. We use the stellar mass assembly model of \citet{Childress2014} to predict the stellar age distribution of galaxies for a given stellar mass at the mean redshift of our SN sample, and then forward model the DTD by convolving it with the stellar age distribution and comparing the predicted rates to the observed rates.
+
+
+
+
+\section{Method \label{sec:method}}
+
+We represent the SN Ia DTD by a power law of the form:
 
 \begin{equation}
-    \Phi(\tau) = A\left(\frac{\tau}{\mathrm{Gyr}}\right)^{\alpha}\,,
+    \Phi(\tau) = A\left(\frac{\tau}{\mathrm{Gyr}}\right)^{\beta}\,,
 \end{equation} 
-where $\tau$ is the time since a burst of star formation, and $A$ is a normalisation at $\tau=1\mathrm{Gyr}$.
-
- The shape of this function is driven by two components: the star-formation histories of galaxies, which detail the mass of stars formed at any given epoch in the past (or equally the age distribution of stellar mass in the galaxy at any epoch); and the SN Ia DTD, which prescribes the probability distribution of the stars exploding. Indeed, the rate $R_{\mathrm{G}}(M_*)$ is a simple convolution of the two:
+where $\tau$ is the time since a burst of star formation, and $A$ is a normalisation at $\tau=1\mathrm{Gyr}$. If all stars in a galaxy were formed at a single epoch $t_f$, the DTD would describe the rate of SNe at an observation time $\tau = t_0$. However in reality galaxies are formed by the gradual build up of stellar mass over several epochs of star formation -- the distribution of this mass build up is known as the star-formation history (SFH). The rate of SNe Ia is thus the sum of the DTD evaluated for each epoch of star formation, multiplied by the stellar mass formed in that epoch. Mathematically this is represented by the convolution of the DTD and SFH:
  
  
 \begin{equation}
-    R_{\mathrm{G}}(M_*) = \int_0^{\infty} \Psi(t-\tau)\Phi(\tau)\,d\tau
+    R_{\mathrm{G}} = \int_{t_0}^{\infty} \psi(t_0-\tau)\Phi(\tau)\,d\tau \,,
 \end{equation}
+where $t_0$ is the epoch at which the galaxy is observed, and $\psi$ is the SFH.
+
+\subsection{Modeling the star formation histories of galaxies \label{subsec:method_sfh}}
+To model the SFH of galaxies as a function of their stellar mass we adopt the model of \citet{Childress2014}. In the model, galaxies are expected to evolve smoothly along the so-called "main sequence of star formation" whereby the SFR of a galaxy of stellar mass $M_*$ at redshift $z$ is determined by a simple relationship (the SMz relation, \citealt{Zahid2012}). Specifically, we implement their "fine-tuned" model (C14 Eq. A7), whereby the SMz flattens above $z\sim2$ in line with observations \citep{Stark2013}. We adjust this model slightly and arrive at a final SMz:
+
+\begin{equation}
+    \Psi(M_*,z) = \left(\frac{M_*}{10^{10}}\right)^{0.7}\frac{\exp{\left(1.9z\right)}}{\exp{\left(1.7\left(z-2\right)\right)} + \exp{\left(0.2\left(z-2\right)\right)} } [\mathrm{M}_{\odot} \mathrm{yr}^{-1}]\,.
+\end{equation}
+
+As galaxies grow, their SFR begins to slow down and eventually shut off almost entirely in a process known as quenching. We adopt the quenching penalty $p_Q$ directly from \citet{Childress2014}:
+\begin{equation}
+    p_Q(M_*,z) = \frac{1}{2}\left[1 - \mathrm{erf}\left(\frac{\log(M_*) - \log(M_Q(z)}{\sigma_Q}\right)\right]\,,
+\end{equation}
+where $M_Q(z)$ describes how the quenching mass evolves with redshift, and $\sigma_Q$ is the transition scale which controls how fast a galaxy quenches. We adopt the observationally motivated form of the quenching mass evolution (Eq. A8 from \citealt{Childress2014}):
+\begin{equation}
+    \log(M_q(z)/\mathrm{M}_{\odot}) = 10.077 + 0.636z \,, 
+\end{equation}
+and a transition scale of $\sigma_Q = 1.1$. 
+
+As per \citet{Childress2014} we plant seed galaxies with initial masses of $10^6 \mathrm{M}_{\odot}$ at intervals of 50 Myr for look-back times $1 \leq t_f \leq 10$ Gyr, and 25 Myr for look-back times $10 \leq t_f \leq 13$ Gyr, and evaluate the model with a time step of 0.5 Myr.
 
 The rate of SNe per galaxy ($R_{\mathrm{G}}$) per year in a transient survey can be approximated by the simple equation:
 \begin{equation}
