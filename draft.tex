@@ -120,49 +120,6 @@ Given the vast range of timescales to which the DTD is sensitive, it is non-triv
 In this work, we combine parts of the above methods and derive a new, independent measurement of the SN Ia DTD. Instead of measuring the volumetric rate of SNe Ia, we measure the rate per galaxy as a function of stellar mass, as per \citet{Sullivan2006,Smith2012}. We use the stellar mass assembly model of \citet{Childress2014} to predict the stellar age distribution of galaxies for a given stellar mass at the mean redshift of our SN sample, and then forward model the DTD by convolving it with the stellar age distribution and comparing the predicted rates to the observed rates.
 
 
-
-
-\section{Method \label{sec:method}}
-
-We represent the SN Ia DTD by a power law of the form:
-
-\begin{equation}
-    \Phi(\tau) = A\left(\frac{\tau}{\mathrm{Gyr}}\right)^{\beta}\,,
-\end{equation} 
-where $\tau$ is the time since a burst of star formation, and $A$ is a normalisation at $\tau=1\mathrm{Gyr}$. If all stars in a galaxy were formed at a single epoch $t_f$, the DTD would describe the rate of SNe at an observation time $\tau = t_0$. However in reality galaxies are formed by the gradual build up of stellar mass over several epochs of star formation -- the distribution of this mass build up is known as the star-formation history (SFH). The rate of SNe Ia is thus the sum of the DTD evaluated for each epoch of star formation, multiplied by the stellar mass formed in that epoch. Mathematically this is represented by the convolution of the DTD and SFH:
- 
- 
-\begin{equation}
-    R_{\mathrm{G}} = \int_{t_0}^{\infty} \psi(t_0-\tau)\Phi(\tau)\,d\tau \,,
-\end{equation}
-where $t_0$ is the epoch at which the galaxy is observed, and $\psi$ is the SFH.
-
-\subsection{Modeling the star formation histories of galaxies \label{subsec:method_sfh}}
-To model the SFH of galaxies as a function of their stellar mass we adopt the model of \citet{Childress2014}. In the model, galaxies are expected to evolve smoothly along the so-called "main sequence of star formation" whereby the SFR of a galaxy of stellar mass $M_*$ at redshift $z$ is determined by a simple relationship (the SMz relation, \citealt{Zahid2012}). Specifically, we implement their "fine-tuned" model (C14 Eq. A7), whereby the SMz flattens above $z\sim2$ in line with observations \citep{Stark2013}. We adjust this model slightly and arrive at a final SMz:
-
-\begin{equation}
-    \Psi(M_*,z) = \left(\frac{M_*}{10^{10}}\right)^{0.7}\frac{\exp{\left(1.9z\right)}}{\exp{\left(1.7\left(z-2\right)\right)} + \exp{\left(0.2\left(z-2\right)\right)} } [\mathrm{M}_{\odot} \mathrm{yr}^{-1}]\,.
-\end{equation}
-
-As galaxies grow, their SFR begins to slow down and eventually shut off almost entirely in a process known as quenching. We adopt the quenching penalty $p_Q$ directly from \citet{Childress2014}:
-\begin{equation}
-    p_Q(M_*,z) = \frac{1}{2}\left[1 - \mathrm{erf}\left(\frac{\log(M_*) - \log(M_Q(z)}{\sigma_Q}\right)\right]\,,
-\end{equation}
-where $M_Q(z)$ describes how the quenching mass evolves with redshift, and $\sigma_Q$ is the transition scale which controls how fast a galaxy quenches. We adopt the observationally motivated form of the quenching mass evolution (Eq. A8 from \citealt{Childress2014}):
-\begin{equation}
-    \log(M_q(z)/\mathrm{M}_{\odot}) = 10.077 + 0.636z \,, 
-\end{equation}
-and a transition scale of $\sigma_Q = 1.1$. 
-
-As per \citet{Childress2014} we plant seed galaxies with initial masses of $10^6 \mathrm{M}_{\odot}$ at intervals of 50 Myr for look-back times $1 \leq t_f \leq 10$ Gyr, and 25 Myr for look-back times $10 \leq t_f \leq 13$ Gyr, and evaluate the model with a time step of 0.5 Myr.
-
-The rate of SNe per galaxy ($R_{\mathrm{G}}$) per year in a transient survey can be approximated by the simple equation:
-\begin{equation}
-    R_{\mathrm{G}} = \frac{N_{\mathrm{SN}}}{N_{\mathrm{G}}} \frac{A_{\mathrm{G}}}{A_{\mathrm{SN}}} \frac{1}{T_{\mathrm{SN  survey}}}\,,
-\label{eq:rate1}
-\end{equation}
-where $N_{\mathrm{SN}}$ and $N_{\mathrm{G}}$ are the respective number of SNe and galaxies detected, $A_{\mathrm{SN}}$ and $A_{\mathrm{G}}$ the sky areas from which the SNe and G samples were taken, and $T$ the duration of the SN survey in years. By binning both the SN hosts and field galaxies by their stellar mass we can approximate the function $R_{\mathrm{G}}(M_*)$.
-
 \begin{table}
 	\centering
 	\caption{Numbers of field galaxies and SN hosts passing various quality cuts.}
@@ -205,7 +162,14 @@ A sample of field galaxies is obtained from the same catalogue to which the SNe 
 Since the vast majority of objects in the \citet{Wiseman2021} catalogue do not have a spectroscopic redshift measurement, we rely on photometric redshifts (photo-$z$s) in order to proceed with the analysis. 
 Photometric redshifts are taken, where available, from the catalogue of \citet{Hartley2020}, and have been estimated using the \texttt{EAZY} photometric redshift code \citep{Brammer2008}. These photo-$z$s make use of deep DES optical photometry alongside DECam $u$-band data and near-infrared (NIR) $J$, $H$, and $K$-band imaging from the ultraVISTA and VIDEO surveys. 
 
-\subsubsection{Galaxy properties \label{subsubsec:properties}}
+\begin{figure}
+    \centering
+    \includegraphics[width=.5\textwidth]{figs/mass_hist_sn_field_BC03.png}
+    \caption{Distribution of the stellar mass of the SN host and field galaxies used in the analysis. }
+    \label{fig:mass_hist_hosts_field}
+\end{figure}
+
+\subsection{Galaxy properties \label{subsec:properties}}
 
 We estimate global galaxy properties for both the SN host and field galaxy samples by fitting the photometry with stellar population templates in a method outlined by \citet{Sullivan2006} and consistent to that used in previous DES-SN analyses \citep{Kelsey2020,Smith2020,Wiseman2020}. For SN hosts the redshift is fixed at the spectroscopically determined value, while for field galaxies we fix it at either the spectroscopic value if one exists (a minority of cases), or more commonly the photometrically derived value. The fitting procedure returns a best fitting template and corresponding stellar mass ($M_*$) and SFR averaged over the proceeding 250 Myr. Uncertainties on the properties are estimated by refitting the templates to the photometry that has been resampled from Gaussian PDFs formed by the photometric fluxes and their uncertainties. 
 
@@ -214,9 +178,10 @@ We estimate global galaxy properties for both the SN host and field galaxy sampl
 In order to refine the sample of host and field galaxies for the rate analysis we perform a series of quality cuts. Firstly, we require that a galaxy must be detected and have a Kron magnitude measurement in all four DES optical bands. We also require that it is not within a given number of pixels of the CCD edge, as the co-addition of slightly misaligned images introduced a region of significant noise in this part of the detector. To remove high-probability stellar sources we apply a cut of 0.95 in the star/galaxy (S/G) separation \texttt{CLASS\_STAR} provided by \texttt{Source Extractor} \citep{Bertin1996}. 
 
 \begin{figure}
-\includegraphics[width=0.5\textwidth]{figs/mass_hist_log.png}
-\caption{Distribution of the stellar mass of the field galaxies used in the analysis. The distribution is well desribed by a Schechter function.
-\label{fig:log_mass_field}}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/mass_hist_log_BC03.png}
+    \caption{Distribution of the stellar mass of the field galaxies used in the analysis. The distribution is well described by a Schechter function.
+    \label{fig:log_mass_field}}
 \end{figure}
 
 \begin{figure}
@@ -253,7 +218,60 @@ As we use photometric, rather than spectroscopic, redshifts for the field galaxi
 
 To correct for incompleteness caused by the magnitude limited nature of the survey we follow the prescription of e.g. \citet{Sullivan2006, Smith2012} by using a $V_{\mathrm{max}}$ method of \citet{Schmid1968}. For each galaxy in the sample we calculate the maximum volume within which it would have been observed given its absolute magnitude and $k-$correction. A correction of $V_{\mathrm{survey}}/V_{\mathrm{max}}$ is applied to all galaxies for which $V_{\mathrm{max}} < V_{\mathrm{survey}}$, where $V_{\mathrm{survey}}$ is the maximum volume reached by the survey. In our case this corresponds to the volume at $z=0.8$. Figs. \ref{fig:vmax_gals} and \ref{fig:vmax_hist} show the distribution of the correction among galaxies in the sample. The vast majority of galaxies require no correction, meaning they would have been observed beyond the maximum volume considered. Roughly 1\% of objects have a correction greater than 1, with the distribution well described by a power-law function. In Section \ref{sec:rates} we split the samples into redshift bins in order to measure cosmic evolution of the SN Ia rate. For each redshift bin, we reevaluate the value of $V_{\mathrm{survey}}$ used in the incompleteness correction to be the volume of the bin.
 
-\section{Rates as a function of host galaxy properties \label{sec:rates}}
+\begin{figure*}
+    \centering
+    \includegraphics{}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure*}
+
+
+\section{Modeling the rate of type Ia supernovae \label{sec:method}}
+
+We represent the SN Ia DTD by a power law of the form:
+
+\begin{equation}
+    \Phi(\tau) = A\left(\frac{\tau}{\mathrm{Gyr}}\right)^{\beta}\,,
+\end{equation} 
+where $\tau$ is the time since a burst of star formation, and $A$ is a normalisation at $\tau=1\mathrm{Gyr}$. If all stars in a galaxy were formed at a single epoch $t_f$, the DTD would describe the rate of SNe at an observation time $\tau = t_0$. However in reality galaxies are formed by the gradual build up of stellar mass over several epochs of star formation -- the distribution of this mass build up is known as the star-formation history (SFH). The rate of SNe Ia is thus the sum of the DTD evaluated for each epoch of star formation, multiplied by the stellar mass formed in that epoch. Mathematically this is represented by the convolution of the DTD and SFH:
+ 
+ 
+\begin{equation}
+    R_{\mathrm{G}} = \int_{t_0}^{\infty} \psi(t_0-\tau)\Phi(\tau)\,d\tau \,,
+\end{equation}
+where $t_0$ is the epoch at which the galaxy is observed, and $\psi$ is the SFH.
+
+\subsection{Modeling the star formation histories of galaxies \label{subsec:method_sfh}}
+To model the SFH of galaxies as a function of their stellar mass we adopt the model of \citet{Childress2014}. In the model, galaxies are expected to evolve smoothly along the so-called "main sequence of star formation" whereby the SFR of a galaxy of stellar mass $M_*$ at redshift $z$ is determined by a simple relationship (the SMz relation, \citealt{Zahid2012}). Specifically, we implement their "fine-tuned" model (C14 Eq. A7), whereby the SMz flattens above $z\sim2$ in line with observations \citep{Stark2013}. We adjust this model slightly and arrive at a final SMz:
+
+\begin{equation}
+    \Psi(M_*,z) = \left(\frac{M_*}{10^{10}}\right)^{0.7}\frac{\exp{\left(1.9z\right)}}{\exp{\left(1.7\left(z-2\right)\right)} + \exp{\left(0.2\left(z-2\right)\right)} } [\mathrm{M}_{\odot} \mathrm{yr}^{-1}]\,.
+\end{equation}
+
+As galaxies grow, their SFR begins to slow down and eventually shut off almost entirely in a process known as quenching. We adopt the quenching penalty $p_Q$ directly from \citet{Childress2014}:
+\begin{equation}
+    p_Q(M_*,z) = \frac{1}{2}\left[1 - \mathrm{erf}\left(\frac{\log(M_*) - \log(M_Q(z)}{\sigma_Q}\right)\right]\,,
+\end{equation}
+where $M_Q(z)$ describes how the quenching mass evolves with redshift, and $\sigma_Q$ is the transition scale which controls how fast a galaxy quenches. We adopt the observationally motivated form of the quenching mass evolution (Eq. A8 from \citealt{Childress2014}):
+\begin{equation}
+    \log(M_q(z)/\mathrm{M}_{\odot}) = 10.077 + 0.636z \,, 
+\end{equation}
+and a transition scale of $\sigma_Q = 1.1$. 
+
+As per \citet{Childress2014} we plant seed galaxies with initial masses of $10^6 \mathrm{M}_{\odot}$ at intervals of 50 Myr for look-back times $1 \leq t_f \leq 10$ Gyr, and 25 Myr for look-back times $10 \leq t_f \leq 13$ Gyr, and evaluate the model with a time step of 0.5 Myr.
+
+The result of our toy model is shown in Fig. \ref{fig:SFHs}
+
+
+\section{Results \label{sec:rates}}
+
+The rate of SNe per galaxy ($R_{\mathrm{G}}$) per year in a transient survey can be approximated by the simple equation:
+\begin{equation}
+    R_{\mathrm{G}} = \frac{N_{\mathrm{SN}}}{N_{\mathrm{G}}} \frac{A_{\mathrm{G}}}{A_{\mathrm{SN}}} \frac{1}{T_{\mathrm{SN  survey}}}\,,
+\label{eq:rate1}
+\end{equation}
+where $N_{\mathrm{SN}}$ and $N_{\mathrm{G}}$ are the respective number of SNe and galaxies detected, $A_{\mathrm{SN}}$ and $A_{\mathrm{G}}$ the sky areas from which the SNe and G samples were taken, and $T$ the duration of the SN survey in years. By binning both the SN hosts and field galaxies by their stellar mass we can approximate the function $R_{\mathrm{G}}(M_*)$.
+
 
 \subsection{Dependence of the SN Ia rate on stellar mass \label{subsec:rates_mass}}
 
