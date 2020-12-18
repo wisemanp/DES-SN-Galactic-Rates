@@ -63,7 +63,7 @@
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
-\title[DES SN Ia Galactic Rate]{Supernova Host Galaxies in the Dark Energy Survey: III. The Evolving Galactic Rate of Type Ia Supernovae}
+\title[Rates of SNe Ia in DES]{Supernova Host Galaxies in the Dark Energy Survey: III. Constraining the SN Ia delay time dstribution}
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
@@ -169,6 +169,13 @@ Photometric redshifts are taken, where available, from the catalogue of \citet{H
     \label{fig:mass_hist_hosts_field}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/mass_hist_log_BC03.png}
+    \caption{Distribution of the stellar mass of the field galaxies used in the analysis. The distribution is well described by a Schechter function.
+    \label{fig:log_mass_field}}
+\end{figure}
+
 \subsection{Galaxy properties \label{subsec:properties}}
 
 We estimate global galaxy properties for both the SN host and field galaxy samples by fitting the photometry with stellar population templates in a method outlined by \citet{Sullivan2006} and consistent to that used in previous DES-SN analyses \citep{Kelsey2020,Smith2020,Wiseman2020}. For SN hosts the redshift is fixed at the spectroscopically determined value, while for field galaxies we fix it at either the spectroscopic value if one exists (a minority of cases), or more commonly the photometrically derived value. The fitting procedure returns a best fitting template and corresponding stellar mass ($M_*$) and SFR averaged over the proceeding 250 Myr. Uncertainties on the properties are estimated by refitting the templates to the photometry that has been resampled from Gaussian PDFs formed by the photometric fluxes and their uncertainties. 
@@ -177,12 +184,13 @@ We estimate global galaxy properties for both the SN host and field galaxy sampl
 
 In order to refine the sample of host and field galaxies for the rate analysis we perform a series of quality cuts. Firstly, we require that a galaxy must be detected and have a Kron magnitude measurement in all four DES optical bands. We also require that it is not within a given number of pixels of the CCD edge, as the co-addition of slightly misaligned images introduced a region of significant noise in this part of the detector. To remove high-probability stellar sources we apply a cut of 0.95 in the star/galaxy (S/G) separation \texttt{CLASS\_STAR} provided by \texttt{Source Extractor} \citep{Bertin1996}. 
 
-\begin{figure}
+
+\begin{figure*}
     \centering
-    \includegraphics[width=0.5\textwidth]{figs/mass_hist_log_BC03.png}
-    \caption{Distribution of the stellar mass of the field galaxies used in the analysis. The distribution is well described by a Schechter function.
-    \label{fig:log_mass_field}}
-\end{figure}
+    \includegraphics[width=\textwidth]{figs/SFHs_colour.png}
+    \caption{The stellar mass assembly of the Universe as prescribed by the toy model of \citet{Childress2014}}
+    \label{fig:SFHs}
+\end{figure*}
 
 \begin{figure}
     \centering
@@ -218,14 +226,6 @@ As we use photometric, rather than spectroscopic, redshifts for the field galaxi
 
 To correct for incompleteness caused by the magnitude limited nature of the survey we follow the prescription of e.g. \citet{Sullivan2006, Smith2012} by using a $V_{\mathrm{max}}$ method of \citet{Schmid1968}. For each galaxy in the sample we calculate the maximum volume within which it would have been observed given its absolute magnitude and $k-$correction. A correction of $V_{\mathrm{survey}}/V_{\mathrm{max}}$ is applied to all galaxies for which $V_{\mathrm{max}} < V_{\mathrm{survey}}$, where $V_{\mathrm{survey}}$ is the maximum volume reached by the survey. In our case this corresponds to the volume at $z=0.8$. Figs. \ref{fig:vmax_gals} and \ref{fig:vmax_hist} show the distribution of the correction among galaxies in the sample. The vast majority of galaxies require no correction, meaning they would have been observed beyond the maximum volume considered. Roughly 1\% of objects have a correction greater than 1, with the distribution well described by a power-law function. In Section \ref{sec:rates} we split the samples into redshift bins in order to measure cosmic evolution of the SN Ia rate. For each redshift bin, we reevaluate the value of $V_{\mathrm{survey}}$ used in the incompleteness correction to be the volume of the bin.
 
-\begin{figure*}
-    \centering
-    \includegraphics{}
-    \caption{Caption}
-    \label{fig:my_label}
-\end{figure*}
-
-
 \section{Modeling the rate of type Ia supernovae \label{sec:method}}
 
 We represent the SN Ia DTD by a power law of the form:
@@ -260,8 +260,7 @@ and a transition scale of $\sigma_Q = 1.1$.
 
 As per \citet{Childress2014} we plant seed galaxies with initial masses of $10^6 \mathrm{M}_{\odot}$ at intervals of 50 Myr for look-back times $1 \leq t_f \leq 10$ Gyr, and 25 Myr for look-back times $10 \leq t_f \leq 13$ Gyr, and evaluate the model with a time step of 0.5 Myr.
 
-The result of our toy model is shown in Fig. \ref{fig:SFHs}
-
+The result of our toy model is shown in Fig. \ref{fig:SFHs}. Galaxies with high masses at $z=0$ formed the vast majority of their stars in the first few Gyr and are now likely to be passive with old stellar populations, while low-mass galaxies are currently strongly star-forming with a vast majority of young stars. Galaxies with masses around $10^10 \mathrm{M}_{\odot}$ are composed of a mixture of young and older stellar populations.
 
 \section{Results \label{sec:rates}}
 
@@ -270,7 +269,17 @@ The rate of SNe per galaxy ($R_{\mathrm{G}}$) per year in a transient survey can
     R_{\mathrm{G}} = \frac{N_{\mathrm{SN}}}{N_{\mathrm{G}}} \frac{A_{\mathrm{G}}}{A_{\mathrm{SN}}} \frac{1}{T_{\mathrm{SN  survey}}}\,,
 \label{eq:rate1}
 \end{equation}
-where $N_{\mathrm{SN}}$ and $N_{\mathrm{G}}$ are the respective number of SNe and galaxies detected, $A_{\mathrm{SN}}$ and $A_{\mathrm{G}}$ the sky areas from which the SNe and G samples were taken, and $T$ the duration of the SN survey in years. By binning both the SN hosts and field galaxies by their stellar mass we can approximate the function $R_{\mathrm{G}}(M_*)$.
+where $N_{\mathrm{SN}}$ and $N_{\mathrm{G}}$ are the respective number of SNe and galaxies detected, $A_{\mathrm{SN}}$ and $A_{\mathrm{G}}$ the sky areas from which the SNe and G samples were taken, and $T$ the duration of the SN survey in years. As described in Section \ref{sec:incompleteness}, the values of $N_{\mathrm{SN}}$ and $N_{\mathrm{G}}$ that we observe are underestimates of the true numbers due to observational incompleteness. We thus estimate the intrinsic numbers of SNe and galaxies by multiplying the observed numbers by their respective incompleteness corrections,
+
+\begin{equation}
+    N_{\mathrm{SN,intrinsic}} = \eta_{\mathrm{SN}} \cdot N_{\mathrm{SN, obs}}
+\end{equation}
+and
+\begin{equation}
+    N_{\mathrm{G,intrinsic}} = \eta_{\mathrm{G}} \cdot N_{\mathrm{G, obs}}
+\end{equation}
+
+By binning both the SN hosts and field galaxies by their stellar mass we can approximate the function $R_{\mathrm{G}}(M_*)$.
 
 
 \subsection{Dependence of the SN Ia rate on stellar mass \label{subsec:rates_mass}}
