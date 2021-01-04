@@ -113,11 +113,14 @@ Despite reducing dispersions to $\sim 0.1$ mag in samples with over one thousand
 
 The progenitors of a number of core-collapse SNe (CCSNe) have been identified in high-resolution pre-explosion images, allowing detailed analysis of the latter stages of massive star evolution. However, this approach has not yet been successful in identifying a progenitor of a SN Ia. Conversely, it has been possible to search for surviving remnants of the binary system -- main sequence stars or white dwarves left behind at the SN location or kicked \citep{Shen2018} -- displaying tentative evidence for a DD scenario. As yet, there is no conclusive evidence ruling out any progenitor channel from being a significant contribution to the total population of SNe Ia.
 
-Another method of inferring progenitor channels is the study of the SN Ia delay time distribution (DTD). The DTD can be interpreted as the rate at which SNe Ia occur as a function of the delay time $\tau$ since an episode of star-formation, and thus carries characteristic signatures of the progenitor channel (see \citealt{Wang2012} for a review). While the SD scenario is able to produce a broad range of functional forms of the DTD, the DD scenario predicts a power law of the form $t^{\beta}$, with $\beta \sim -1$ \citep[e.g][]{Ruiter2009,Mennekens2010}.
+Another method of inferring progenitor channels is the study of the SN Ia delay time distribution (DTD). The DTD can be interpreted as the rate at which SNe Ia occur as a function of the delay time $\tau$ since an episode of star-formation, and thus carries characteristic signatures of the progenitor channel (see \citealt{Wang2012} for a review). While the SD scenario is able to produce a broad range of functional forms of the DTD, the DD scenario predicts a power law of the form $\tau^{\beta}$, with $\beta \sim -1$ \citep[e.g][]{Ruiter2009,Mennekens2010}.
 
 Given the vast range of timescales to which the DTD is sensitive, it is non-trivial to measure and various techniques have been developed to infer it indirectly. One such approach is to measure global properties of SN Ia host galaxies. Simple examples of such analyses are comparisons of the rates of SNe Ia in hosts that have been split by some observational property, such as morphology or colour, and have shown that SNe Ia rate per unit stellar mass (SNuM) is significantly larger in late-type spiral galaxies as well as in bluer galaxies \citep[e.g.][]{Mannucci2005}. These observations heavily imply that SNe Ia rates are dependent on recent or ongoing star-formation, and thus that the majority of SNe Ia explode after short delay times. Conversely, the SNuM in E/S0 and red galaxies is non-negligible, suggesting that there is a secondary, much older component to the DTD \citep{Sullivan2006,Smith2012}. The DTD is thus approximated by a two-component ("$A + B$") model, where $A$ and $B$ are the normalizations of the DTD for "prompt" (i.e. proportional to instantaneous SFR) and "tardy" (i.e. proportional to overall stellar mass) SNe, respectively A complementary technique involves measuring the evolution of the volumetric rate of SNe Ia as a function of redshift and comparing this evolution to the average cosmic star-formation history (CSFH) of the Universe \citep{Gal-Yam2004,Strolger2004,Dahlen2004,Dahlen2008}. This technique is also applicable to galaxy clusters, for which it is assumed that the star-formation histories are strongly peaked at some past epoch and thus that the rate of SNe Ia in clusters as a function of redshift is a more direct measure of the DTD \citep{Maoz2004,Graur2014,Maoz2014}. Conversely, it is also possible to estimate the SFH of an individual galaxy through the modelling of its stellar populations via spectral energy distribution (SED) fitting. Works such as \citet{Maoz2011}, \citet{Maoz2012}, \citet{Graur2013} estimated the DTD by measuring SFHs for a sample of field galaxies and comparing them to the number of SNe detected in each galaxy. and has led to results that suggest a DTD power law with $\beta$ consistent with $-1$ \citep[e.g.][]{Maoz2011,Graur2013}. \citet{Childress2014} showed that the $A+B$ parameterisation arises as a direct consequence of the combination of a power-law DTD with the SFHs of galaxies.
 
 In this work, we combine parts of the above methods and derive a new, independent measurement of the SN Ia DTD. Instead of measuring the volumetric rate of SNe Ia, we measure the rate per galaxy as a function of stellar mass, as per \citet{Sullivan2006,Smith2012}. We use the stellar mass assembly model of \citet{Childress2014} to predict the stellar age distribution of galaxies for a given stellar mass at the mean redshift of our SN sample, and then forward model the DTD by convolving it with the stellar age distribution and comparing the predicted rates to the observed rates.
+
+We introduce the SN host and field galaxy samples in Section \ref{sec:data} and describe our handling of incompleteness in Section \ref{sec:incompleteness}. We outline the modelling of star-formation histories in Section \ref{sec:method}, and present our results in Section \ref{sec:rates}. In Section \ref{sec:discussion} we discuss the robustness of the result and its meaning in a wider context, before concluding in Section \ref{sec:conclusion}.
+Where relevant, we assume a spatially flat $\Lambda$CDM cosmology with $\Omega_m = 0.3$ and $H_0 = 70 \mathrm{ km s}^{-1}\mathrm{Mpc}^{-1}$. Unless otherwise stated, we assume Gaussian uncertainties quoted at the $1\sigma$ level. Magnitudes are quoted in the AB system \citep{Oke1983}.
 
 
 \begin{table}
@@ -143,7 +146,9 @@ In this work, we combine parts of the above methods and derive a new, independen
 	\end{tabular}
 \end{table}
 
-\section{Data \label{sec:data}}
+%%%% DATA %%%%
+\section{Data}
+\label{sec:data}
 \subsection{Dark Energy Survey supernova programme \label{subsec:des}}
 The DES Supernova Programme (DES-SN) is a transient survey based on five six-month seasons of observations with the Dark Energy Camera (DECam; \citealt{Flaugher2015}), designed primarily to measure the light curves of SNe Ia for use as cosmological distance indicators. Transients were detected and processed using a difference imaging program \citep{Kessler2015} and vetted using a machine learning (ML) algorithm \citep{Goldstein2015}. Spectral follow-up was performed on a suite of large optical telescopes \citet{Smith2020b}, leading to the initial publication of a measurement of cosmological parameters using 207 spectroscopically confirmed SNe (\citealt{DESCollaboration2018a}, and references therein). 
 \subsection{Supernovae \label{subsec:host_sample}}
@@ -194,12 +199,13 @@ In order to refine the sample of host and field galaxies for the rate analysis w
 
 \begin{figure}
     \centering
-    \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_DTD_fit_beta_norm.png}
-    \caption{The rate per galaxy of SNe Ia as a function of stellar mass. The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
-    \label{fig:rate_fit}
+    \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_all.png}
+    \caption{The rate per galaxy of SNe Ia as a function of stellar mass.}%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \label{fig:rate_raw}
 \end{figure}
-\section{Incompleteness corrections \label{sec:incompleteness}}
-
+%%%% INCOMPLETENESS %%%%
+\section{Incompleteness corrections}
+\label{sec:incompleteness}
 Although Eq. \ref{eq:rate1} serves as an approximation to the SN rate per galaxy per year, both the SN and field galaxy samples introduced in Sections \ref{subsec:host_sample} and \ref{subsec:field_sample} are affected by incompleteness, which is likely to be the dominant systematic effect in the analysis. In this section we describe our method of correcting for various sources incompleteness in the data.
 
 \subsection{Supernovae \label{subsec:incompleteness_SNe}}
@@ -226,23 +232,29 @@ As we use photometric, rather than spectroscopic, redshifts for the field galaxi
 
 To correct for incompleteness caused by the magnitude limited nature of the survey we follow the prescription of e.g. \citet{Sullivan2006, Smith2012} by using a $V_{\mathrm{max}}$ method of \citet{Schmid1968}. For each galaxy in the sample we calculate the maximum volume within which it would have been observed given its absolute magnitude and $k-$correction. A correction of $V_{\mathrm{survey}}/V_{\mathrm{max}}$ is applied to all galaxies for which $V_{\mathrm{max}} < V_{\mathrm{survey}}$, where $V_{\mathrm{survey}}$ is the maximum volume reached by the survey. In our case this corresponds to the volume at $z=0.8$. Figs. \ref{fig:vmax_gals} and \ref{fig:vmax_hist} show the distribution of the correction among galaxies in the sample. The vast majority of galaxies require no correction, meaning they would have been observed beyond the maximum volume considered. Roughly 1\% of objects have a correction greater than 1, with the distribution well described by a power-law function. In Section \ref{sec:rates} we split the samples into redshift bins in order to measure cosmic evolution of the SN Ia rate. For each redshift bin, we reevaluate the value of $V_{\mathrm{survey}}$ used in the incompleteness correction to be the volume of the bin.
 
-\section{Modeling the rate of type Ia supernovae \label{sec:method}}
 
+%%% MODEL %%%
+\section{Modelling the rate of type Ia supernovae}
+ \label{sec:method}
 We represent the SN Ia DTD by a power law of the form:
-
 \begin{equation}
     \Phi(\tau) = A\left(\frac{\tau}{\mathrm{Gyr}}\right)^{\beta}\,,
 \end{equation} 
 where $\tau$ is the time since a burst of star formation, and $A$ is a normalisation at $\tau=1\mathrm{Gyr}$. If all stars in a galaxy were formed at a single epoch $t_f$, the DTD would describe the rate of SNe at an observation time $\tau = t_0$. However in reality galaxies are formed by the gradual build up of stellar mass over several epochs of star formation -- the distribution of this mass build up is known as the star-formation history (SFH). The rate of SNe Ia is thus the sum of the DTD evaluated for each epoch of star formation, multiplied by the stellar mass formed in that epoch. Mathematically this is represented by the convolution of the DTD and SFH:
  
- 
 \begin{equation}
     R_{\mathrm{G}} = \int_{t_0}^{\infty} \psi(t_0-\tau)\Phi(\tau)\,d\tau \,,
+    \label{eq:galaxy_rate}
 \end{equation}
-where $t_0$ is the epoch at which the galaxy is observed, and $\psi$ is the SFH.
+where $t_0$ is the epoch at which the galaxy is observed, and $\psi$ is the SFH. 
 
-\subsection{Modeling the star formation histories of galaxies \label{subsec:method_sfh}}
-To model the SFH of galaxies as a function of their stellar mass we adopt the model of \citet{Childress2014}. In the model, galaxies are expected to evolve smoothly along the so-called "main sequence of star formation" whereby the SFR of a galaxy of stellar mass $M_*$ at redshift $z$ is determined by a simple relationship (the SMz relation, \citealt{Zahid2012}). Specifically, we implement their "fine-tuned" model (C14 Eq. A7), whereby the SMz flattens above $z\sim2$ in line with observations \citep{Stark2013}. We adjust this model slightly and arrive at a final SMz:
+In previous work \citep[e.g.][]{Strolger2004,Maoz2012} it has been common to determine the SFH for every galaxy in the survey via SED fitting. Eq. \ref{eq:galaxy_rate} is then used to calculate an expected number of SNe in each galaxy given the effective survey time, which is compared to the observed number in that galaxy (usually 0 and occasionally 1) using Poisson statistics. This method relies on either photometry covering several wavelength bands, or optical spectra with high signal-to-noise ratio (S/N), in order to distinguish accurately between SFHs. Such accuracy is not possible for the DES sample: we do not possess spectra of all galaxies in the field, and in some cases only have the four optical bands available -- and have a maximum of eight from NUV to NIR -- from which to infer a SFH. This lack of detail is compounded by our relying on photometric redshifts which add an extra layer of uncertainty to the calculation. 
+
+Instead of determining individual SFHs for each galaxy in our field sample, we use an empirical approach to estimate mean SFHs for galaxies as a function of their stellar mass at any given redshift (or equivalently, time $t_0$), that can be represented as $\hat \psi \left(t_0 -\tau; M_* \right)$. This method paves the way for modelling the SN Ia rate as a function of stellar mass by combining the mean SFHs and the DTD through Eq. \ref{eq:galaxy_rate}, and thus placing constraints on the DTD.
+
+\subsection{Modelling the star formation histories of galaxies \label{subsec:method_sfh}}
+
+To model the SFH of galaxies as a function of their stellar mass we adopt the prescription of stellar mass assembly of \citet{Childress2014}, which draws on the work of \citet{Zahid2012}. In the model, galaxies are expected to evolve smoothly along the so-called "main sequence of star formation" whereby the SFR of a galaxy of stellar mass $M_*$ at redshift $z$ is determined by a simple relationship (the SMz relation, \citealt{Zahid2012}). Specifically, we implement their "fine-tuned" model (C14 Eq. A7), whereby the SMz flattens above $z\sim2$ in line with observations \citep{Stark2013}. We adjust this model slightly and arrive at a final SMz:
 
 \begin{equation}
     \Psi(M_*,z) = \left(\frac{M_*}{10^{10}}\right)^{0.7}\frac{\exp{\left(1.9z\right)}}{\exp{\left(1.7\left(z-2\right)\right)} + \exp{\left(0.2\left(z-2\right)\right)} } [\mathrm{M}_{\odot} \mathrm{yr}^{-1}]\,.
@@ -260,34 +272,45 @@ and a transition scale of $\sigma_Q = 1.1$.
 
 As per \citet{Childress2014} we plant seed galaxies with initial masses of $10^6 \mathrm{M}_{\odot}$ at intervals of 50 Myr for look-back times $1 \leq t_f \leq 10$ Gyr, and 25 Myr for look-back times $10 \leq t_f \leq 13$ Gyr, and evaluate the model with a time step of 0.5 Myr.
 
-The result of our toy model is shown in Fig. \ref{fig:SFHs}. Galaxies with high masses at $z=0$ formed the vast majority of their stars in the first few Gyr and are now likely to be passive with old stellar populations, while low-mass galaxies are currently strongly star-forming with a vast majority of young stars. Galaxies with masses around $10^10 \mathrm{M}_{\odot}$ are composed of a mixture of young and older stellar populations.
+The result of our toy model is shown in Fig. \ref{fig:SFHs}. Galaxies with high masses at $z=0$ formed the vast majority of their stars in the first few Gyr and are now likely to be passive with old stellar populations, while low-mass galaxies are currently strongly star-forming with a vast majority of young stars. Galaxies with masses around $10^{10} \mathrm{M}_{\odot}$ are composed of a mixture of young and older stellar populations.
 
-\section{Results \label{sec:rates}}
+%%%%%% RESULTS %%%%%%%%
 
-The rate of SNe per galaxy ($R_{\mathrm{G}}$) per year in a transient survey can be approximated by the simple equation:
+\section{Results }
+\label{sec:rates}
+The rate of SNe per galaxy ($R_{\mathrm{G}}$) per year in a transient survey can be approximated by the equation:
 \begin{equation}
-    R_{\mathrm{G}} = \frac{N_{\mathrm{SN}}}{N_{\mathrm{G}}} \frac{A_{\mathrm{G}}}{A_{\mathrm{SN}}} \frac{1}{T_{\mathrm{SN  survey}}}\,,
+    R_{\mathrm{G}} = \frac{N_{\mathrm{SN}}}{N_{\mathrm{G}}} \frac{V_{\mathrm{G}}}{V_{\mathrm{SN}}}\frac{1}{T_{\mathrm{SN  survey}}}\,,
 \label{eq:rate1}
 \end{equation}
-where $N_{\mathrm{SN}}$ and $N_{\mathrm{G}}$ are the respective number of SNe and galaxies detected, $A_{\mathrm{SN}}$ and $A_{\mathrm{G}}$ the sky areas from which the SNe and G samples were taken, and $T$ the duration of the SN survey in years. As described in Section \ref{sec:incompleteness}, the values of $N_{\mathrm{SN}}$ and $N_{\mathrm{G}}$ that we observe are underestimates of the true numbers due to observational incompleteness. We thus estimate the intrinsic numbers of SNe and galaxies by multiplying the observed numbers by their respective incompleteness corrections,
+where $N_{\mathrm{SN}}$ and $N_{\mathrm{G}}$ are the respective number of SNe and galaxies detected, $V_{\mathrm{SN}}$ and $V_{\mathrm{G}}$ the volumes from which the SNe and G samples were taken, and $T$ the duration of the SN survey in years. 
+
+As described in Section \ref{sec:incompleteness}, the values of $N_{\mathrm{SN}}$ and $N_{\mathrm{G}}$ that we observe are underestimates of the true numbers due to observational incompleteness -- we do not detect and count all SNe in the volume $V_{\mathrm{SN}}$, nor do we detect and count all galaxies in the volume $V_{\mathrm{G}}$. We thus estimate the intrinsic numbers of SNe and galaxies by multiplying the observed numbers by their respective incompleteness corrections calculated in Sections \ref{subsec:incompleteness_SNe} and \ref{subsec:incompletenss_SN_hosts} for SNe and Section \ref{subsec:incompleteness_field} for field galaxies:
 
 \begin{equation}
-    N_{\mathrm{SN,intrinsic}} = \eta_{\mathrm{SN}} \cdot N_{\mathrm{SN, obs}}
+    N_{\mathrm{SN,intrinsic}} = \sum_i^{n_{\mathrm{SN}}}\eta_{\mathrm{SN,}i}\,,
+    \label{eq:corr_SN}
 \end{equation}
 and
 \begin{equation}
-    N_{\mathrm{G,intrinsic}} = \eta_{\mathrm{G}} \cdot N_{\mathrm{G, obs}}
+    N_{\mathrm{G,intrinsic}} = \sum_j^{n_{\mathrm{G}}} \eta_{\mathrm{G,}j} 
+    \label{eq:corr_G}
 \end{equation}
-
-By binning both the SN hosts and field galaxies by their stellar mass we can approximate the function $R_{\mathrm{G}}(M_*)$.
-
+for each SN $i$ and galaxy $j$.
 
 \subsection{Dependence of the SN Ia rate on stellar mass \label{subsec:rates_mass}}
 
+By binning both the SN hosts and field galaxies by their stellar mass we measure the mean SN Ia rate per galaxy as a function of stellar mass, $R_{\mathrm{G}}(M_*)$. We employ a bootstrap Monte-Carlo approach in order to estimate the uncertainty in the value of the rate in each stellar mass bin. The probability distribution function (PDF) of each galaxy's stellar mass is represented by the sum of two half Gaussian distributions to represent the asymmetric positive and negative uncertainties derived in the SED fitting stage (Section \ref{sec:data}). For each SN host and field galaxy, we take 100 samples of its stellar mass by drawing at random from its PDF. For each of the 100 samples we calculate the SN rate per galaxy in each stellar mass bin via Eq \ref{eq:rate1}, using the completeness-corrected values of $N_{\mathrm{SN}}$ and $N_{\mathrm{SN}}$ from Eqs. \ref{eq:corr_SN} and \ref{eq:corr_G} respectively. 
+
+The rate of SNe Ia per galaxy as a function of stellar mass is shown in Fig. \ref{fig:rate_raw}. 
+
 \subsection{Dependence of the SN Ia rate on SFR \label{subsec:rates_sfr}}
 
-\section{Conclusions}
+\section{Discussion}
+\label{sec:discussion}
 
+\section{Conclusions}
+\label{sec:conclusion}
 The last numbered section should briefly summarise what has been done, and describe
 the final conclusions which the authors draw from their work.
 
