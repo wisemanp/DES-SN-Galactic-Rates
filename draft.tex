@@ -340,13 +340,15 @@ To model the SFH of galaxies as a function of their stellar mass we adopt the pr
 
 As galaxies grow, their SFR begins to slow down and eventually shut off almost entirely in a process known as quenching. We adopt the quenching penalty $p_Q$ directly from \citet{Childress2014}:
 \begin{equation}
-    p_Q(M_*,z) = \frac{1}{2}\left[1 - \mathrm{erf}\left(\frac{\log(M_*) - \log(M_Q(z)}{\sigma_Q}\right)\right]\,,
+    p_Q(M_*,z) = \frac{1}{2}\left[1 - \mathrm{erf}\left(\frac{\log(M_*) - \log(M_Q(z))}{\sigma_Q}\right)\right]\,,
+    \label{eq:pq}
 \end{equation}
 where $M_Q(z)$ describes how the quenching mass evolves with redshift, and $\sigma_Q$ is the transition scale which controls how fast a galaxy quenches. We adopt the observationally motivated form of the quenching mass evolution (Eq. A8 from \citealt{Childress2014}):
 \begin{equation}
     \log(M_q(z)/\mathrm{M}_{\odot}) = 10.077 + 0.636z \,, 
+    \label{eq:mq}
 \end{equation}
-and a transition scale of $\sigma_Q = 1.1$. 
+and a transition scale of $\sigma_Q = 1.1$ which provides a good fit to data from the Galaxy And Mass Assembly (GAMA) survey \citep{Baldry2012}.
 
 As per \citet{Childress2014} we plant seed galaxies with initial masses of $10^6 \mathrm{M}_{\odot}$ at intervals of 50 Myr for look-back times $1 \leq t_f \leq 10$ Gyr, and 25 Myr for look-back times $10 \leq t_f \leq 13$ Gyr, and evaluate the model with a time step of 0.5 Myr.
 
@@ -365,7 +367,7 @@ The result of our toy model is shown in Fig. \ref{fig:SFHs}. Galaxies with high 
 		 &$\beta$ & $A$ & $t_{\mathrm{p}}$\\
 		 &-       & $10^{-13}$ M$_{\odot}^{-1}$yr$^{-1}$ & Gyr \\
 		\hline
-		Fixed $t_{\mathrm{p}}$ & $-1.04$ &  $1.7$ & -\\
+		Fixed $t_{\mathrm{p}}$ & $-1.03\pm 0.06$ &  $1.7 \pm 0.05$ & -\\
 		Free $t_{\mathrm{p}}$ & $-0.99 \pm 0.09$ & $2.1 \pm 0.2$ & $0.09 \pm 0.05$\\
 		\hline
 	\end{tabular}
@@ -388,16 +390,32 @@ The posterior distributions for the fit parameters are found in Figs. \ref{fig:c
 The index of the DTD power law measured here is consistent with the majority of previous analyses using various methods. Our measurement provides an independent support to the values close to $-1$ found using volumetric rates \citep[e.g.][]{Graur2018,Frohmaier2019}, individual galaxy SFHs \citep[e.g.][]{Maoz2012,Graur2013}, and galaxy clusters \citep[e.g.][]{Maoz2010} although our slope is marginally inconsistent with that of \citet{Heringer2019}. 
 
 \subsubsection{The DTD normalisation \label{subsubsec:compare_A}}
-The normalisation of the DTD is less frequently reported. \citet{Graur2013} found a value of $7 \times 10^{-14}$~M$_{\odot}^{-1}$~yr$^{-1}$ using the SFH technique, whereas \citet{Heringer2019} report $7 \times 10^{-13}$~M$_{\odot}^{-1}$~yr$^{-1}$. These results lie either side of our measured value. \citet{Heringer2019} note that the normalisation recovered from the SFHR method is sensitive to the assumed prompt time $t_{\mathrm{p}}$, which we also find using our method.
+The normalisation of the DTD is less frequently reported. \citet{Graur2013} found a value of $7 \times 10^{-14}$~M$_{\odot}^{-1}$~yr$^{-1}$ using the SFH technique, whereas \citet{Heringer2019} report $7 \times 10^{-13}$~M$_{\odot}^{-1}$~yr$^{-1}$. These results lie either side of our measured value. \citet{Heringer2019} note that the normalisation recovered from the SFHR method is sensitive to the assumed prompt time $t_{\mathrm{p}}$ (see Section \ref{subsubsec:compare_tp}, which we also find using our method.
+
+
 
 \subsubsection{The SN Ia prompt time \label{subsubsec:compare_tp}}
 
-The majority of works in the field have constrained the DTD power-law slope, and many also estimate its normalisation. Conversely, few have attempted to constrain the time after a burst of star-formation at which SNe Ia begin to explode -- the prompt time $t_{\mathrm{p}}$. In most cases, $t_{\mathrm{p}}$ has been fixed at some fiducial value such as 40~Myr, which is derived from the lifetime of 8~M$_{\odot}$ stars. 
+The majority of works in the field have constrained the DTD power-law slope, and many also estimate its normalisation. Conversely, few have attempted to constrain the time after a burst of star-formation at which SNe Ia begin to explode -- the prompt time $t_{\mathrm{p}}$. In most cases, $t_{\mathrm{p}}$ has been fixed at some fiducial value such as 40~Myr, which is derived from the lifetime of 8~M$_{\odot}$ stars. \citet{Asier2020} included $t_{\mathrm{p}}$ (which they denote $\Delta$) in their fit, and find a value of $50_{-35}^{+100}$~Myr which is consistent with both 40~Myr as well as our best fitting value of $90 \pm 50$~Myr. \citet{Heringer2019} also present fits with varying prompt times, although they don't fit for the parameter itself. They find that varying $t_{\mathrm{p}}$ changes the recovered normalisation, which is consistent with the degeneracy seen in our results (Fig. \ref{fig:corner_beta_norm_tp}). We therefore report results that are consistent with the fiducial value of 40~Myr. 
 
 \subsection{Second order processes affecting the supernova rate \label{subsec:discussion}}
 
+The use of SN Ia rates to constrain the SN Ia DTD has consistently led to a $t^{-1}$ power-law, which is widely accepted as evidence for the DD scenario. While our results are also consistent with those derived in previous studies, our model is mildly inconsistent with the SN rate per galaxy at very low and very high stellar mass. In both cases, the model over predicts the observed rate of SNe Ia in galaxies in that stellar mass range, and thus any second order effects must act to suppress the rate compared to the fiducial model.
 
-\subsubsection{Stochastic SFHs}
+\subsubsection{Stochasticity of galaxy evolution}
+
+The toy model of stellar mass assembly used in this work includes several assumptions about the evolution of galaxies. In particular, it is assumed that galaxies evolve independent of each other, growing up the SFMS until they reach a mass at which they quench and star formation ceases. While these simplifications describe the average properties of galaxies well \citep{Zahid2012, Childress2014}, they struggle to describe the more stochastic nature of galaxy evolution that occurs at the low and high mass ends: starbursts and quenching episodes, respectively. 
+
+Low mass galaxies are highly sensitive to environmental effects and may often be found in the so-called starburst state with abnormally high (above the SFMS) levels of star formation that could drive environmental evolution \citep[e.g.][]{Vader1986,Marlowe1995,Tremonti2004,Lee2006}, although studies have shown that only 6 percent of dwarf galaxies are starbursts \citep{Lee2009}. It is possible that the averaging effects of the mass assembly model overestimate the true, instantaneous SFR for a significant fraction of the dwarf galaxies. Since the SN Ia rate is dominated by short delay times in these populations, an overestimated SFR in the model would lead to an overestimate in the SN Ia rate.
+
+At some point along the evolutionary pathway, galaxies begin to cease star formation due to a combination of processes that together are known as quenching. In our model of mass assembly the characteristic mass at which quenching occurs is described by Eq. \ref{eq:mq}, and the rate of the transition from star forming to passive (as a function of the stellar mass) is determined by the transition scale $sigma_{\mathrm{Q}}$ which we set to 1.1 based on GAMA observations. It is possible that this transition is too narrow and that quenching happens too fast in our model, leading to an under-prediction of the prompt fraction of SNe in the highest mass galaxies. To address this issue we rerun the mass assembly model with $sigma_{\mathrm{Q}} = 1.5$ as per the nominal analysis of \citet{Childress2014} and refit the SN Ia rate data.
+
+\subsubsection{Effects of stellar metallicity}
+
+One possible cause of the discrepant SN Ia rate at high stellar mass is the effect of stellar metallicity. Metallicity has been previously invoked to explain irregularities or divergences from the fiducial DTD \citep[e.g.][]{Strolger2010,Meng2011,Kistler2013}. Metallicity may affect the observed rate of SNe in two ways: firstly, it can affect the time taken for a star to evolve along the main sequence ($t_{\mathrm{MS}}$) -- Stellar metallicity has varying effects on the MS lifetime of stars \citep[e.g.][]{Georgy2007,Amard2020}, which is also dependent upon initial rotation and degree of mixing; secondly it can affect the time taken from WD formation to SN Ia explosion -- low metallicity stars should produce higher-mass WDs \citep[e.g.][]{Umeda1999,Marigo2007}, resulting in a higher SN Ia rate \citep{Kistler2013}. 
+
+The mass-metallicity relation (MZR) is a strong observed correlation between galaxy stellar mass and gas-phase metallicity \citep[e.g.][]{Tremonti2004}, whereby higher mass galaxies have undergone more cycles of stellar evolution and have been polluted with heavy elements created in stars and released in SNe. Thus, the mass of a host galaxy is inextricably linked to the metallicity of its hot gas. However, the nature of the DTD complicates matters, since stars of different ages were formed at different epochs where the galaxy had a different stellar mass and thus different metallicity. Therefore, there is not a direct correlation between the metallicity of SN Ia progenitors and their observed host galaxy stellar mass.  This caveat notwithstanding, it may be an expected consequence of the stipulations of e.g. \citet{Kistler2013} that the rate of SNe Ia is suppressed in the highest mass galaxies where the metallicity is highest, as is the case in our data. However, we would also expect to see this effect reversed at the low stellar mass end -- the rate should be enhanced in the lowest-mass, lowest-metallicity galaxies, yet instead we see a further suppression compared to the intermediate masses. Perhaps at low stellar mass, the effect of metallicity is negligible compared to the limitations of our SFH model.
+
 
 \section{Conclusions}
 \label{sec:conclusion}
