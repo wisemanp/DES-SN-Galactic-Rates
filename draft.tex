@@ -184,9 +184,9 @@ Photometric redshifts are taken, where available, from the catalogue of \citet{H
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figs/completeness_combined.png}
-    \caption{Measuring the completeness of the field galaxy sample. \textit{Upper}: the $T_{\mathrm{C}}$ statistic as a function of apparent magnitude; \textit{middle} as per \textit{upper}, but for $T_{\mathrm{V}}$; \textit{lower}: the combined, normalised completeness in each band.  
-    \label{fig:completeness}}
+    \includegraphics[width=0.5\textwidth]{figs/SN_efficiencies.png}
+    \caption{SN detection efficiencies split up by DES field. The $y-$axis represents the fraction of simulated SNe in a given redshift bin that would have been detected by DES-SN and passed light curve quality cuts.
+    \label{fig:SN_efficiency}}
 \end{figure}
 
 \begin{figure}
@@ -213,13 +213,13 @@ In order to refine the sample of host and field galaxies for the rate analysis w
     
     \item[iv)] objects must have a value of 0.95 in the star/galaxy (S/G) separation \texttt{CLASS\_STAR} provided by \texttt{Source Extractor} \citep{Bertin1996}
     
-    \item[v)]  objects must be covered by $ugrizJHK$ photometry, but do not require detections in all bands
+    \item[v)]  objects must be covered by $ugrizJHK$ photometry with either detections or upper limits
     
     \item[vi)] objects must have a spectroscopic or photometric redshift measurement
     
     \item[vii)] objects must be detected at signal-to-noise ratio (SNR) greater than 3 in the $r$ band
     
-    \item[viii)] galaxies must be brighter than $m_r \leq 24.5$
+    \item[viii)] galaxies must be brighter than $m_r \leq 24.5$, as this is the magnitude of the faintest SN host with a spectroscopic redshift.
     
     \item[ix)] galaxies must be within the redshift range $0.2 \leq z \leq 0.8$.
 \end{enumerate}
