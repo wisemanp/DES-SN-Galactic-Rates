@@ -115,21 +115,25 @@ The progenitors of a number of core-collapse SNe (CCSNe) have been identified in
 
 Another method of inferring progenitor channels is the study of the SN Ia delay time distribution (DTD). The DTD can be interpreted as the rate at which SNe Ia occur as a function of the delay time $\tau$ since an episode of star-formation, and thus carries characteristic signatures of the progenitor channel (see \citealt{Wang2012} for a review). While the SD scenario is able to produce a broad range of functional forms of the DTD, the DD scenario predicts a power law of the form $\tau^{\beta}$, with $\beta \sim -1$ \citep[e.g][]{Ruiter2009,Mennekens2010}.
 
-Given the vast range of timescales to which the DTD is sensitive, it is non-trivial to measure and various techniques have been developed to infer it indirectly. One such approach is to measure global properties of SN Ia host galaxies. Simple examples of such analyses are comparisons of the rates of SNe Ia in hosts that have been split by some observational property, such as morphology or colour, and have shown that SNe Ia rate per unit stellar mass (SNuM) is significantly larger in late-type spiral galaxies as well as in bluer galaxies \citep[e.g.][]{Mannucci2005}. These observations heavily imply that SNe Ia rates are dependent on recent or ongoing star-formation, and thus that the majority of SNe Ia explode after short delay times. Conversely, the SNuM in E/S0 and red galaxies is non-negligible, suggesting that there is a secondary, much older component to the DTD \citep{Sullivan2006,Smith2012}. The DTD is thus approximated by a two-component ("$A + B$") model, where $A$ and $B$ are the normalizations of the DTD for "prompt" (i.e. proportional to instantaneous SFR) and "tardy" (i.e. proportional to overall stellar mass) SNe, respectively A complementary technique involves measuring the evolution of the volumetric rate of SNe Ia as a function of redshift and comparing this evolution to the average cosmic star-formation history (CSFH) of the Universe \citep{Gal-Yam2004,Strolger2004,Dahlen2004,Dahlen2008, Graur2018, Frohmaier2019}. This technique is also applicable to galaxy clusters, for which it is assumed that the star-formation histories are strongly peaked at some past epoch and thus that the rate of SNe Ia in clusters as a function of redshift is a more direct measure of the DTD \citep{Maoz2004,Graur2014,Maoz2014}. Conversely, it is also possible to estimate the SFH of an individual galaxy through the modelling of its stellar populations via spectral energy distribution (SED) fitting. Works such as \citet{Maoz2011}, \citet{Maoz2012}, \citet{Graur2013} estimated the DTD by measuring SFHs for a sample of field galaxies and comparing them to the number of SNe detected in each galaxy. and has led to results that suggest a DTD power law with $\beta$ consistent with $-1$ \citep[e.g.][]{Maoz2011,Graur2013}. \citet{Childress2014} showed that the $A+B$ parameterisation arises as a direct consequence of the combination of a power-law DTD with the SFHs of galaxies.
+A power law DTD implies that most SNe Ia explode soon after star formation, but also that there is a non-neglible fraction that explode on the order of Gyrs after the star formation episode. The DTD is therefore non-trivial to measure and various techniques have been developed to infer it indirectly. One such approach is to measure global properties of SN Ia host galaxies. Simple examples of such analyses are comparisons of the rates of SNe Ia in hosts that have been split by some observational property, such as morphology or colour, and have shown that SNe Ia rate per unit stellar mass (SNuM) is significantly larger in late-type spiral galaxies as well as in bluer galaxies \citep[e.g.][]{Mannucci2005}. These observations heavily imply that SNe Ia rates are dependent on recent or ongoing star-formation, and thus that the majority of SNe Ia explode after short delay times. Conversely, the SNuM in E/S0 and red galaxies is non-negligible, suggesting that there is a secondary, much older component to the DTD \citep{Sullivan2006,Smith2012}. The DTD is thus approximated by a two-component ("$A + B$") model, where $A$ and $B$ are the normalizations of the DTD for "prompt" (i.e. proportional to instantaneous SFR) and "tardy" (i.e. proportional to overall stellar mass) SNe, respectively.
+
+A complementary technique involves measuring the evolution of the volumetric rate of SNe Ia as a function of redshift and comparing this evolution to the average cosmic star-formation history (CSFH) of the Universe \citep{Gal-Yam2004,Strolger2004,Dahlen2004,Dahlen2008, Graur2018, Frohmaier2019}. This technique (the volumetric rate method) is also applicable to galaxy clusters, for which it is assumed that the star-formation histories are strongly peaked at some past epoch and thus that the rate of SNe Ia in clusters as a function of redshift is a more direct measure of the DTD \citep{Maoz2004,Graur2014,Maoz2014}. These studies have, almost ubiquitously, found $\beta$ to be consistent with $-1$.
+
+It is also possible to estimate the SFH of an individual galaxy through the modelling of its stellar populations via spectral energy distribution (SED) fitting. Works such as \citet{Maoz2011}, \citet{Maoz2012} and \citet{Graur2013} estimated the DTD by measuring SFHs for a sample of field galaxies and comparing them to the number of SNe detected in each galaxy (the SFHR method), and have led to results that suggest a DTD power law with $\beta$ consistent with $-1$ \citep[e.g.][]{Maoz2011,Graur2013}. \citet{Childress2014} showed that the $A+B$ parameterisation arises as a direct consequence of the combination of a power-law DTD with the SFHs of galaxies. The recent advances of integral field spectroscopy (IFS) allows for an extension of the SFHR method, by reconstructing the SFH for hundreds or thousands of local regions of each SN Ia host galaxy. Using this method, \citet{Castrillo2020} find a power-law slope of $-1.1\pm0.3$, while \citet{Shen2021} find $-1.4\pm0.3$.
 
 In this work, we combine parts of the above methods and derive a new, independent measurement of the SN Ia DTD. Instead of measuring the volumetric rate of SNe Ia, we measure the rate per galaxy as a function of stellar mass, as per \citet{Sullivan2006,Smith2012}. We use the stellar mass assembly model of \citet{Childress2014} to predict the stellar age distribution of galaxies for a given stellar mass at the mean redshift of our SN sample, and then forward model the DTD by convolving it with the stellar age distribution and comparing the predicted rates to the observed rates.
 
-We introduce the SN host and field galaxy samples in Section \ref{sec:data} and describe our handling of incompleteness in Section \ref{sec:incompleteness}. We outline the modelling of star-formation histories in Section \ref{sec:method}, and present our results in Section \ref{sec:rates}. In Section \ref{sec:discussion} we discuss the robustness of the result and its meaning in a wider context, before concluding in Section \ref{sec:conclusion}.
+We introduce the SN host and field galaxy samples in Section \ref{sec:data} and describe our handling of incompleteness in Section \ref{sec:incompleteness}. We present the SN Ia rate per galaxy in Section \ref{sec:rates}. We outline the modelling of star-formation histories and measurement of the DTD in Section \ref{sec:model} before concluding in Section \ref{sec:conclusion}.
 Where relevant, we assume a spatially flat $\Lambda$CDM cosmology with $\Omega_m = 0.3$ and $H_0 = 70 \mathrm{ km s}^{-1}\mathrm{Mpc}^{-1}$. Unless otherwise stated, we assume Gaussian uncertainties quoted at the $1\sigma$ level. Magnitudes are quoted in the AB system \citep{Oke1983}.
 
 
 \begin{table}
 	\centering
 	\caption{Numbers of field galaxies and SN hosts passing various quality cuts.}
-	\label{tab:field_vuts}
+	\label{tab:cuts}
 	\begin{tabular}{lccr} % four columns, alignment for each
 		\hline
-		Cut & N (galaxies, X3)  & N (SN hosts)\\
+		Cut & N (field galaxies)  & N (SN hosts)\\
 		\hline
 		Chosen fields & 1364311  & 1766\\
 	    Kron mag in all bands & 1069004  & 1764 \\
@@ -148,37 +152,33 @@ Where relevant, we assume a spatially flat $\Lambda$CDM cosmology with $\Omega_m
 
 %%%% DATA %%%%
 \section{Data}
+
+In order to measure the rate of SNe Ia per galaxy per year, we require a sample of SNe Ia and a sample of field galaxies that are normalised to the same selection criteria -- the final rate calculation must be corrected for differences in sky area, redshift depth, and survey time. In this section, we introduce our SN and field galaxy samples.
+
+
 \label{sec:data}
 \subsection{Dark Energy Survey supernova programme \label{subsec:des}}
-The DES Supernova Programme (DES-SN) is a transient survey based on five six-month seasons of observations with the Dark Energy Camera (DECam; \citealt{Flaugher2015}), designed primarily to measure the light curves of SNe Ia for use as cosmological distance indicators. Transients were detected and processed using a difference imaging program \citep{Kessler2015} and vetted using a machine learning (ML) algorithm \citep{Goldstein2015}. Spectral follow-up was performed on a suite of large optical telescopes \citet{Smith2020b}, leading to the initial publication of a measurement of cosmological parameters using 207 spectroscopically confirmed SNe (\citealt{DESCollaboration2018a}, and references therein). 
+The DES Supernova Programme (DES-SN) is a transient survey based on five six-month seasons of observations with the Dark Energy Camera (DECam; \citealt{Flaugher2015}), designed primarily to measure the light curves of SNe Ia for use as cosmological distance indicators. Transients were detected and processed using a difference imaging program \citep{Kessler2015} and vetted using a machine learning (ML) algorithm \citep{Goldstein2015}. Spectral follow-up was performed on a suite of large optical telescopes \citet{Smith2020a}, leading to the initial publication of a measurement of cosmological parameters using 207 spectroscopically confirmed SNe (\citealt{DESCollaboration2018a}, and references therein). 
 \subsection{Supernovae \label{subsec:host_sample}}
 \subsubsection{Photometric classification and quality cuts \label{subsubsec:sn_classify}}
-With over 30,000 transients passing ML cuts it was not possible to obtain spectral follow up of every object. Instead we make use of photometric classification techniques, in particular the recurrent neural network \texttt{superNNova} (SNN; \citealt{Moller2019}). We derive our SN Ia sample following the approach of \citet{Scolnic2020}, but use a threshold probability of $P(\mathrm{Ia})\geq0.5)$. The photometricially classified SNe Ia are then passed through the \texttt{SALT2} framework \citep{Betoule2014} and are subject to quality cuts on the light curve width (stretch; $x_1$) and colour ($c$) parameters: $-3 \leq x_1 \leq 3$, $-0.3 \leq c \leq 0.3$. These cuts help to reduce the potential contamination from core-collapse SNe (CCSNe) and outlying SNe Ia whose physical mechanisms may diverge from the general cosmologically useful population.
+With over 30,000 transients passing ML cuts it was not possible to obtain spectral follow up of every object. Instead we make use of photometric classification techniques, in particular the recurrent neural network classifier \texttt{superNNova} (SNN; \citealt{Moller2019}). We derive our SN Ia sample following the approach of \citet{Scolnic2020}, but use a threshold probability of $P(\mathrm{Ia})\geq0.5)$. The photometricially classified SNe Ia are then passed through the \texttt{SALT2} framework \citep{Betoule2014} and are subject to quality cuts on the light curve width (stretch; $x_1$) and colour ($c$) parameters: $-3 \leq x_1 \leq 3$, $-0.3 \leq c \leq 0.3$. These cuts help to reduce the potential contamination from core-collapse SNe (CCSNe) and outlying SNe Ia whose physical mechanisms may diverge from the general cosmologically useful population.
 
 \subsubsection{Host galaxy selection \label{subsubsec:sn_hosts}}
 Host galaxies for all transients in DES-SN are derived from the deep-stacked $g, r, i, z$-band images presented in \citet{Wiseman2020}. SN are associated to hosts using the directional light radius method \citep[e.g.][]{Sullivan2006,Gupta2016}, while spectroscopic redshifts are provided by OzDES \citep{Yuan2015,Childress2017,Lidman2020}, leading to an initial sample of 1766 SNe.
 
 \subsection{Field galaxies\label{subsec:field_sample}}
-A sample of field galaxies is obtained from the same catalogue to which the SNe are matched to obtain host galaxies, and is presented in a companion paper \citet{Wiseman2021}. The steps relevant to this analysis are outlined in the following sections.
+Along with a sample of SNe, we also require a sample of field galaxies in order to determine a per-galaxy rate. In order to maintain consistency between the SN host and field galaxy sample selections, we obtain a field galaxy sample from the same catalogue as that from which the SNe are matched to obtain host galaxies. The steps relevant to this analysis are outlined in the following sections.
 
 \subsubsection{Photometric redshifts \label{subsubsec:photozs}}
 
-
-Since the vast majority of objects in the \citet{Wiseman2021} catalogue do not have a spectroscopic redshift measurement, we rely on photometric redshifts (photo-$z$s) in order to proceed with the analysis. 
-Photometric redshifts are taken, where available, from the catalogue of \citet{Hartley2020}, and have been estimated using the \texttt{EAZY} photometric redshift code \citep{Brammer2008}. These photo-$z$s make use of deep DES optical photometry alongside DECam $u$-band data and near-infrared (NIR) $J$, $H$, and $K$-band imaging from the ultraVISTA and VIDEO surveys. 
+Since the vast majority of objects detected in the deep photometry do not have a spectroscopic redshift measurement, we rely on photometric redshifts (photo-$z$s) in order to proceed with the analysis. 
+Photometric redshifts are taken, where available, from the catalogue of \citet{Hartley2020}, and have been estimated using the \texttt{EAZY} photometric redshift code \citep{Brammer2008}. These photo-$z$s make use of deep DES optical photometry alongside DECam $u$-band data and near-infrared (NIR) $J$, $H$, and $K$-band imaging from the ultraVISTA and VIDEO surveys. Photo-$z$ accuracy from \citet{Hartley2020} at $17 < i<24$, as quantified by the Normalised Absolute Median Deviation (NMAD) is estimated around 0.03. This accuracy is degraded to 0.07 at $17 < i<26$, a range that includes all galaxies in our sample, but is more than adequate for the purposes of this work, where all field galaxies will be grouped into stellar mass bins of 0.5 dex.
 
 \begin{figure}
     \centering
-    \includegraphics[width=.5\textwidth]{figs/mass_hist_sn_field_BC03.png}
+    \includegraphics[width=.5\textwidth]{figs/mass_hist_linlog_sn_field_BC03.png}
     \caption{Upper: Distribution of the stellar mass of the SN host and field galaxies used in the analysis. Lower: As upper for field galaxies, but shown on a log scale.  The distribution is well described by a Schechter function.}
     \label{fig:mass_hist_hosts_field}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figs/mass_hist_log_BC03.png}
-    \caption{Distribution of the stellar mass of the field galaxies used in the analysis. The distribution is well described by a Schechter function.
-    \label{fig:log_mass_field}}
 \end{figure}
 
 
@@ -189,21 +189,48 @@ Photometric redshifts are taken, where available, from the catalogue of \citet{H
     \label{fig:completeness}}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/completeness_combined.png}
+    \caption{Measuring the completeness of the field galaxy sample. \textit{Upper}: the $T_{\mathrm{C}}$ statistic as a function of apparent magnitude; \textit{middle} as per \textit{upper}, but for $T_{\mathrm{V}}$; \textit{lower}: the combined, normalised completeness in each band.  
+    \label{fig:completeness}}
+\end{figure}
+
 \subsection{Galaxy properties \label{subsec:properties}}
 
-We estimate global galaxy properties for both the SN host and field galaxy samples by fitting the photometry with stellar population templates in a method outlined by \citet{Sullivan2006} and consistent to that used in previous DES-SN analyses \citep{Kelsey2020,Smith2020,Wiseman2020}. For SN hosts the redshift is fixed at the spectroscopically determined value, while for field galaxies we fix it at either the spectroscopic value if one exists (a minority of cases), or more commonly the photometrically derived value. The fitting procedure returns a best fitting template and corresponding stellar mass ($M_*$) and SFR averaged over the proceeding 250 Myr. Uncertainties on the properties are estimated by refitting the templates to the photometry that has been resampled from Gaussian PDFs formed by the photometric fluxes and their uncertainties. 
+We estimate global galaxy properties for both the SN host and field galaxy samples by fitting the photometry with stellar population templates in a method outlined by \citet{Sullivan2006} and consistent to that used in previous DES-SN analyses \citep{Kelsey2020,Smith2020,Wiseman2020}. For SN hosts the redshift is fixed at the spectroscopically determined value, while for field galaxies we fix it at either the spectroscopic value if one exists in the OzDES Global Redshift Catalog \citep{Lidman2020}, or more commonly the photometrically derived value. We use the stellar population templates of \citet{Bruzual2003} and adopt a \citet{Chabrier2003} initial mass function (IMF). The fitting procedure returns a best fitting template and corresponding stellar mass ($M_*$) and SFR averaged over the proceeding 250 Myr. Upper and lower bounds on physical parameter estimates are taken as the largest and smallest values of a given parameter for which the reduced $\chi^2$ parameter corresponds to $\chi^2_{\mathrm{red, min}} +1$. %To estimate uncertainties on the physical properties, we resample the photometry from a Gaussian distribution formed by the flux measurements and their uncertainties and rerun the SED fit. This procedure is repeated 1000 times. 
 
 \subsection{Quality cuts \label{subsec:cuts}}
 
-In order to refine the sample of host and field galaxies for the rate analysis we perform a series of quality cuts. Firstly, we require that a galaxy must be detected and have a Kron magnitude measurement in all four DES optical bands. We also require that it is not within a given number of pixels of the CCD edge, as the co-addition of slightly misaligned images introduced a region of significant noise in this part of the detector. To remove high-probability stellar sources we apply a cut of 0.95 in the star/galaxy (S/G) separation \texttt{CLASS\_STAR} provided by \texttt{Source Extractor} \citep{Bertin1996}. 
+In order to refine the sample of host and field galaxies for the rate analysis we perform a series of quality cuts:
 
+\begin{enumerate}
+    \item[i)] objects must be detected and have a Kron magnitude measurement in all four DES optical bands
+    
+    \item[ii)] field galaxies are limited to unmasked region of the SN-X3 chip \cite{Hartley2020}
+    
+    \item[iii)] objects must not be within a given number (20 in $x$, 50 in $y$) of pixels of the CCD edge, as the co-addition of slightly misaligned images introduced a region of significant noise in this part of the detector
+    
+    \item[iv)] objects must have a value of 0.95 in the star/galaxy (S/G) separation \texttt{CLASS\_STAR} provided by \texttt{Source Extractor} \citep{Bertin1996}
+    
+    \item[v)]  objects must be covered by $ugrizJHK$ photometry, but do not require detections in all bands
+    
+    \item[vi)] objects must have a spectroscopic or photometric redshift measurement
+    
+    \item[vii)] objects must be detected at signal-to-noise ratio (SNR) greater than 3 in the $r$ band
+    
+    \item[viii)] galaxies must be brighter than $m_r \leq 24.5$
+    
+    \item[ix)] galaxies must be within the redshift range $0.2 \leq z \leq 0.8$.
+\end{enumerate}
 
+The numbers of SN hosts and field galaxies passing these cuts are listed in Table \ref{tab:cuts}. The final samples comprise 1414 SN host galaxies and 48,177 field galaxies.
 %%%% INCOMPLETENESS %%%%
 
 
 \section{Incompleteness corrections}
 \label{sec:incompleteness}
-Although Eq. \ref{eq:rate1} serves as an approximation to the SN rate per galaxy per year, both the SN and field galaxy samples introduced in Sections \ref{subsec:host_sample} and \ref{subsec:field_sample} are affected by incompleteness, which is likely to be the dominant systematic effect in the analysis. In this section we describe our method of correcting for various sources incompleteness in the data.
+The simple ratio of the number of SN hosts and field galaxies presented at the end of the previous section provides a first approximation of the SN rate per galaxy, and the addition of factor equal to the survey duration normalises the rate to per year. However both the SN and field galaxy samples introduced in Sections \ref{subsec:host_sample} and \ref{subsec:field_sample} are affected by incompleteness, which is likely to be the dominant systematic effect in the analysis. In this section we describe our method of correcting for various sources incompleteness in the data.
 
 \subsection{Supernovae \label{subsec:incompleteness_SNe}}
 
