@@ -143,7 +143,7 @@ Where relevant, we assume a spatially flat $\Lambda$CDM cosmology with $\Omega_m
 	    Star/galaxy separation & 400051 &  1678\\
 	    Has good redshift & 395034 & 1678 \\
 	    SNR $\geq 3$& 338256  & 1678 \\
-	    $m_r \leq 26.5$ & 196109 &  1678 \\
+	    $m_r \leq 24.5$ & 196109 &  1678 \\
 	    $0.2 \leq z \leq 0.8$ & 48177 & 1414\\ 
 	    
 		\hline
@@ -196,6 +196,12 @@ Photometric redshifts are taken, where available, from the catalogue of \citet{H
     \label{fig:completeness}}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/field_vmax.png}
+    \caption{Distribution of $V_{\mathrm{max}}$ corrections applied to field galaxies in the DES sample. The majority of galaxies have no correction, and the distribution of the 1\% that do follows a power-law.
+    \label{fig:vmax_field}}
+\end{figure}
 \subsection{Galaxy properties \label{subsec:properties}}
 
 We estimate global galaxy properties for both the SN host and field galaxy samples by fitting the photometry with stellar population templates in a method outlined by \citet{Sullivan2006} and consistent to that used in previous DES-SN analyses \citep{Kelsey2020,Smith2020,Wiseman2020}. For SN hosts the redshift is fixed at the spectroscopically determined value, while for field galaxies we fix it at either the spectroscopic value if one exists in the OzDES Global Redshift Catalog \citep{Lidman2020}, or more commonly the photometrically derived value. We use the stellar population templates of \citet{Bruzual2003} and adopt a \citet{Chabrier2003} initial mass function (IMF). The fitting procedure returns a best fitting template and corresponding stellar mass ($M_*$) and SFR averaged over the proceeding 250 Myr. Upper and lower bounds on physical parameter estimates are taken as the largest and smallest values of a given parameter for which the reduced $\chi^2$ parameter corresponds to $\chi^2_{\mathrm{red, min}} +1$. %To estimate uncertainties on the physical properties, we resample the photometry from a Gaussian distribution formed by the flux measurements and their uncertainties and rerun the SED fit. This procedure is repeated 1000 times. 
@@ -241,7 +247,7 @@ To correct for these incompleteness, we follow a similar method to that used in 
     \eta_{\mathrm{SN},i} (F_i,z_i,t_{0,i}) = \left( \frac{N_{\mathrm{obs}}\left(F_i,z_i,t_{0,i}\right)}{N_{\mathrm{sim}}\left(F_i,z_i,t_{0,i}\right)}\right)\,.
 \end{equation}
 
-The distribution of efficiency as a function of redshift is shown in Figure \ref{fig:efficiencies}. It is evident that the deep fields (X3, C3) are sensitive to SNe at higher redshifts, while there is no drastic shifts between efficiencies in the eight shallow fields. 
+The distribution of efficiency as a function of redshift is shown in Figure \ref{fig:SN_efficiency}. It is evident that the deep fields (X3, C3) are sensitive to SNe at higher redshifts, while there is no drastic shifts between efficiencies in the eight shallow fields. 
 
 
 \subsection{Supernova hosts \label{subsec:incompletenss_SN_hosts}}
@@ -254,7 +260,7 @@ As we use photometric, rather than spectroscopic, redshifts for the field galaxi
 
 \subsubsection{$V_{\mathrm{max}}$ correction \label{subsubsec:vmax_corr}}
 
-To correct for incompleteness caused by the magnitude limited nature of the survey we follow the prescription of e.g. \citet{Sullivan2006, Smith2012} by using a $V_{\mathrm{max}}$ method of \citet{Schmid1968}. For each galaxy in the sample we calculate the maximum volume within which it would have been observed given its absolute magnitude and $k-$correction. A correction of $V_{\mathrm{survey}}/V_{\mathrm{max}}$ is applied to all galaxies for which $V_{\mathrm{max}} < V_{\mathrm{survey}}$, where $V_{\mathrm{survey}}$ is the maximum volume reached by the survey. In our case this corresponds to the volume at $z=0.8$. Figs. \ref{fig:vmax_gals} and \ref{fig:vmax_hist} show the distribution of the correction among galaxies in the sample. The vast majority of galaxies require no correction, meaning they would have been observed beyond the maximum volume considered. Roughly 1\% of objects have a correction greater than 1, with the distribution well described by a power-law function. In Section \ref{sec:rates} we split the samples into redshift bins in order to measure cosmic evolution of the SN Ia rate. For each redshift bin, we reevaluate the value of $V_{\mathrm{survey}}$ used in the incompleteness correction to be the volume of the bin.
+To correct for incompleteness caused by the magnitude limited nature of the survey we follow the prescription of e.g. \citet{Sullivan2006, Smith2012} by using a $V_{\mathrm{max}}$ method of \citet{Schmidt1968}. For each galaxy in the sample we calculate the maximum volume within which it would have been observed given its absolute magnitude and $k-$correction. A correction of $V_{\mathrm{survey}}/V_{\mathrm{max}}$ is applied to all galaxies for which $V_{\mathrm{max}} < V_{\mathrm{survey}}$, where $V_{\mathrm{survey}}$ is the maximum volume reached by the survey. In our case this corresponds to the volume at $z=0.8$. Fig \ref{fig:vmax_field} shows the distribution of the correction among galaxies in the sample. The vast majority of galaxies require no correction, meaning they would have been observed beyond the maximum volume considered. Roughly 1\% of objects have a correction greater than 1, with the distribution well described by a power-law function. %In Section \ref{sec:rates} we split the samples into redshift bins in order to measure cosmic evolution of the SN Ia rate. For each redshift bin, we reevaluate the value of $V_{\mathrm{survey}}$ used in the incompleteness correction to be the volume of the bin.
 
 
 \begin{figure}
@@ -328,7 +334,7 @@ for each SN $i$ and galaxy $j$.
 
 By binning both the SN hosts and field galaxies by their stellar mass we measure the mean SN Ia rate per galaxy as a function of stellar mass, $R_{\mathrm{G}}(M_*)$. We employ a bootstrap Monte-Carlo approach in order to estimate the uncertainty in the value of the rate in each stellar mass bin. The probability distribution function (PDF) of each galaxy's stellar mass is represented by the sum of two half Gaussian distributions to represent the asymmetric positive and negative uncertainties derived in the SED fitting stage (Section \ref{sec:data}). For each SN host and field galaxy, we take 100 samples of its stellar mass by drawing at random from its PDF. For each of the 100 samples we calculate the SN rate per galaxy in each stellar mass bin via Eq \ref{eq:rate1}, using the completeness-corrected values of $N_{\mathrm{SN}}$ and $N_{\mathrm{SN}}$ from Eqs. \ref{eq:corr_SN} and \ref{eq:corr_G} respectively. 
 
-The rate of SNe Ia per galaxy as a function of stellar mass is shown in Fig. \ref{fig:rate_raw}. The relationship between SN Ia rate and galaxy stellar mass is well described by a linear function in log space, which corresponds to a power law. To find the slope and intercept that best describe the data we employ Hamiltonian Monte-Carlo (HMC), which we implement via the \texttt{pystan} package and describe in full detail in Appendix \ref{appendix:linear_fits}. We measure a slope of $0.70\pm0.02$, which is broadly consistent with the values found in SNLS and SDSS by \citet{Sullivan2006} and \citet{Smith2012} respectively. It is evident that the linear fit is not consistent with the data across the full range of stellar mass considered. In particular, there appear to be two locations of interest: firstly, the slope is steeper at masses lower than $10^9$ M$_{\odot}$; secondly there is an apparent flattening and possibly a turnover at masses around and above $10^{11}$ M$_{\odot}$. The most likely cause of these divergences is because the SN rate is driven by the SFH which is not a linear function of stellar mass (see Section \ref{sec:method}). Second order effects may also be important, and we address these in the following sections.
+The rate of SNe Ia per galaxy as a function of stellar mass is shown in Fig. \ref{fig:rate_raw}. The relationship between SN Ia rate and galaxy stellar mass is well described by a linear function in log space, which corresponds to a power law. To find the slope and intercept that best describe the data we employ Hamiltonian Monte-Carlo (HMC), which we implement via the \texttt{pystan} package and describe in full detail in Appendix \ref{appendix:linear_fits}. We measure a slope of $0.70\pm0.02$, which is broadly consistent with the values found in SNLS and SDSS by \citet{Sullivan2006} and \citet{Smith2012} respectively. It is evident that the linear fit is not consistent with the data across the full range of stellar mass considered. In particular, there appear to be two locations of interest: firstly, the slope is steeper at masses lower than $10^9$ M$_{\odot}$; secondly there is an apparent flattening and possibly a turnover at masses around and above $10^{11}$ M$_{\odot}$. The most likely cause of these divergences is because the SN rate is driven by the SFH which is not a linear function of stellar mass (see Section \ref{sec:model}). Second order effects may also be important, and we address these in the following sections.
 
 \section{Modelling the per-galaxy rate of type Ia supernovae}
  \label{sec:model}
