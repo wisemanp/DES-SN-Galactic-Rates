@@ -493,10 +493,17 @@ The inclusion of a Data Availability Statement is a requirement for articles pub
 
 \appendix
 
-\section{Linear fits using Hamiltonian Monte Carlo}
+\section{Linear fits using Bayesian inference}
 In this section we describe the procedures used to fit slopes and intercepts to the relationships measured in the analysis.
 
 \label{appendix:linear_fits}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/fit_fine_BC03_corner.png}
+    \caption{Joint posterior distribution for the slope and intercept of the linear fit to the SN rate per galaxy per year as a function of stellar mass (Section \ref{sec:rates}; Fig. \ref{fig:rate_fitted}).}
+    \label{fig:corner_slope_int}
+\end{figure}
 We model the relation with the linear relationship: 
 \begin{equation}
     R_{\mathrm{G}} = \frac{\mathrm{d}R}{\mathrm{d}M_*} M_* + c \,,
