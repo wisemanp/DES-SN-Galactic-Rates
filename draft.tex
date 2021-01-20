@@ -339,6 +339,9 @@ By binning both the SN hosts and field galaxies by their stellar mass we measure
 
 The rate of SNe Ia per galaxy as a function of stellar mass is shown in Fig. \ref{fig:rate_raw}. The relationship between SN Ia rate and galaxy stellar mass is well described by a linear function in log space, which corresponds to a power law. To find the slope and intercept that best describe the data we use Bayesian inference. To sample the posterior we use the enhanced no-U-turn Sampler (NUTS) algorithm \citep{Betancourt2017}, which is a variant of Hamiltonian Monte-Carlo (HMC), implemented in the Stan programming language \citep{Carpenter2017}. We describe the fitting procedure in full detail in Appendix \ref{appendix:linear_fits}. We measure a slope of $0.70\pm0.02$, which is broadly consistent with the values found in SNLS and SDSS by \citet{Sullivan2006} and \citet{Smith2012} respectively. It is evident that the linear fit is not consistent with the data across the full range of stellar mass considered. In particular, there appear to be two locations of interest: firstly, the slope is steeper at masses lower than $10^9$ M$_{\odot}$; secondly there is an apparent flattening and possibly a turnover at masses around and above $10^{11}$ M$_{\odot}$. The most likely cause of these divergences is because the SN rate is driven by the SFH which is not a linear function of stellar mass (see Section \ref{sec:model}). Second order effects may also be important, and we address these in the following sections.
 
+\subsection{Rate per unit stellar mass \label{subsec:snum}}
+\textbf{short section showing SNUM and how it matches past results}
+
 \section{Modelling the per-galaxy rate of type Ia supernovae}
  \label{sec:model}
  
@@ -390,6 +393,8 @@ As per \citet{Childress2014} we plant seed galaxies with initial masses of $10^6
 
 The result of our toy model is shown in Fig. \ref{fig:SFHs}. Galaxies with high masses at $z=0$ formed the vast majority of their stars in the first few Gyr and are now likely to be passive with old stellar populations, while low-mass galaxies are currently strongly star-forming with a vast majority of young stars. Galaxies with masses around $10^{10} \mathrm{M}_{\odot}$ are composed of a mixture of young and older stellar populations.
 
+\textbf{Add plot showing that the toy model recreates the stellar mass function?}
+
 %\textbf{TEMPTED TO DITCH THIS SINCE OUR SFR IS SKETCHY}
 %In order to make a more detailed comparison of our results with those of \citet{Sullivan2006} and \citet{Smith2012}, we split galaxies according to their sSFR: galaxies with sSFR$\leq -11.5$ yr$^{-1}$ are denoted as passive, those with $-11.5 < \mathrm{sSFR} \leq -9.5$ are moderately star-forming, and those with sSFR $>-9.5$ are labelled as highly star-forming. The results when split this way are shown in Fig. \ref{fig:rate_raw_split_sfr}. Star-forming galaxies show a steeper slope than their passive counterparts, with values of $1.10 \pm 0.05$ and $0.84 \pm 0.04$ for moderate and highly star-forming galaxies respectively, while passive galaxies show a much shallower slope of $0.55 \pm 0.08$. These values are broadly similar to those measured in SDSS by \citet{Smith2012}, with star-forming galaxies showing steeper slopes than passives (\citet{Smith2012} found 1.01 and 0.72 for SF and passive, respectively). We note that we detect no passive galaxies with mass below $10^{10} \mathrm{M}_{\odot}$. Above this value, the \citet{Smith2012} data for passive galaxies is considerably flatter than that which we measure. On the other hand our results are inconsistent with those found at a similar redshift to the DES data in SLNS \citep{Sullivan2006}, who measured a slope of 1.10 in passives but 0.66 and 0.74 in moderate and highly star-forming galaxies respectively. We note that the moderately star-forming slope is thus consistent between DES and SNLS, but the slopes of passive and highly star-forming galaxies are swapped.
 
@@ -420,6 +425,8 @@ SNe Ia do not occur instantaneously after an episode of star formation. Instead 
 
 The posterior distributions for the fit parameters are found in Figs. \ref{fig:corner_beta_norm} and \ref{fig:corner_beta_norm_tp} for the fixed and free $t_{\mathrm{p}}$ fits respectively, and the posterior means and standard deviations are summarised in Table \ref{tab:dtd_results}. In Fig. \ref{fig:rate_fitted} we show the SN rate per galaxy predicted by the model assuming the best fitting DTD parameters from Table \ref{tab:dtd_results} compared to the data as presented in Section \ref{sec:rates}. The model provides a good fit across a wide range of stellar mass. The model clearly diverges from the simple log-linear fit, describing better the suppressed rate at the low and high ends of the stellar mass range, as well as the enhanced rate around $10^{10}$ M$_{\odot}$. This improvement provides evidence to support the DTD*SFH model. However, the model prediction still diverges from the data at low ($<10^9$ M$_{\odot}$) and high ($>10^{11.25}$ M$_{\odot}$), suggesting that these data cannot be explained by the our model, but are driven by further processes that we have not included. We discuss these in Section \ref{subsec:discussion}.
 
+\textbf{Or's suggestion: Fix beta, A and fit for tp}
+
 \subsection{Comparison to previous DTD measurements \label{subsec:compare_dtd}}
 
 \subsubsection{The DTD power law index \label{subsubsec:compare_beta}}
@@ -444,7 +451,7 @@ The toy model of stellar mass assembly used in this work includes several assump
 
 Low mass galaxies are highly sensitive to environmental effects and may often be found in the so-called starburst state with abnormally high (above the SFMS) levels of star formation that could drive environmental evolution \citep[e.g.][]{Dekel1986,Marlowe1995,Tremonti2004,Lee2006}, although studies have shown that only 6 percent of dwarf galaxies are starbursts \citep{Lee2009}. It is possible that the averaging effects of the mass assembly model overestimate the true, instantaneous SFR for a significant fraction of the dwarf galaxies. Since the SN Ia rate is dominated by short delay times in these populations, an overestimated SFR in the model would lead to an overestimate in the SN Ia rate.
 
-At some point along the evolutionary pathway, galaxies begin to cease star formation due to a combination of processes that together are known as quenching. In our model of mass assembly the characteristic mass at which quenching occurs is described by Eq. \ref{eq:mq}, and the rate of the transition from star forming to passive (as a function of the stellar mass) is determined by the transition scale $sigma_{\mathrm{Q}}$ which we set to 1.1 based on GAMA observations. It is possible that this transition is too narrow and that quenching happens too fast in our model, leading to an under-prediction of the prompt fraction of SNe in the highest mass galaxies. To address this issue we rerun the mass assembly model with $sigma_{\mathrm{Q}} = 1.5$ as per the nominal analysis of \citet{Childress2014} and refit the SN Ia rate data.
+At some point along the evolutionary pathway, galaxies begin to cease star formation due to a combination of processes that together are known as quenching. In our model of mass assembly the characteristic mass at which quenching occurs is described by Eq. \ref{eq:mq}, and the rate of the transition from star forming to passive (as a function of the stellar mass) is determined by the transition scale $\sigma_{\mathrm{Q}}$ which we set to 1.1 based on GAMA observations. It is possible that this transition is too narrow and that quenching happens too fast in our model, leading to an under-prediction of the prompt fraction of SNe in the highest mass galaxies. To address this issue we rerun the mass assembly model with $\sigma_{\mathrm{Q}} = 1.5$ as per the nominal analysis of \citet{Childress2014} and refit the SN Ia rate data.
 
 \subsubsection{Effects of stellar metallicity}
 
@@ -458,6 +465,10 @@ The mass-metallicity relation (MZR) is a strong observed correlation between gal
 The last numbered section should briefly summarise what has been done, and describe
 the final conclusions which the authors draw from their work.
 
+\section*{Software}
+
+All software used in this publication is publicly available. In particular, we made extensive use of \texttt{numpy} \citep{Harris2020}, \texttt{Astropy} \citep{Price-Whelan2018}, \texttt{matplotlib} \citep{Hunter2007}, \texttt{SciPy} \citep{Virtanen2020}, \texttt{pandas} \citep{Mckinney2010}, \texttt{Stan} \citep{Carpenter2017}, \texttt{seaborn}, and \texttt{arviz} \citep{Kumar2019}.
+
 \section*{Acknowledgements}
 
 The Acknowledgements section is not numbered. Here you can thank helpful
@@ -469,7 +480,6 @@ Try to keep it short.
 
  
 The inclusion of a Data Availability Statement is a requirement for articles published in MNRAS. Data Availability Statements provide a standardised format for readers to understand the availability of data underlying the research results described in the article. The statement may refer to original data generated in the course of the study or to third-party data analysed in the article. The statement should describe and provide means of access, where possible, by linking to the data or providing the required accession numbers for the relevant databases or DOIs.
-
 
 
 
