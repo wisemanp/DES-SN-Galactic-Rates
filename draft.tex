@@ -89,10 +89,7 @@ and Fourth Author$^{3}$
 
 % Abstract of the paper
 \begin{abstract}
-This is a simple template for authors to write new MNRAS papers.
-The abstract should briefly describe the aims, methods, and main results of the paper.
-It should be a single paragraph not more than 250 words (200 words for Letters).
-No references should appear in the abstract.
+Measuring the rate of type Ia supernovae (SNe Ia) is crucial method by which to understand the progenitors and physical processes involved in these explosions. Since SNe Ia are a key source of heavy elements, the SN Ia rate is also an important ingredient in models of galaxy evolution. We use a sample of 1411 photometrically classified SNe discovered by the Dark Energy Survey (DES) along with \textbf{final number} field galaxies to calculate the rate of SNe Ia per galaxy as a function of galaxy stellar mass across a broad range of scales $8.5 \leq \log(M_*/\mathrm{M}_{\odot}) \leq 11.25$. We find that the SN Ia rate increases with stellar mass with a slope of $0.70 \pm 0.02$, which is consistent with previous work. We use an empirical model of stellar mass assembly to estimate the average star-formation histories (SFHs) of galaxies across the stellar mass range of our measurement. We combine the modelled SFHs with the SN Ia rates to estimate constraints on the SN Ia delay time distribution (DTD), and find a power-law with index $\beta = -0.96 \pm 0.5$ and normalisation $A = 1.7 \pm0.05 \times 10^{-13}~\mathrm{SNe}~{\mathrm{M}_{\odot}}^{-1}~\mathrm{yr}^{-1}$. 
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -285,7 +282,7 @@ To correct for incompleteness caused by the magnitude limited nature of the surv
 \begin{figure*}
     \centering
     \includegraphics[width=\textwidth]{figs/SFHs_colour.png}
-    \caption{The stellar mass assembly of the Universe as prescribed by the toy model of \citet{Childress2014}}
+    \caption{The stellar mass assembly of the Universe as prescribed by the toy model of \citet{Childress2014}. Galaxies with high stellar mass at $z=0$ formed the majority of their stars in the distant past, while lower-mass galaxies are still actively star forming in the present day.}
     \label{fig:SFHs}
 \end{figure*}
 
@@ -323,7 +320,7 @@ for each SN $i$ and galaxy $j$.
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{figs/beta_A_tp_Qerf1.1_corner.png}
-    \caption{Posterior distributions for DTD parameters $\beta$, $A$, and $t_{\mathrm{p}}$. %The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \caption{Posterior distributions for DTD parameters $\beta$, $A$, and $t_{\mathrm{p}}$. \textbf{This needs updating once final chains are run. Axes labels need sorting.} %The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
     \label{fig:corner_beta_norm_tp}}
 \end{figure}
 
@@ -410,11 +407,12 @@ The result of our toy model is shown in Fig. \ref{fig:SFHs}. Galaxies with high 
 		\hline
 		Fixed $t_{\mathrm{p}}$ & $-0.96\pm 0.05$ &  $1.7 \pm 0.05$ & -\\
 		Free $t_{\mathrm{p}}$ & $-0.99 \pm 0.09$ & $2.1 \pm 0.2$ & $0.09 \pm 0.05$\\
+		Fixed $A$, $\beta$ & - & - & \textbf{add}\\
 		\hline
 	\end{tabular}
 \end{table}
 
-\subsection{Constraining the SN Ia delay time distribution}
+\subsection{Constraints on the SN Ia delay time distribution}
 \label{subsec:results_dtd}
 
 At the beginning of this Section, we showed how the rate of SNe Ia is driven by the convolution of the SFH of galaxies and the SN Ia DTD (Eq. \ref{eq:galaxy_rate}). We then prescribed a model to infer the mean SFHs of galaxies of any given stellar mass. Here, we measure the DTD by forward modelling it through Eq. \ref{eq:galaxy_rate} at the stellar masses corresponding to the centres of the bins in Fig. \ref{fig:rate_raw}. 
@@ -430,10 +428,12 @@ The posterior distributions for the fit parameters are found in Figs. \ref{fig:c
 \subsection{Comparison to previous DTD measurements \label{subsec:compare_dtd}}
 
 \subsubsection{The DTD power law index \label{subsubsec:compare_beta}}
-The index of the DTD power law measured here is consistent with the majority of previous analyses using various methods. Our measurement provides an independent support to the values close to $-1$ found using volumetric rates \citep[e.g.][]{Graur2018,Frohmaier2019}, individual galaxy SFHs \citep[e.g.][]{Maoz2012,Graur2013}, and galaxy clusters \citep[e.g.][]{Maoz2010} although our slope is marginally inconsistent with that of \citet{Heringer2019}. 
+We measure a DTD power law index of $-0.96\pm0.05$. This value is consistent with the majority of previous analyses using various methods. Our measurement provides an independent support to the values close to $-1$ found using volumetric rates \citep[e.g.][]{Graur2018,Frohmaier2019}, individual galaxy SFHs \citep[e.g.][]{Maoz2012,Graur2013}, and galaxy clusters \citep[e.g.][]{Maoz2010} although our slope is marginally inconsistent with that of \citet{Heringer2019}. 
 
 \subsubsection{The DTD normalisation \label{subsubsec:compare_A}}
-The normalisation of the DTD is less frequently reported. \citet{Graur2013} found a value of $7 \times 10^{-14}$~M$_{\odot}^{-1}$~yr$^{-1}$ using the SFH technique, whereas \citet{Heringer2019} report $7 \times 10^{-13}$~M$_{\odot}^{-1}$~yr$^{-1}$. These results lie either side of our measured value. \citet{Heringer2019} note that the normalisation recovered from the SFHR method is sensitive to the assumed prompt time $t_{\mathrm{p}}$ (see Section \ref{subsubsec:compare_tp}, which we also find using our method.
+We measure a DTD normalisation (i.e. the rate of SNe 1 Gyr after star-formation) of $1.70 \pm 0.05 \times 10^{-13}$~M$_{\odot}^{-1}$~yr$^{-1}$. \citet{Graur2013} found a value of $7 \times 10^{-14}$~M$_{\odot}^{-1}$~yr$^{-1}$ using the SFH technique, whereas \citet{Heringer2019} report $7 \times 10^{-13}$~M$_{\odot}^{-1}$~yr$^{-1}$. These results lie either side of our measured value. \citet{Heringer2019} note that the normalisation recovered from the SFHR method is sensitive to the assumed prompt time $t_{\mathrm{p}}$ (see Section \ref{subsubsec:compare_tp}, which we also find using our method. 
+
+By integrating the normalised DTD over cosmic time, we obtain an estimate of the average SN Ia efficiency $N_{\mathrm{Ia}}/M_*$ which represents the number of SNe Ia formed per unit mass of stars formed. We measure $N_{\mathrm{Ia}}/M_* = 2.0~_{-1.6}^{+5.0} \times 10^{-3}~\mathrm{SNe}~\mathrm{M}_{\odot}^{-1}$. 
 
 
 
