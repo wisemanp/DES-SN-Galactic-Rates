@@ -182,6 +182,7 @@ Photometric redshifts are taken, where available, from the catalogue of \citet{H
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{figs/SN_efficiencies.png}
+    \includegraphics[width=0.5\textwidth]{figs/SN_efficiencies.png}
     \caption{SN detection efficiencies split up by DES field. The $y-$axis represents the fraction of simulated SNe in a given redshift bin that would have been detected by DES-SN and passed light curve quality cuts. The curves are capped at efficiencies around 0.5 because DES is restricted to $\sim6$ month observing seasons each calendar year.
     \label{fig:SN_efficiency}}
 \end{figure}
@@ -242,11 +243,12 @@ The simple ratio of the number of SN hosts and field galaxies presented at the e
 
 Incompleteness in a SN survey arises from a number of sources. The primary source of incompleteness is caused by the magnitude limit of the survey: SNe with apparent magnitudes below the survey limit will not be detected. Since SNe Ia are relatively uniform in absolute luminosity, this form of incompleteness is primarily redshift dependent. On the other hand, DES-SN comprises 10 separate pointings, each with different visibility and thus airmass throughout the observing season. These differences lead to different detection efficiencies across the fields.
 
-To correct for these incompleteness, we follow a similar method to that used in the PTF rates analyses of \citet{Frohmaier2019,Frohmaier2020} as well as the DES-SN superluminous SN rate of \citet{Thomas2020}. We run a suite of simulations using an identical method to that described in detail in \citet{Vincenzi2020}. We simulate SNe using the SuperNova ANAlysis software (\texttt{SNANA} \citealt{Kessler2009a}) integrated into the \texttt{pippin} framework \citep{Hinton2020}. We simulate 230,000 SNe in the redshift range $0.05 \leq z_{\mathrm{SN}} \leq 1.3$. The SNe are generated with SEDs based upon the SALT2 model \citep{Guy2007} and trained on the Joint Lightcurve Analysis dataset \citep{Betoule2014}. The SALT2 parameters $x_1$ (stretch) and $c$ (colour) are drawn randomly from the intrinsic asymmetric Gaussian distributions described in \citet{Scolnic2016} and "blurred" following the intrinsic scatter model of \citet{Guy2010}, while redshifts are drawn following the volumetric rate evolution of \citet{Frohmaier2019}. The SNe are simulated with explosion epochs $t_0$ uniformly distributed between two months before DES-SN began and two months after it finished. We run mock versions of the DES-SN survey, using the exact cadence, conditions, and zeropoints from the survey itself. All of the detected simulated SNe are passed through the light curve fit of SALT2 \citep{Betoule2014}, as per the implementation in \texttt{SNANA}, and those that fail the light curve cuts outlined in Section \ref{subsubsec:sn_classify} are discarded. We are left with a fraction of the original simulated SNe, and that fraction is dependent on location, explosion epoch, and redshift, which we define as the SN efficiency. For the $i$th SN the efficiency $\eta_{\mathrm{SN}, i}$ in field $F$, exploding at time $t_0$ at redshift $z$, is:
+To correct for these incompleteness, we follow a similar method to that used in the PTF rates analyses of \citet{Frohmaier2019,Frohmaier2020} as well as the DES-SN superluminous SN rate of \citet{Thomas2020}. We run a suite of simulations using an identical method to that described in detail in \citet{Vincenzi2020}. We simulate SNe using the SuperNova ANAlysis software (\texttt{SNANA} \citealt{Kessler2009a}) integrated into the \texttt{pippin} framework \citep{Hinton2020}. We simulate 230,000 SNe in the redshift range $0.05 \leq z_{\mathrm{SN}} \leq 1.3$. The SNe are generated with SEDs based upon the SALT2 model \citep{Guy2007} and trained on the Joint Lightcurve Analysis dataset \citep{Betoule2014}. The SALT2 parameters $x_1$ (stretch) and $c$ (colour) are drawn randomly from the intrinsic asymmetric Gaussian distributions described in \citet{Scolnic2016} and "blurred" following the intrinsic scatter model of \citet{Guy2010}, while redshifts are drawn following the volumetric rate evolution of \citet{Frohmaier2019}. The SNe are simulated with explosion epochs $t_0$ uniformly distributed between two months before DES-SN began and two months after it finished. We run mock versions of the DES-SN survey, using the exact cadence, conditions, and zeropoints from the survey itself. All of the detected simulated SNe are passed through the light curve fit of SALT2 \citep{Betoule2014}, as per the implementation in \texttt{SNANA}, and those that fail the light curve cuts outlined in Section \ref{subsubsec:sn_classify} are discarded. We are left with a fraction of the original simulated SNe, and that fraction is dependent on a combination of sky location, explosion epoch, redshift, stretch, and colour. The fraction of recovered SNe (the efficiency) is thus described by a 5-dimensional surface. For the $i$th SN the efficiency $\eta_{\mathrm{SN}, i}$ in field $F$, exploding at time $t_0$ at redshift $z$, with stretch $x_1$ and colour $c$, is:
 \begin{equation}
-    \eta_{\mathrm{SN},i} (F_i,z_i,t_{0,i}) = \left( \frac{N_{\mathrm{obs}}\left(F_i,z_i,t_{0,i}\right)}{N_{\mathrm{sim}}\left(F_i,z_i,t_{0,i}\right)}\right)\,.
+    \eta_{\mathrm{SN},i} (F_i,z_i,t_{0,i},x_1,c) = \left( \frac{N_{\mathrm{obs}}\left(F_i,z_i,t_{0,i},x_1,c\right)}{N_{\mathrm{sim}}\left(F_i,z_i,t_{0,i},x_{1,i},c_i\right)}\right)\,.
 \end{equation}
 
+In practice, the gradient of the efficiency function is strongest between different DES fields and as a function of redshift, while SN stretch and colour have smaller effects. We integrate the efficiencies across the full simulated time range, and as such the efficiency is limited to $\sim 0.5$ due to the 6-month nature of the DES observing seasons.
 The distribution of efficiency as a function of redshift is shown in Figure \ref{fig:SN_efficiency}. It is evident that the deep fields (X3, C3) are sensitive to SNe at higher redshifts, while there is no drastic shifts between efficiencies in the eight shallow fields. 
 
 
@@ -448,6 +450,39 @@ By integrating the normalised DTD over cosmic time, we obtain an estimate of the
 
 The majority of works in the field have constrained the DTD power-law slope, and many also estimate its normalisation. Conversely, few have attempted to constrain the time after a burst of star-formation at which SNe Ia begin to explode -- the prompt time $t_{\mathrm{p}}$. In most cases, $t_{\mathrm{p}}$ has been fixed at some fiducial value such as 40~Myr, which is derived from the lifetime of 8~M$_{\odot}$ stars. \citet{Castrillo2020} included $t_{\mathrm{p}}$ (which they denote $\Delta$) in their fit, and find a value of $50_{-35}^{+100}$~Myr which is consistent with both 40~Myr as well as our best fitting value of $90 \pm 50$~Myr. \citet{Heringer2019} also present fits with varying prompt times, although they don't fit for the parameter itself. They find that varying $t_{\mathrm{p}}$ changes the recovered normalisation, which is consistent with the degeneracy seen in our results (Fig. \ref{fig:corner_beta_norm_tp}). We therefore report results that are consistent with the fiducial value of 40~Myr. 
 
+\begin{figure}
+    \centering
+    \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_DTD_fit_beta_norm_Qerf1.1_split_x1.png}
+    \caption{As per Fig. \ref{fig:rate_fitted} but with the data split by their stretch parameter $x_1$.%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \label{fig:rate_fitted_split_x1}}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_DTD_fit_beta_norm_Qerf1.1_split_c.png}
+    \caption{As per Fig. \ref{fig:rate_fitted} but with the data split by their colour parameter $c$.%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \label{fig:rate_fitted_split_c}}
+\end{figure}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{table}
+	\centering
+	\caption{Results of the Bayesian parameter estimation for the SN Ia DTD.}
+	\label{tab:dtd_results_split_lc}
+	\begin{tabular}{crr} % four columns, alignment for each
+		\hline
+		 Sample &$\beta$ & $A$ \\
+		 &-       & $10^{-13}$ M$_{\odot}^{-1}$yr$^{-1}$ \\
+		\hline
+		Fiducial & $-1.18\pm0.09$ &  $1.16\pm0.08$ \\
+	    $x_1 < 0$ & $-0.79\pm0.08$ &  $1.19 \pm0.05$ \\
+		$x_1 > 0$ & $-1.68 _{ -0.15} ^{ +0.14}$ & $0.51\pm0.12$ \\
+		$c < 0$ & $-1.09 _{ -0.07} ^{ +0.08}$ & $0.89\pm0.04$ \\
+		$c > 0$ & $-1.19\pm0.09$ & $1.16\pm0.08$ \\
+		\hline
+	\end{tabular}
+\end{table}
 \subsection{Second order processes affecting the supernova rate \label{subsec:discussion}}
 
 The use of SN Ia rates to constrain the SN Ia DTD has consistently led to a $t^{-1}$ power-law, which is widely accepted as evidence for the DD scenario. While our results are also consistent with those derived in previous studies, our model is mildly inconsistent with the SN rate per galaxy at very low and very high stellar mass. In both cases, the model over predicts the observed rate of SNe Ia in galaxies in that stellar mass range, and thus any second order effects must act to suppress the rate compared to the fiducial model.
@@ -465,6 +500,12 @@ At some point along the evolutionary pathway, galaxies begin to cease star forma
 One possible cause of the discrepant SN Ia rate at high stellar mass is the effect of stellar metallicity. Metallicity has been previously invoked to explain irregularities or divergences from the fiducial DTD \citep[e.g.][]{Strolger2010,Meng2011,Kistler2013}. Metallicity may affect the observed rate of SNe in two ways: firstly, it can affect the time taken for a star to evolve along the main sequence ($t_{\mathrm{MS}}$) -- Stellar metallicity has varying effects on the MS lifetime of stars \citep[e.g.][]{Georgy2013,Amard2020}, which is also dependent upon initial rotation and degree of mixing; secondly it can affect the time taken from WD formation to SN Ia explosion -- low metallicity stars should produce higher-mass WDs \citep[e.g.][]{Umeda1999,Marigo2007}, resulting in a higher SN Ia rate \citep{Kistler2013}. 
 
 The mass-metallicity relation (MZR) is a strong observed correlation between galaxy stellar mass and gas-phase metallicity \citep[e.g.][]{Tremonti2004}, whereby higher mass galaxies have undergone more cycles of stellar evolution and have been polluted with heavy elements created in stars and released in SNe. Thus, the mass of a host galaxy is inextricably linked to the metallicity of its hot gas. However, the nature of the DTD complicates matters, since stars of different ages were formed at different epochs where the galaxy had a different stellar mass and thus different metallicity. Therefore, there is not a direct correlation between the metallicity of SN Ia progenitors and their observed host galaxy stellar mass.  This caveat notwithstanding, it may be an expected consequence of the stipulations of e.g. \citet{Kistler2013} that the rate of SNe Ia is suppressed in the highest mass galaxies where the metallicity is highest, as is the case in our data. However, we would also expect to see this effect reversed at the low stellar mass end -- the rate should be enhanced in the lowest-mass, lowest-metallicity galaxies, yet instead we see a further suppression compared to the intermediate masses. Perhaps at low stellar mass, the effect of metallicity is negligible compared to the limitations of our SFH model.
+
+\section{The delay-time distribution as a function of supernova properties}
+\label{sec:split_x1_c}
+
+In the previous sections we have considered all SNe that passed the various quality, standardisation, and redshift cuts. However, it is well established that SNe Ia show correlations of varying strength between properties of their light curves and host galaxies. For example, measures of the light curve duration (e.g. decline rate $\Delta m_{15}$, or stretch such as SALT2 $x_1$) are known to correlate with host galaxy properties such as stellar mass \citep{Lampeitl2010,Sullivan2010}.
+
 
 
 \section{Conclusions}
