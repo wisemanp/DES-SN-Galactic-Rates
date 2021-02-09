@@ -181,9 +181,9 @@ Photometric redshifts are taken, where available, from the catalogue of \citet{H
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figs/SN_efficiencies.png}
-    \includegraphics[width=0.5\textwidth]{figs/SN_efficiencies.png}
-    \caption{SN detection efficiencies split up by DES field. The $y-$axis represents the fraction of simulated SNe in a given redshift bin that would have been detected by DES-SN and passed light curve quality cuts. The curves are capped at efficiencies around 0.5 because DES is restricted to $\sim6$ month observing seasons each calendar year.
+    %\includegraphics[width=0.5\textwidth]{figs/SN_efficiencies.png}
+    \includegraphics[width=0.5\textwidth]{figs/SN_efficiencies_z_x1_c.png}
+    \caption{ SN detection efficiencies split by DES-SN field, $x_1$ and $c$. The $y-$axis represents the fraction of simulated SNe in a given redshift bin that would have been detected by DES-SN and passed light curve quality cuts. Lines are polynomial fits that approximate the efficiency curves. 
     \label{fig:SN_efficiency}}
 \end{figure}
 
@@ -222,7 +222,7 @@ In order to refine the sample of host and field galaxies for the rate analysis w
     
     \item[viii)] galaxies must be brighter than $m_r \leq 24.5$, as this is the magnitude of the faintest SN host with a spectroscopic redshift.
     
-    \item[ix)] galaxies must be within the redshift range $0.2 \leq z \leq 0.8$.
+    \item[ix)] galaxies must be within the redshift range $0.2 \leq z \leq 0.6$ (see Section \ref{subsec:incompleteness_SNe} for an explanation of this cut).
 \end{enumerate}
 
 The numbers of SN hosts and field galaxies passing these cuts are listed in Table \ref{tab:cuts}. The final samples comprise 1204 SN host galaxies and 48,177 field galaxies. The volume-weighted mean redshifts are 0.65 and 0.63 for SNe and field galaxies, respectively.
@@ -249,8 +249,9 @@ To correct for these incompleteness, we follow a similar method to that used in 
 \end{equation}
 
 In practice, the gradient of the efficiency function is strongest between different DES fields and as a function of redshift, while SN stretch and colour have smaller effects. We integrate the efficiencies across the full simulated time range, and as such the efficiency is limited to $\sim 0.5$ due to the 6-month nature of the DES observing seasons.
-The distribution of efficiency as a function of redshift is shown in Figure \ref{fig:SN_efficiency}. It is evident that the deep fields (X3, C3) are sensitive to SNe at higher redshifts, while there is no drastic shifts between efficiencies in the eight shallow fields. 
+The distribution of efficiency as a function of redshift is shown in Figure \ref{fig:SN_efficiency}. It is evident that the deep fields (X3, C3) are sensitive to SNe at higher redshifts, while there is no drastic shifts between efficiencies in the eight shallow fields. There is evidence that the SN efficiency depends weakly on $x_1$ and more strongly on $c$, which is expected since the colour correction term is larger than the stretch correction term in the SN Ia standardisation formula \citep{Tripp1998}. Blue SNe are recovered more readily than red SNe as they are generally brighter. 
 
+The deep fields show non-zero efficiencies approaching $z=1$, whereas the shallow fields typically reach $z=0.8$. Since fractional uncertainty is large at such low efficiencies, we choose to make a redshift cut of $z=0.6$ where the efficiency is well above 0.1 in all fields. 
 
 \subsection{Supernova hosts \label{subsec:incompletenss_SN_hosts}}
 A further limiting factor in the SN host sample is the requirement of a spectroscopic redshift. The majority of SN host spectroscopic redshifts in DES are provided by the dedicated follow-up survey OzDES, for which the limiting magnitude is around 24 to 24.5 mag in the $r$ band. The rate at which a host redshift is successfully measured given an apparent magnitude has been extensively modelled by \citet{Vincenzi2020} who provide the spectroscopic redshift efficiency as a function of host $r$-band magnitude, host galaxy colour, and the year in which the SN was discovered in order to allow for a longer possible spectroscopic exposure time for hosts of SNe discovered earlier in the survey. So that we reduce any bias towards SNe in bright hosts that are easier to obtain spectroscopic redshifts for, we assign each SN in the sample described in Section \ref{subsec:host_sample} a weight equal to the inverse of the spectroscopic efficiency for its host. This is equivalent to assuming that an efficiency of 0.1 means that for every ten SNe with hosts at that magnitude, only 1 will make it into the sample.
