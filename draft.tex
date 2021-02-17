@@ -456,14 +456,6 @@ The majority of works in the field have constrained the DTD power-law slope, and
     \label{fig:rate_fitted_split_x1}}
 \end{figure}
 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_DTD_fit_beta_norm_Qerf1.1_split_c.png}
-    \caption{As per Fig. \ref{fig:rate_fitted} but with the data split by their colour parameter $c$.%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
-    \label{fig:rate_fitted_split_c}}
-\end{figure}
-
 \renewcommand{\arraystretch}{1.2}
 \begin{table}
 	\centering
@@ -504,6 +496,7 @@ The mass-metallicity relation (MZR) is a strong observed correlation between gal
 In the previous sections we have considered all SNe that passed the various quality, standardisation, and redshift cuts. However, it is well established that SNe Ia show correlations of varying strength between properties of their light curves and host galaxies. For example, measures of the light curve duration (e.g. decline rate $\Delta m_{15}$, or stretch such as SALT2 $x_1$) are known to correlate with host galaxy properties such as stellar mass \citep{Lampeitl2010,Sullivan2010} and specific SFR \citep{Rigault2018}. In this section we split the DES SNe Ia by their colour and stretch and assess how the measured rates and DTDs vary across this parameter space. To do so we split the sample into sub-samples with $x_1 = 0$ and $c=0$ as the divisions points respectively. We repeat the analyses of Sections \ref{sec:rates} and \ref{sec:model}, performing the DTD fitting with a fixed $t_{\mathrm{p}} = 40$~Myr, and present the results in Table \ref{tab:dtd_results_split_lc}.
 
 \subsection{Splitting by SN stretch \label{subsec:split_x1}}
+
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_DTD_fit_beta_norm_Qerf1.1_split_x1_fitjoint.png}
@@ -535,7 +528,17 @@ Despite the reasonable fit of the evolving population model, the fit to tardy SN
 
 One possibility is that sub-luminous SNe are more numerous in such predominantly old stellar populations, such that the fraction passing our light curve cuts is lower than the rest of the sample. Such a phenomenon could be caused by SN Ia sub-classes such as SN 1991bg-like SNe, which are known to explode exclusively in old environments \citep{Perets2010} at delay times as long as $>6$~Gyr \citep{Panther2019}. If the SN 1991bg-like objects are drawn from the same parent population of WDs as the "normal" SNe Ia, they could explain the lack thereof in the sample.
 
+\subsection{Splitting by SN colour \label{subsec:split_c}}
+\begin{figure}
+    \centering
+    \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_DTD_fit_beta_norm_Qerf1.1_split_c.png}
+    \caption{As per Fig. \ref{fig:rate_fitted_split_x1} but with the data split by their colour parameter $c$.%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \label{fig:rate_fitted_split_c}}
+\end{figure}
 
+In the previous section, we have showed that the slope of the SN Ia rate vs stellar mass relation is different for slow and fast declining supernovae. The same is for the most part not true for SNe with different colours (Fig. \ref{fig:rate_fitted_split_c}), with best fitting values of $\beta$ of $-1.19\pm0.09$ $-1.09\pm0.08$ for red ($c > 0$) and blue ($c<0$) SNe respectively. This lack of difference is in agreement with the findings of \citet{Sullivan2010}. Red SNe appear to have a higher normalisation than blue SNe, with roughly 30\% more red than blue SNe. This dominance can be explained by a single population of SNe with an intrinsic colour distribution that is Gaussian and centred on $c=0$ combined with an external dust distribution with an exponential form, systematically shifting the SN colour distribution to the red and causing the higher observed rate of those objects. Such a scenario has been proposed by \citet{Brout2020}. 
+
+The predictions from the DTD model diverge from the data at low stellar mass ($M_* <10^{9.25}$ M$_{\odot}$), where the rate becomes dominated by blue SNe. Although this is where the data is noisiest, it is worth investigating the possible causes of this divergence. A slight preference for SN to be bluer in lower-mass galaxies has been observed \citep{Scolnic2018,Brout2019,Smith2020,Kelsey2020} and could be the same effect seen at low stellar masses here. Physically, the dominance of blue SNe at low stellar masses could either be an intrinsic property of the SNe such as a hotter photosphere in explosions of younger, more massive progenitors, or an extrinsic effect such as a lower average dust column density in low-mass host galaxies. An intermediate explanation is that the SNe in low-mass hosts have a smaller dust column density in the immediate vicinity of the progenitor system, either due to the shorter evolutionary timescale or the higher mass and thus brighter system being less conducive to dust production. A detailed exploration of the effects of environment on SN colour will be presented in Kelsey et al. \textit{in prep}.
 
 \section{Conclusions}
 \label{sec:conclusion}
