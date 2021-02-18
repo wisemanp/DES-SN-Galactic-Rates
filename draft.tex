@@ -278,12 +278,6 @@ To correct for incompleteness caused by the magnitude limited nature of the surv
     \label{fig:rate_raw}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=.5\textwidth]{figs/SNuM.png}
-    \caption{SN Ia rate per unit stellar mass as function of galaxy stellar mass. Error bars are the same as Fig. \ref{fig:rate_raw}. SDSS data (orange squares) are taken from \citet{Graur2013}. The systematically higher SNuM in DES is likely caused by the higher redshift of the sample. }%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
-    \label{fig:snum}
-\end{figure}
 
 %\begin{figure}
 %    \centering
@@ -346,12 +340,18 @@ for each SN $i$ and galaxy $j$.
     \label{fig:rate_fitted}}
 \end{figure}
 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.5\textwidth]{figs/SNuM.png}
+    \caption{SN Ia rate per unit stellar mass as function of galaxy stellar mass. Error bars are the same as Fig. \ref{fig:rate_raw}. SDSS data (orange squares) are taken from \citet{Graur2013}. The systematically higher SNuM in DES is likely caused by the higher redshift of the sample. }%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \label{fig:snum}
+\end{figure}
 By binning both the SN hosts and field galaxies by their stellar mass we measure the mean SN Ia rate per galaxy as a function of stellar mass, $R_{\mathrm{G}}(M_*)$. We employ a bootstrap Monte-Carlo approach in order to estimate the uncertainty in the value of the rate in each stellar mass bin. The probability distribution function (PDF) of each galaxy's stellar mass is represented by the sum of two half Gaussian distributions to represent the asymmetric positive and negative uncertainties derived in the SED fitting stage (Section \ref{sec:data}). For each SN host and field galaxy, we take 100 samples of its stellar mass by drawing at random from its PDF. For each of the 100 samples we calculate the SN rate per galaxy in each stellar mass bin via Eq \ref{eq:rate1}, using the completeness-corrected values of $N_{\mathrm{SN}}$ and $N_{\mathrm{SN}}$ from Eqs. \ref{eq:corr_SN} and \ref{eq:corr_G} respectively. 
 
-The rate of SNe Ia per galaxy as a function of stellar mass is shown in Fig. \ref{fig:rate_raw}. The relationship between SN Ia rate and galaxy stellar mass is well described by a linear function in log space, which corresponds to a power law. To find the slope and intercept that best describe the data we use Bayesian inference. To sample the posterior we use the enhanced no-U-turn Sampler (NUTS) algorithm \citep{Betancourt2017}, which is a variant of Hamiltonian Monte-Carlo (HMC), implemented in the Stan programming language \citep{Carpenter2017}. We describe the fitting procedure in full detail in Appendix \ref{appendix:linear_fits}. We measure a slope of $0.70\pm0.02$, which is broadly consistent with the values found in SNLS and SDSS by \citet{Sullivan2006} and \citet{Smith2012} respectively. It is evident that the linear fit is not consistent with the data across the full range of stellar mass considered. In particular, there appear to be two locations of interest: firstly, the slope is steeper at masses lower than $10^9$ M$_{\odot}$; secondly there is an apparent flattening and possibly a turnover at masses around and above $10^{11}$ M$_{\odot}$. The most likely cause of these divergences is because the SN rate is driven by the SFH which is not a linear function of stellar mass (see Section \ref{sec:model}). Second order effects may also be important, and we address these in the following sections.
+The rate of SNe Ia per galaxy as a function of stellar mass is shown in Fig. \ref{fig:rate_raw}. The relationship between SN Ia rate and galaxy stellar mass is well described by a linear function in log space, which corresponds to a power law. To find the slope and intercept that best describe the data we use Bayesian inference. To sample the posterior we use the enhanced no-U-turn Sampler (NUTS) algorithm \citep{Betancourt2017}, which is a variant of Hamiltonian Monte-Carlo (HMC), implemented in the Stan programming language \citep{Carpenter2017}. We describe the fitting procedure in full detail in Appendix \ref{appendix:linear_fits}. We measure a slope of $0.63\pm0.02$, which is consistent with the value found in weakly star-forming galaxies in SNLS by \citet{Sullivan2006}, but also in passive galaxies in SDSS by \citet{Smith2012}, and in all galaxies in LOSS by \citet{Li2011a}. 
 
-\subsection{Rate per unit stellar mass \label{subsec:snum}}
-\textbf{short section showing SNUM and how it matches past results}
+A best fitting slope of less than unity (in log space) indicates a non-linear relationship between SN Ia rate and galaxy stellar mass. Indeed, the rate is instead likely to be driven by the DTD which is likely a non-linear function of stellar age. Investigating the shape of this DTD forms the basis for the latter part of this paper in Sections \ref{sec:model} and \ref{sec:split_x1_c}.
 
 \section{Modelling the per-galaxy rate of type Ia supernovae}
  \label{sec:model}
@@ -418,7 +418,7 @@ The result of our toy model is shown in Fig. \ref{fig:SFHs}. Galaxies with high 
 		 &$\beta$ & $A$ & $t_{\mathrm{p}}$\\
 		 &-       & $10^{-13}$ M$_{\odot}^{-1}$yr$^{-1}$ & Gyr \\
 		\hline
-		Fixed $t_{\mathrm{p}}$ & $-0.97_{-0.05}^{+0.05}$ &  $1.73_{-0.05}^{+0.05}$ & -\\
+		Fixed $t_{\mathrm{p}}$ & $-1.13\pm0.5$ &  $2.08 \pm 0.08$ & -\\
 		Free $t_{\mathrm{p}}$ & $-1.02 _{-0.11} ^{+0.08}$ & $1.86 _{-0.13} ^{+0.19}$ & $0.067 _{-0.023} ^{+0.043}$\\
 		Fixed $A$, $\beta$ & - & - & $0.047_{-0.007}^{+0.008}$\\
 		\hline
@@ -444,7 +444,7 @@ We measure a DTD power law index of $-1.14\pm0.05$. This value is consistent wit
 \subsubsection{The DTD normalisation \label{subsubsec:compare_A}}
 We measure a DTD normalisation (i.e. the rate of SNe 1 Gyr after star-formation) of $1.73 \pm 0.05 \times 10^{-13}$~M$_{\odot}^{-1}$~yr$^{-1}$. \citet{Graur2013} found a value of $7 \times 10^{-14}$~M$_{\odot}^{-1}$~yr$^{-1}$ using the SFH technique, whereas \citet{Heringer2019} report $7 \times 10^{-13}$~M$_{\odot}^{-1}$~yr$^{-1}$. These results lie either side of our measured value. \citet{Heringer2019} note that the normalisation recovered from the SFHR method is sensitive to the assumed prompt time $t_{\mathrm{p}}$, a degeneracy that is also apparent our method. 
 
-By integrating the normalised DTD over cosmic time, we obtain an estimate of the average SN Ia efficiency $N_{\mathrm{Ia}}/M_*$ which represents the number of SNe Ia formed per unit mass of stars formed. We measure $N_{\mathrm{Ia}}/M_* = 2.0~_{-1.6}^{+5.0} \times 10^{-3}~\mathrm{SNe}~\mathrm{M}_{\odot}^{-1}$. 
+By integrating the normalised DTD over cosmic time, we obtain an estimate of the average SN Ia efficiency $N_{\mathrm{Ia}}/M_*$ which represents the number of SNe Ia formed per unit mass of stars formed. We measure $N_{\mathrm{Ia}}/M_* = 0.9~_{-0.7}^{+4.0} \times 10^{-3}~\mathrm{SNe}~\mathrm{M}_{\odot}^{-1}$, which is consistent with \citet{Graur2011}, \citet{Maoz2011}, \citet{Perrets2012}, and \citet{Graur2013}
 
 
 
@@ -469,7 +469,7 @@ The majority of works in the field have constrained the DTD power-law slope, and
 		 Sample &$\beta$ & $A$ \\
 		 &-       & $10^{-13}$ M$_{\odot}^{-1}$yr$^{-1}$ \\
 		\hline
-		Fiducial & $-1.18\pm0.09$ &  $1.16\pm0.08$ \\
+		Fiducial & $-1.14\pm0.05$ &  $2.08\pm0.08$ \\
 	    $x_1 < 0$ & $-0.79\pm0.08$ &  $1.19 \pm0.05$ \\
 		$x_1 > 0$ & $-1.68 _{ -0.15} ^{ +0.14}$ & $0.51\pm0.12$ \\
 		$c < 0$ & $-1.09 _{ -0.07} ^{ +0.08}$ & $0.89\pm0.04$ \\
@@ -493,6 +493,9 @@ One possible cause of the discrepant SN Ia rate at high stellar mass is the effe
 
 The mass-metallicity relation (MZR) is a strong observed correlation between galaxy stellar mass and gas-phase metallicity \citep[e.g.][]{Tremonti2004}, whereby higher mass galaxies have undergone more cycles of stellar evolution and have been polluted with heavy elements created in stars and released in SNe. Thus, the mass of a host galaxy is inextricably linked to the metallicity of its hot gas. However, the nature of the DTD complicates matters, since stars of different ages were formed at different epochs where the galaxy had a different stellar mass and thus different metallicity. Therefore, there is not a direct correlation between the metallicity of SN Ia progenitors and their observed host galaxy stellar mass.  This caveat notwithstanding, it may be an expected consequence of the stipulations of e.g. \citet{Kistler2013} that the rate of SNe Ia is suppressed in the highest mass galaxies where the metallicity is highest, as is the case in our data.
 
+\subsection{Rate per unit stellar mass \label{subsec:snum}}
+
+An alternative view on how the rate of SNe relates to environment can be gained by calculated the rate of SNe per year per unit stellar mass: SNuM. A measurement of the SNuM is achieved by summing the number of SNe in each stellar mass bin, and dividing by the total stellar mass of field galaxies in that bin. We show the SNuM as a function of galaxy stellar mass in Fig.~ \ref{fig:snum}, along with the measurements from SNe discovered in SDSS spectra \citep{Graur2013} at $z\sim0.1$. We also calculate the SNuM predicuted by our model for each simulated galaxy at a range of redshifts and plot these as curves in Fig.~\ref{fig:snum}. Our model accurately recovers the SNuM measured in DES for the redshift and stellar mass range of the data. While the data from \citet{Graur2013} lies slightly higher than our model prediction, the difference is consistent with differences in assumed SFHs and stellar population templates as well as SN detection method.
 \section{The delay-time distribution as a function of supernova properties}
 \label{sec:split_x1_c}
 
