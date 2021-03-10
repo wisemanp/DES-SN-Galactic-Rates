@@ -1,7 +1,7 @@
 % mnras_template.tex 
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL ../../Writing/draft.tex                         Mon Mar  8 17:19:32 2021
-%DIF ADD ../../Writing/DES-SN-Galactic-Rates/draft.tex   Wed Mar 10 18:26:12 2021
+%DIF DEL ../draft.tex   Mon Mar  8 17:19:32 2021
+%DIF ADD draft.tex      Wed Mar 10 18:53:56 2021
 %
 % LaTeX template for creating an MNRAS paper
 %
@@ -59,7 +59,11 @@
 % Please keep new commands to a minimum, and use \newcommand not \def to avoid
 % overwriting existing commands. Example:
 %\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
-
+%DIF 59c59
+%DIF < 
+%DIF -------
+\defcitealias{Childress2014}{C14} %DIF > 
+%DIF -------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
@@ -175,7 +179,7 @@ et al.
 
 % Abstract of the paper
 \begin{abstract}
-We use a sample of 881 photometrically classified type Ia supernovae (SNe Ia) discovered by the Dark Energy Survey (DES) in the redshift range $0.2 < z <0.6$, along with 40415 field galaxies to calculate the rate of SNe Ia per galaxy. We recover the established positive trend of SN Ia rate as a function of galaxy stellar mass across a broad range of scales $8.5 \leq \log(M_*/\mathrm{M}_{\odot}) \leq 11.25$. We find that the SN Ia rate increases with stellar mass roughly linearly in log space, with a slope of $0.63 \pm 0.02$, which is consistent with previous work. We use an empirical model of stellar mass assembly to estimate the average star-formation histories (SFHs) of galaxies across the stellar mass range of our measurement. Combining the modelled SFHs with the SN Ia rates to estimate constraints on the SN Ia delay time distribution (DTD), we find the data are \DIFdelbegin \DIFdel{best fit }\DIFdelend \DIFaddbegin \DIFadd{fit well }\DIFaddend by a power-law DTD with index $\beta = -1.14 \pm 0.05$ and normalisation $A = 2.1 \pm0.05 \times 10^{-13}~\mathrm{SNe}~{\mathrm{M}_{\odot}}^{-1}~\mathrm{yr}^{-1}$. Upon splitting the SN sample by properties of the light curves, we find a strong dependence on DTD slope with the SN stretch parameter, with slower-declining SNe exhibiting a steeper DTD slope. We interpret this as a result of a relationship between stretch and progenitor age, and explore the \DIFdelbegin \DIFdel{inplications }\DIFdelend \DIFaddbegin \DIFadd{implications }\DIFaddend of the result in the context of SN Ia progenitors.
+We use a sample of 881 photometrically classified type Ia supernovae (SNe Ia) discovered by the Dark Energy Survey (DES) in the redshift range $0.2 < z <0.6$, along with 40415 field galaxies to calculate the rate of SNe Ia per galaxy. We recover the established positive trend of SN Ia rate as a function of galaxy stellar mass across a broad range of scales $8.5 \leq \log(M_*/\mathrm{M}_{\odot}) \leq 11.25$. We find that the SN Ia rate increases with stellar mass roughly linearly in log space, with a slope of $0.63 \pm 0.02$, which is consistent with previous work. We use an empirical model of stellar mass assembly to estimate the average star-formation histories (SFHs) of galaxies across the stellar mass range of our measurement. Combining the modelled SFHs with the SN Ia rates to estimate constraints on the SN Ia delay time distribution (DTD), we find the data are \DIFdelbegin \DIFdel{best fit }\DIFdelend \DIFaddbegin \DIFadd{fit well }\DIFaddend by a power-law DTD with index $\beta = -1.14 \pm 0.05$ and normalisation $A = 2.1 \pm0.05 \times 10^{-13}~\mathrm{SNe}~{\mathrm{M}_{\odot}}^{-1}~\mathrm{yr}^{-1}$\DIFaddbegin \DIFadd{, which correspond to an overall SN Ia production efficiency $N_{\mathrm{Ia}}/M_* = 0.9~_{-0.7}^{+4.0} \times 10^{-3}~\mathrm{SNe}~\mathrm{M}_{\odot}^{-1}$}\DIFaddend . Upon splitting the SN sample by properties of the light curves, we find a strong dependence on DTD slope with the SN stretch parameter, with slower-declining SNe exhibiting a steeper DTD slope. We interpret this as a result of a relationship between stretch and progenitor age, and explore the \DIFdelbegin \DIFdel{inplications }\DIFdelend \DIFaddbegin \DIFadd{implications }\DIFaddend of the result in the context of SN Ia progenitors.
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -216,7 +220,7 @@ for evidence of a progenitor for a type Iax SN). }\DIFaddend Conversely, it has 
 \citep[e.g.][]{Schaefer2012,Ruiz-Lapuente2018,Kerzendorf2018,Kerzendorf2019}}\hspace{0pt}%DIFAUXCMD
 . \mbox{%DIFAUXCMD
 \citet{Shen2018} }\hspace{0pt}%DIFAUXCMD
-discovered three high-velocity WDs consistent with models of double-detonation SNe Ia. However, without an unambiguous }\DIFaddend observation of a SN Ia progenitor system or remnant companion, there is as yet no direct evidence ruling out any progenitor channel from \DIFdelbegin \DIFdel{being }\DIFdelend \DIFaddbegin \DIFadd{providing }\DIFaddend a significant contribution to the total population of SNe Ia.
+discovered three high-velocity WDs consistent with models of double-degenerate, double-detonation SNe Ia. However, without an unambiguous }\DIFaddend observation of a SN Ia progenitor system or remnant companion, there is as yet no direct evidence ruling out any progenitor channel from \DIFdelbegin \DIFdel{being }\DIFdelend \DIFaddbegin \DIFadd{providing }\DIFaddend a significant contribution to the total population of SNe Ia.
 
 Another method of inferring progenitor channels is the study of the SN Ia delay time distribution (DTD). The DTD describes the rate at which SNe Ia occur as a function of the delay time $\tau$ since an episode of star-formation, and thus carries characteristic signatures of the progenitor channel (see \citealt{Wang2012} for a review \DIFdelbegin \DIFdel{). While the SD scenario is able to produce }\DIFdelend \DIFaddbegin \DIFadd{of the theory, and \mbox{%DIFAUXCMD
 \citet{Maoz2017} }\hspace{0pt}%DIFAUXCMD
@@ -245,27 +249,45 @@ Instead of comparing \textit{volumetric} rates to the \textit{cosmic} SFH, it is
 }\DIFaddend estimated the DTD by measuring SFHs for a sample of field galaxies and comparing them to the number of SNe detected in each galaxy (the SFHR method), and have led to results that suggest a DTD power law with $\beta$ consistent with $-1$\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
 \citep[e.g.][]{Maoz2011,Graur2013}}\hspace{0pt}%DIFAUXCMD
 . 
+\mbox{%DIFAUXCMD
+\citet{Childress2014} }\hspace{0pt}%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{. 
 }
 
-\DIFaddend \citet{Childress2014} showed that the $A+B$ \DIFdelbegin \DIFdel{parameterisation }\DIFdelend \DIFaddbegin \DIFadd{approximation }\DIFaddend arises as a direct consequence of the combination of a power-law DTD with the average SFHs of galaxies \DIFaddbegin \DIFadd{-- the prompt component proportional to the amount of on-going star-formation at the epoch of observation, and the tardy component caused by the fact that massive galaxies experienced high SFRs several Gyrs ago}\DIFaddend . The recent advances of integral field spectroscopy (IFS) allows for an extension of the SFHR method, by reconstructing the SFH for hundreds or thousands of local regions of each SN Ia host galaxy. Using this method, \citet{Castrillo2020} find a power-law slope of $-1.1\pm0.3$, while \citet{Chen2021} find $-1.4\pm0.3$.
+\DIFadd{\mbox{%DIFAUXCMD
+\citet[][hereafter C14]{Childress2014} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend showed that the $A+B$ \DIFdelbegin \DIFdel{parameterisation }\DIFdelend \DIFaddbegin \DIFadd{approximation }\DIFaddend arises as a direct consequence of the combination of a power-law DTD with the average SFHs of galaxies \DIFaddbegin \DIFadd{-- the prompt component proportional to the amount of on-going star-formation at the epoch of observation, and the tardy component caused by the fact that massive galaxies experienced high SFRs several Gyrs ago}\DIFaddend . The recent advances of integral field spectroscopy (IFS) allows for an extension of the SFHR method, by reconstructing the SFH for hundreds or thousands of local regions of each SN Ia host galaxy. Using this method, \citet{Castrillo2020} find a power-law slope of $-1.1\pm0.3$, while \citet{Chen2021} find $-1.4\pm0.3$.
 
-\DIFdelbegin \DIFdel{While the majority of observations based on populations point }\DIFdelend \DIFaddbegin \DIFadd{The majority of observational evidence based on studies of SN Ia populations thus points }\DIFaddend towards a DD scenario for most, if not all, SNe Ia\DIFaddbegin \DIFadd{. However}\DIFaddend , finding self-consistent explosion models that recreate the observed luminosity function as well as correlations between luminosity, light curve parameters, and host galaxy properties has proven difficult. In particular, simulations based around explosions of $M_{\mathrm{Ch}}$ WDs fail to \DIFdelbegin \DIFdel{reproduced }\DIFdelend \DIFaddbegin \DIFadd{reproduce }\DIFaddend the observed relationship between SN luminosity and light curve duration \DIFdelbegin \DIFdel{(the Phillips relation; \mbox{%DIFAUXCMD
+\DIFdelbegin \DIFdel{While the majority of observations based on populations point }\DIFdelend \DIFaddbegin \DIFadd{The majority of observational evidence based on studies of SN Ia populations thus points }\DIFaddend towards a DD scenario for most, if not all, SNe Ia\DIFaddbegin \DIFadd{. However}\DIFaddend , finding self-consistent \DIFaddbegin \DIFadd{progenitor and }\DIFaddend explosion models that recreate the observed luminosity function as well as correlations between luminosity, light curve parameters, and host galaxy properties has proven difficult. In particular, simulations based around explosions of $M_{\mathrm{Ch}}$ WDs \DIFdelbegin \DIFdel{fail to reproduced the observed relationship between SN luminosity and light curve duration (the Phillips relation; \mbox{%DIFAUXCMD
 \citealt{Phillips1993}}\hspace{0pt}%DIFAUXCMD
-) }\DIFdelend as well as \DIFdelbegin \DIFdel{low-luminosity }\DIFdelend "peculiar" objects \DIFdelbegin \DIFdel{known as SN 1991bg-like SNe }\DIFdelend \citep{Sim2013,Blondin2017}. In recent years, attention \DIFdelbegin \DIFdel{focussed on }\DIFdelend \DIFaddbegin \DIFadd{directed towards }\DIFaddend explosions of sub-$M_{\mathrm{Ch}}$ WDs triggered by double detonations has led to promising results \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+) }\DIFdelend \DIFaddbegin \DIFadd{(linked strongly with the SD scenario but also with many DD scenarios) find difficulty in reproducing the light curves of "normal" SNe Ia }\DIFaddend as well as \DIFdelbegin \DIFdel{low-luminosity }\DIFdelend "peculiar" objects \DIFdelbegin \DIFdel{known as SN 1991bg-like SNe \mbox{%DIFAUXCMD
+\citep{Sim2013,Blondin2017}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{(\mbox{%DIFAUXCMD
+\citealt{Ropke2007,Sim2013,Blondin2017}}\hspace{0pt}%DIFAUXCMD
+; see \mbox{%DIFAUXCMD
+\citealt{Maoz2014,Jha2019} }\hspace{0pt}%DIFAUXCMD
+for overviews)}\DIFaddend . In recent years, attention \DIFdelbegin \DIFdel{focussed on }\DIFdelend \DIFaddbegin \DIFadd{directed towards }\DIFaddend explosions of sub-$M_{\mathrm{Ch}}$ WDs triggered by double detonations \DIFaddbegin \DIFadd{(primarily related to a DD scenario) }\DIFaddend has led to promising results \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
 \citep[e.g.][]{Chen2017,Chen2018,Townsley2019,Gronow2020}}\hspace{0pt}%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
 \citep[e.g.][]{Shen2017,Shen2018,Townsley2019,Gronow2020,Shen2021} }\hspace{0pt}%DIFAUXCMD
 although they still struggle to match observations at late times in the light curve evolution \mbox{%DIFAUXCMD
 \citep{Shen2021,Gronow2021}}\hspace{0pt}%DIFAUXCMD
-}\DIFaddend . An additional factor in support of the double-detonation model is that the SN luminosity is related to the mass of the primary WD\DIFdelbegin \DIFdel{which can }\DIFdelend \DIFaddbegin \DIFadd{, which itself is likely to }\DIFaddend be related to its age \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{(although this relation is probably complicated by other factors such as accretion rate, metallicity, and the composition of the companion), }\DIFaddend thereby providing an explanation for observed relation between light curve stretch and stellar age \citep{Rigault2013,Rigault2018,Nicolas2020}.
+}\DIFaddend . An additional factor in support of the double-detonation model is that the SN luminosity is related to the mass of the primary WD\DIFdelbegin \DIFdel{which can }\DIFdelend \DIFaddbegin \DIFadd{, which itself is likely to }\DIFaddend be related to its age \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{(although this relation is probably complicated by other factors such as accretion rate, metallicity, and the composition of the companion), }\DIFaddend thereby providing an explanation for observed relation between light curve stretch and stellar age \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{Rigault2013,Rigault2018,Nicolas2020}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{Rigault2013,Rigault2018,Rose2019,Nicolas2020}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddend .
 
 
 
-In this work, we combine parts of the traditional methods and derive a new \DIFdelbegin \DIFdel{, independent }\DIFdelend measurement of the SN Ia DTD. Instead of measuring the volumetric rate of SNe Ia, we measure the rate per galaxy as a function of stellar mass, as per \citet{Sullivan2006,Smith2012}. We use the stellar mass assembly model of \citet{Childress2014} to predict the stellar age distribution of galaxies for a given stellar mass at the mean redshift of our SN sample, and then forward model the DTD by convolving it with the stellar age distribution and comparing the predicted rates to the observed rates.
+In this work, we combine parts of the traditional methods and derive a new \DIFdelbegin \DIFdel{, independent }\DIFdelend measurement of the SN Ia DTD. Instead of measuring the volumetric rate of SNe Ia, we measure the rate per galaxy as a function of stellar mass, as per \citet{Sullivan2006,Smith2012}. We use the stellar mass assembly model of \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citet{Childress2014} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citetalias{Childress2014} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend to predict the stellar age distribution of galaxies for a given stellar mass at the mean redshift of our SN sample, and then forward model the DTD by convolving it with the stellar age distribution and comparing the predicted rates to the observed rates.
 
-\DIFdelbegin \DIFdel{We introduce the SN host and field galaxy samples in Section \ref{sec:data} and describe our }\DIFdelend \DIFaddbegin \DIFadd{In Section \ref{sec:data} we introduce our large sample of SNe Ia from the Dark Energy Survey as well as our deep sample of field galaxies. We describe our detailed }\DIFaddend handling of incompleteness in Section \ref{sec:incompleteness}. We present the SN Ia rate per galaxy in Section \ref{sec:rates}. We outline \DIFdelbegin \DIFdel{the }\DIFdelend \DIFaddbegin \DIFadd{our }\DIFaddend modelling of star-formation histories and \DIFaddbegin \DIFadd{our novel }\DIFaddend measurement of the \DIFaddbegin \DIFadd{power-law }\DIFaddend DTD in Section \ref{sec:model}. In Section \ref{sec:split_x1_c} we investigate how the DTD differs among sub-populations of SNe with different light curve characteristics\DIFaddbegin \DIFadd{, in particular the stretch, and show stretch to be strongly dependent on progenitor age}\DIFaddend . We conclude in Section \ref{sec:conclusion} \DIFaddbegin \DIFadd{by discussing the implications of the result}\DIFaddend .
-Where relevant, we assume a spatially flat $\Lambda$CDM cosmology with $\Omega_m = 0.3$ and $H_0 = 70 \mathrm{ km s}^{-1}\mathrm{Mpc}^{-1}$. Unless otherwise stated, we assume Gaussian measurement uncertainties quoted at the $1\sigma$ level, and we quote $1\sigma$ credible intervals on derived parameters. Magnitudes are quoted in the AB system \citep{Oke1983}.
+\DIFdelbegin \DIFdel{We introduce the SN host and field galaxy samples in Section \ref{sec:data} and describe our handling of }\DIFdelend \DIFaddbegin \DIFadd{In Section \ref{sec:data} we introduce our large sample of SNe Ia from the Dark Energy Survey (DES) as well as our deep sample of field galaxies that provide an effectively complete control sample from which to measure the rate. We describe our detailed handling of SN and galaxy }\DIFaddend incompleteness in Section \ref{sec:incompleteness}. We present the SN Ia rate per galaxy in Section \ref{sec:rates} \DIFaddbegin \DIFadd{and show that it is consistent with previous works}\DIFaddend . We outline \DIFdelbegin \DIFdel{the }\DIFdelend \DIFaddbegin \DIFadd{our }\DIFaddend modelling of star-formation histories and \DIFaddbegin \DIFadd{our novel }\DIFaddend measurement of the \DIFaddbegin \DIFadd{power-law }\DIFaddend DTD in Section \ref{sec:model}. In Section \ref{sec:split_x1_c} we investigate how the DTD differs among sub-populations of SNe with different light curve characteristics\DIFaddbegin \DIFadd{, in particular the stretch, and show stretch to be strongly dependent on progenitor age}\DIFaddend . We conclude in Section \ref{sec:conclusion} \DIFaddbegin \DIFadd{by discussing the implications of the results}\DIFaddend .
+Where relevant, we assume a spatially flat $\Lambda$CDM cosmology with $\Omega_m = 0.3$ and $H_0 = 70 \mathrm{ km s}^{-1}\mathrm{Mpc}^{-1}$. Unless otherwise stated, we assume Gaussian measurement uncertainties quoted at the $1\sigma$ level, and we quote \DIFaddbegin \DIFadd{the posterior median and }\DIFaddend $1\sigma$ credible intervals on derived parameters. Magnitudes are quoted in the AB system \citep{Oke1983}.
 
 
 \begin{table}
@@ -308,11 +330,19 @@ The \DIFdelbegin \DIFdel{DES }\DIFdelend \DIFaddbegin \DIFadd{Dark Energy Survey
 ), which comprises galaxies targetted as DES-SN hosts with the OzDES programme as well as redshifts from legacy catalogues in the DES-SN fields.
 }\DIFaddend \subsection{Supernovae \label{subsec:host_sample}}
 \subsubsection{Photometric classification and quality cuts \label{subsubsec:sn_classify}}
-With over 30,000 transients passing ML \DIFdelbegin \DIFdel{cuts }\DIFdelend \DIFaddbegin \DIFadd{selection }\DIFaddend it was not possible to obtain spectral follow up of every object. Instead we make use of photometric classification in the form of the recurrent neural network classifier \texttt{superNNova} (SNN; \citealt{Moller2019}), mirroring the approach of \citet{Scolnic2020}. We train SNN using a large suite of simulated multi-band SN light curves. \textbf{Waiting on final sample and a few words from Maria/Anais to complete this bit.} SNe Ia are simulated based on the \texttt{SALT2} model \citep{Guy2007} trained on the Joint Lightcurve Analysis (JLA) data set \citep{Betoule2014}. \DIFdelbegin \DIFdel{CCSNe }\DIFdelend \DIFaddbegin \DIFadd{Synthetic CCSNe light curves }\DIFaddend are generated from the templates of \citet{Vincenzi2019}. \DIFdelbegin \DIFdel{We select }\DIFdelend \DIFaddbegin \DIFadd{Given the training set of synthetic light curves, SNN is able to return a classification for observed light curves. Before classifying, we remove transients with variability in multiple seasons (likely active galactic nuclei or superluminous SNe). SNN is then run on every transient with a host galaxy redshift (see Section \ref{subsubsec:sn_hosts}). We define }\DIFaddend SNe with a threshold probability of $P(\mathrm{Ia})\geq0.5$ \DIFaddbegin \DIFadd{as photometrically classified SNe Ia, although our analysis is not sensitive to this choice}\DIFaddend , \DIFdelbegin \DIFdel{although the results of this analysis are insensitive to the choiceof threshold, }\DIFdelend since the vast majority of SNe receive classifications close to 1 or \DIFdelbegin \DIFdel{0. }\DIFdelend \DIFaddbegin \DIFadd{0 \mbox{%DIFAUXCMD
+With over 30,000 transients passing ML \DIFdelbegin \DIFdel{cuts }\DIFdelend \DIFaddbegin \DIFadd{selection }\DIFaddend it was not possible to obtain spectral follow up of every object. Instead we make use of photometric classification in the form of the recurrent neural network classifier \texttt{superNNova} (SNN; \citealt{Moller2019}), \DIFdelbegin \DIFdel{mirroring }\DIFdelend \DIFaddbegin \DIFadd{foloowing }\DIFaddend the approach of \citet{Scolnic2020}. \DIFaddbegin \DIFadd{A full description of the training and fitting of SNN will be presented in Vincenzi et al. }\textit{\DIFadd{in prep}} \DIFadd{and M\"{o}ller et al. }\textit{\DIFadd{in prep}}\DIFadd{; we provide a brief overview here.
+}
+
+\DIFaddend We train SNN using a large suite of simulated multi-band SN light curves. \DIFdelbegin \textbf{\DIFdel{Waiting on final sample and a few words from Maria/Anais to complete this bit.}} %DIFAUXCMD
+\DIFdelend SNe Ia are simulated based on the \texttt{SALT2} model \citep{Guy2007} trained on the Joint Lightcurve Analysis (JLA) data set \citep{Betoule2014}. \DIFdelbegin \DIFdel{CCSNe }\DIFdelend \DIFaddbegin \DIFadd{Synthetic CCSNe light curves }\DIFaddend are generated from the templates of \citet{Vincenzi2019}. \DIFdelbegin \DIFdel{We select }\DIFdelend \DIFaddbegin \DIFadd{Given the training set of synthetic light curves, SNN is able to return a classification for observed light curves. Before classifying, we remove transients with variability in multiple seasons (likely active galactic nuclei or superluminous SNe). SNN is then run on every transient with a host galaxy redshift (see Section \ref{subsubsec:sn_hosts}). We define }\DIFaddend SNe with a threshold probability of $P(\mathrm{Ia})\geq0.5$ \DIFaddbegin \DIFadd{as photometrically classified SNe Ia, although our analysis is not sensitive to this choice}\DIFaddend , \DIFdelbegin \DIFdel{although the results of this analysis are insensitive to the choiceof threshold, }\DIFdelend since the vast majority of SNe receive classifications close to 1 or \DIFdelbegin \DIFdel{0. }\DIFdelend \DIFaddbegin \DIFadd{0 \mbox{%DIFAUXCMD
 \citep{Moller2019}}\hspace{0pt}%DIFAUXCMD
-. }\DIFaddend The photometrically classified SNe Ia are then passed through the \texttt{SALT2} framework light curve fitter and are subject to quality cuts on the light curve width (stretch; $x_1$) and colour ($c$) parameters in an identical manner to \citet{Vincenzi2020}: $-3 \leq x_1 \leq 3$, $-0.3 \leq c \leq 0.3$. \DIFdelbegin \DIFdel{These cuts help }\DIFdelend \DIFaddbegin \DIFadd{This selection helps }\DIFaddend to reduce the potential contamination from core-collapse SNe (CCSNe) and outlying thermonuclear SNe. We impose further cuts on the quality of those measured parameters, which are: the uncertainty on $x_1$: $\sigma_{x_1} <1$; the uncertainty on the date at which the light curve peaked: $\sigma_{t_{\mathrm{peak}}} <2$; the SALT2 fit probability $>0.001$. \DIFaddbegin \DIFadd{The number of SNe passing each stage of these cuts is displayed in Table 2 of \mbox{%DIFAUXCMD
+. }\DIFaddend The photometrically classified SNe Ia are then passed through the \texttt{SALT2} framework light curve fitter and are subject to quality cuts on the light curve width (stretch; $x_1$) and colour ($c$) parameters in an identical manner to \citet{Vincenzi2020}: $-3 \leq x_1 \leq 3$, $-0.3 \leq c \leq 0.3$. \DIFdelbegin \DIFdel{These cuts help }\DIFdelend \DIFaddbegin \DIFadd{This selection helps }\DIFaddend to reduce the potential contamination from core-collapse SNe (CCSNe) and outlying thermonuclear SNe. We impose further cuts on the quality of those measured parameters, which are: the uncertainty on $x_1$: $\sigma_{x_1} <1$; the uncertainty on the date at which the light curve peaked: $\sigma_{t_{\mathrm{peak}}} <2$; the SALT2 fit probability \DIFdelbegin \DIFdel{$>0.001$. }\DIFdelend \DIFaddbegin \DIFadd{$>0.01$. The number of SNe passing each stage of these cuts is displayed in Table 2 of \mbox{%DIFAUXCMD
 \citet{Vincenzi2020} }\hspace{0pt}%DIFAUXCMD
-and reduces the $\sim30,000$ objects to 1604 SNe. With the addition of the photometric classifier we are left with 1441 SNe with which we proceed to inspect their host galaxies.
+and reduces the $\sim30,000$ objects to 1604 SNe. With the addition of the photometric classifier we are left with 1441 SNe with which we proceed to inspect their host galaxies. While the inclusion of stringent cuts significantly reduces the size of the sample, it greatly enhances the purity and is in line with previous rates analyses of this nature \mbox{%DIFAUXCMD
+\citep{Sullivan2006} }\hspace{0pt}%DIFAUXCMD
+as well as being consistent with other DES-SN analyses \mbox{%DIFAUXCMD
+\citep[e.g.][]{Kelsey2021}}\hspace{0pt}%DIFAUXCMD
+.
 }\DIFaddend 
 
 \subsubsection{Host galaxy selection \label{subsubsec:sn_hosts}}
@@ -419,7 +449,7 @@ The numbers of SN hosts and field galaxies passing these cuts are listed in Tabl
 We estimate global galaxy properties for both the SN host and field galaxies that pass the quality cuts by fitting the photometry with stellar population templates in a method outlined by \citet{Sullivan2006} and consistent to that used in previous DES-SN analyses \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
 \citep{Kelsey2020,Smith2020,Wiseman2020}}\hspace{0pt}%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-\citep{kelsey2021,Smith2020,Wiseman2020}}\hspace{0pt}%DIFAUXCMD
+\citep{Kelsey2021,Smith2020,Wiseman2020}}\hspace{0pt}%DIFAUXCMD
 }\DIFaddend . For SN hosts the redshift is fixed at the spectroscopically determined value, while for field galaxies we fix it at either the spectroscopic value if one exists in the OzDES GRC, or more commonly the photometrically derived value. We use the stellar population templates of \citet{Bruzual2003} and adopt a \citet{Chabrier2003} initial mass function (IMF). The fitting procedure returns a best fitting template and corresponding stellar mass ($M_*$). Upper and lower bounds on stellar mass estimates are taken as the \DIFdelbegin \DIFdel{largest and smallest values of a given parameter for which the reduced }\DIFdelend \DIFaddbegin \DIFadd{extrema in the model parameters that are consistent with the data (given the photometric uncertainties) according to their }\DIFaddend $\chi^2$ \DIFdelbegin \DIFdel{parameter corresponds to $\chi^2_{\mathrm{red, min}} +2.3$}\DIFdelend \DIFaddbegin \DIFadd{statistic, as per \mbox{%DIFAUXCMD
 \citet{Sullivan2006}}\hspace{0pt}%DIFAUXCMD
 }\DIFaddend . To check that the choice of templates \DIFdelbegin \DIFdel{do }\DIFdelend \DIFaddbegin \DIFadd{does }\DIFaddend not bias the result, we also fit the galaxies using the P\'EGASE.2 templates \citep{Fioc1997,LeBorgne2002} and a \citet{Kroupa2001} IMF, and find results consistent within measurement uncertainties. This is consistent with the findings of \citet{Smith2020}. 
@@ -456,8 +486,10 @@ As we use photometric, rather than spectroscopic, redshifts for the field galaxi
 \DIFaddbegin 
 
 \DIFaddend Completeness I, II, and III show that for surveys with sharp, well defined magnitude limits the test statistics $T_{\mathrm{C}}$ and $T_{\mathrm{V}}$ drop sharply. The DES deep stacks present a more challenging case. They cover a wide area and are compiled from tens of separate CCDs, each with its own detection efficiency. Moreover, galaxy redshifts have been estimated using photometry only, and $K$-corrections performed using an imperfect template fit, potentially leading to large systematic and statistical fluctuations in absolute magnitudes and distance moduli. To reduce the inhomogeneity while still including  large sample of objects, we \DIFdelbegin \DIFdel{split the sample into the deep (X3) and shallow (E2) fields and calculate limiting magnitudes separately}\DIFdelend \DIFaddbegin \DIFadd{limit our sample to include only data from one deep (SN-X3) field}\DIFaddend . Fig. \ref{fig:completeness} shows the values of $T_{\mathrm{C}}$ and $T_{\mathrm{V}}$. The values of the test statistics increase with $m_{\mathrm{lim, trial}}$ until a peak, before decreasing to stable values at magnitudes far beyond the limit of the survey. The shape at brighter $m_{\mathrm{lim, trial}}$ is likely caused by incompleteness at the bright end: due to the small sky area, we simply do not probe enough volume to sample the bright end of the galaxy luminosity function well enough for the statistics to be robust. To approximate an efficiency function, we fit the peak of the statistics with a polynomial function, and then normalise by the maximum and minimum values. We then interpolate between the peak and the faint-magnitude floor to find the 50\% completeness limit at the point where the normalised value of the test statistic is 0.5. These values are consistent with the value at which 50\% of the true sources are detected but have the advantage of being derived from the data without a simulation that is based on assumptions and thus susceptible to bias.
+\DIFdelbegin %DIFDELCMD < 
 
-\subsubsection{$V_{\mathrm{max}}$ correction \label{subsubsec:vmax_corr}}
+%DIFDELCMD < %%%
+\DIFdelend \subsubsection{$V_{\mathrm{max}}$ correction \label{subsubsec:vmax_corr}}
 
 To correct for incompleteness caused by the magnitude limited nature of the survey we follow the prescription of e.g. \citet{Sullivan2006} and \citet{Smith2012} by using a $V_{\mathrm{max}}$ method based on \citet{Schmidt1968}. For each galaxy in the sample we calculate the maximum volume within which it would have been observed given its absolute magnitude and $k-$correction. A correction of $V_{\mathrm{survey}}/V_{\mathrm{max}}$ is applied to all galaxies for which $V_{\mathrm{max}} < V_{\mathrm{survey}}$, where $V_{\mathrm{survey}}$ is the maximum volume reached by the survey. In our case this corresponds to the volume at $z=0.8$. Fig \ref{fig:vmax_field} shows the distribution of the correction among galaxies in the sample. The vast majority of galaxies require no correction, meaning they would have been observed beyond the maximum volume considered. Roughly 1\% of objects have a correction greater than 1, with the distribution well described by a power-law function.
 
@@ -467,7 +499,8 @@ To correct for incompleteness caused by the magnitude limited nature of the surv
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_all.png}
-    \caption{The rate per galaxy of SNe Ia as a function of stellar mass. Horizontal error bars represent the width of the stellar mass bins. Vertical error bars are estimated via a Monte-Carlo resampling of the rate given the uncertainties in stellar mass. The linear fit is based on all but the lowest and highest mass bins, and takes into account uncertainties in the rate.}%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \caption{The rate per galaxy of SNe Ia as a function of stellar mass. Horizontal error bars represent the width of the stellar mass bins. Vertical error bars are estimated via a Monte-Carlo resampling of the rate given the uncertainties in stellar mass. The linear fit is based on all but the lowest and highest mass bins, and takes into account uncertainties in the rate.}%DIF < The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    %DIF > The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
     \label{fig:rate_raw}
 \end{figure}
 
@@ -475,7 +508,8 @@ To correct for incompleteness caused by the magnitude limited nature of the surv
 %\begin{figure}
 %    \centering
 %    \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_split_sfr.png}
-%    \caption{The rate per galaxy of SNe Ia as a function of stellar mass for moderately and highly star-forming galaxies, as well as passive galaxies.}%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+%DIF <     \caption{The rate per galaxy of SNe Ia as a function of stellar mass for moderately and highly star-forming galaxies, as well as passive galaxies.}%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+%DIF >     \caption{The rate per galaxy of SNe Ia as a function of stellar mass for moderately and highly star-forming galaxies, as well as passive galaxies.}%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
 %    \label{fig:rate_raw_split_sfr}
 %\end{figure}
 %%% MODEL %%%
@@ -483,7 +517,11 @@ To correct for incompleteness caused by the magnitude limited nature of the surv
 \begin{figure*}
     \centering
     \includegraphics[width=\textwidth]{figs/SFHs_colour.png}
-    \caption{The stellar mass assembly of the Universe as prescribed by the toy model of \citet{Childress2014}. Galaxies with high stellar mass at $z=0$ formed the majority of their stars in the distant past, while lower-mass galaxies are still actively star forming in the present day.}
+    \caption{The stellar mass assembly of the Universe as prescribed by the toy model of \DIFdelbeginFL \DIFdelFL{\mbox{%DIFAUXCMD
+\citet{Childress2014}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{\mbox{%DIFAUXCMD
+\citetalias{Childress2014}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddendFL . Galaxies with high stellar mass at $z=0$ formed the majority of their stars in the distant past, while lower-mass galaxies are still actively star forming in the present day.}
     \label{fig:SFHs}
 \end{figure*}
 
@@ -492,7 +530,7 @@ To correct for incompleteness caused by the magnitude limited nature of the surv
     \includegraphics[width=.5\textwidth]{figs/CSFH_MD14.png}
     \caption{\DIFaddFL{Cosmic star-formation history (CSFH) as approximated by our model (cyan curve) and as a best fit to observations \mbox{%DIFAUXCMD
 \citep{Madau2014}}\hspace{0pt}%DIFAUXCMD
-.}}%DIF > The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+.}}%DIF > The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
     \label{fig:csfh}
 \end{figure}
 
@@ -524,7 +562,8 @@ for each SN $i$ and galaxy $j$.
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{figs/beta_A_Qerf1.1_corner_All.png}
-    \caption{Posterior distributions for DTD slope $\beta$ and normalisation $A$. Displayed point estimates represent the median of the posterior samples.%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \caption{Posterior distributions for DTD slope $\beta$ and normalisation $A$. Displayed point estimates represent the median of the posterior samples.%DIF < The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    %DIF > The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
     \label{fig:corner_beta_norm}}
 \end{figure}
 
@@ -532,7 +571,8 @@ for each SN $i$ and galaxy $j$.
     \centering
     \includegraphics[width=.5\textwidth]{figs/beta_A_tp_Qerf1.1_corner.png}
     \caption{Posterior distributions for DTD parameters $\beta$, $A$, and $t_{\mathrm{p}}$. We display the log of $A$ for clarity. Displayed point estimates represent the median of the posterior samples.
-    %The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    %DIF < The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    %DIF > The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
     \label{fig:corner_beta_norm_tp}}
 \end{figure}
 
@@ -540,7 +580,8 @@ for each SN $i$ and galaxy $j$.
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_DTD_fit_beta_norm_Qerf1.1.png}
-    \caption{Rate per galaxy of SNe Ia as a function of stellar mass (green points) along with the prediction from the best fitting DTD parameters $\beta$, $A$, and $t_{\mathrm{p}}$ forward modelled through Eq. \ref{eq:galaxy_rate}. Samples from the posterior distribution of the model log rate are drawn in cyan while the black dashed line is the mean of the posterior.%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \caption{Rate per galaxy of SNe Ia as a function of stellar mass (green points) along with the prediction from the best fitting DTD parameters $\beta$, $A$, and $t_{\mathrm{p}}$ forward modelled through Eq. \ref{eq:galaxy_rate}. Samples from the posterior distribution of the model log rate are drawn in cyan while the black dashed line is the mean of the posterior.%DIF < The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    %DIF > The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
     \label{fig:rate_fitted}}
 \end{figure}
 
@@ -548,7 +589,8 @@ for each SN $i$ and galaxy $j$.
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{figs/SNuM.png}
-    \caption{SN Ia rate per unit stellar mass as function of galaxy stellar mass. Error bars are the same as Fig. \ref{fig:rate_raw}. SDSS data (orange squares) are taken from \citet{Graur2013}. The systematically higher SNuM in DES is caused by the higher redshift of the sample, as illustrated by the DTD model prediction (coloured curves) }%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \caption{SN Ia rate per unit stellar mass as function of galaxy stellar mass. Error bars are the same as Fig. \ref{fig:rate_raw}. SDSS data (orange squares) are taken from \citet{Graur2013}. The systematically higher SNuM in DES is caused by the higher redshift of the sample, as illustrated by the DTD model prediction (coloured curves) }%DIF < The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    %DIF > The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
     \label{fig:snum}
 \end{figure}
 By binning both the SN hosts and field galaxies by their stellar mass we measure the mean SN Ia rate per galaxy as a function of stellar mass, $R_{\mathrm{G}}(M_*)$. We employ a bootstrap Monte-Carlo approach in order to estimate the uncertainty in the value of the rate in each stellar mass bin. The probability distribution function (PDF) of each galaxy's stellar mass is represented by the sum of two half Gaussian distributions to represent the asymmetric positive and negative uncertainties derived in the SED fitting stage (Section \ref{sec:data}). For each SN host and field galaxy, we take 100 samples of its stellar mass by drawing at random from its PDF. For each of the 100 samples we calculate the SN rate per galaxy in each stellar mass bin via Eq \ref{eq:rate1}, using the completeness-corrected values of $N_{\mathrm{SN}}$ and \DIFdelbegin \DIFdel{$N_{\mathrm{SN}}$ }\DIFdelend \DIFaddbegin \DIFadd{$N_{\mathrm{G}}$ }\DIFaddend from Eqs. \ref{eq:corr_SN} and \ref{eq:corr_G} respectively. 
@@ -587,7 +629,11 @@ Instead of determining individual SFHs for each galaxy in our field sample, we u
 
 \subsection{Modelling the star formation histories of galaxies \label{subsec:method_sfh}}
 
-To model the SFH of galaxies as a function of their stellar mass we adopt the prescription of stellar mass assembly of \citet{Childress2014}, which draws on the work of \citet{Zahid2012}. In the model, galaxies are expected to evolve smoothly along the so-called "main sequence of star formation" whereby the SFR of a galaxy of stellar mass $M_*$ at redshift $z$ is determined by a simple relationship (the SMz relation, \citealt{Zahid2012}). Specifically, we implement their "fine-tuned" model (\DIFdelbegin \DIFdel{C14 }\DIFdelend Eq. A7 \DIFaddbegin \DIFadd{in \mbox{%DIFAUXCMD
+To model the SFH of galaxies as a function of their stellar mass we adopt the prescription of stellar mass assembly of \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citet{Childress2014}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citetalias{Childress2014}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddend , which draws on the work of \citet{Zahid2012}. In the model, galaxies are expected to evolve smoothly along the so-called "main sequence of star formation" whereby the SFR of a galaxy of stellar mass $M_*$ at redshift $z$ is determined by a simple relationship (the SMz relation, \citealt{Zahid2012}). Specifically, we implement their "fine-tuned" model (\DIFdelbegin \DIFdel{C14 }\DIFdelend Eq. A7 \DIFaddbegin \DIFadd{in \mbox{%DIFAUXCMD
 \citealt{Childress2014}}\hspace{0pt}%DIFAUXCMD
 }\DIFaddend ), whereby the SMz flattens above $z\sim2$ in line with observations \citep{Stark2013}\DIFdelbegin \DIFdel{. We adjust this model slightly and arrive at a final SMz}\DIFdelend :
 
@@ -596,7 +642,11 @@ To model the SFH of galaxies as a function of their stellar mass we adopt the pr
     \DIFaddbegin \label{eq:psi_mz}
 \DIFaddend \end{equation}
 
-As galaxies grow, their SFR begins to slow down and eventually shut off almost entirely in a process known as quenching. We adopt the quenching penalty $p_Q$ directly from \citet{Childress2014}:
+As galaxies grow, their SFR begins to slow down and eventually shut off almost entirely in a process known as quenching. We adopt the quenching penalty $p_Q$ directly from \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citet{Childress2014}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citetalias{Childress2014}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddend :
 \begin{equation}
     p_Q(M_*,z) = \frac{1}{2}\left[1 - \mathrm{erf}\left(\frac{\log(M_*) - \log(M_Q(z))}{\sigma_Q}\right)\right]\,,
     \label{eq:pq}
@@ -608,8 +658,10 @@ where $M_Q(z)$ describes how the quenching mass evolves with redshift, and $\sig
 \end{equation}
 and a transition scale of $\sigma_Q = 1.1$ which provides a good fit to data from the Galaxy And Mass Assembly (GAMA) survey \citep{Baldry2012}.
 
-\DIFaddbegin \DIFadd{Finally, at time $t$, some time $\tau$ since an epoch of star formation, a fraction of stellar mass is lost. We adopt the parametrization used by \mbox{%DIFAUXCMD
-\citet{Childress2014}}\hspace{0pt}%DIFAUXCMD
+\DIFdelbegin \DIFdel{As per \mbox{%DIFAUXCMD
+\citet{Childress2014} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{Finally, at time $t$, some time $\tau$ since an epoch of star formation, a fraction of stellar mass is lost. We adopt the parametrization used by \mbox{%DIFAUXCMD
+\citetalias{Childress2014}}\hspace{0pt}%DIFAUXCMD
 , namely that of \mbox{%DIFAUXCMD
 \citet{Leitner2011} }\hspace{0pt}%DIFAUXCMD
 for a Chabrier 2003 IMF:
@@ -633,7 +685,9 @@ for a Chabrier 2003 IMF:
 }\end{equation}
 
 
-\DIFaddend As per \citet{Childress2014} we plant seed galaxies with initial masses of \DIFdelbegin \DIFdel{$10^6 \mathrm{M}_{\odot}$ }\DIFdelend \DIFaddbegin \DIFadd{$10^6 ~\mathrm{M}_{\odot}$ }\DIFaddend at intervals of 50 Myr for look-back times $1 \leq t_f \leq 10$ Gyr, and 25 Myr for look-back times $10 \leq t_f \leq 13$ Gyr \DIFdelbegin \DIFdel{, and evaluate the model with a time step }\DIFdelend \DIFaddbegin \DIFadd{to achieved a more detailed model at early times with high SFR. For each seed galaxy, we evaluate Eq. \ref{eq:sfh_model} at time steps }\DIFaddend of 0.5 Myr \DIFdelbegin \DIFdel{.
+\DIFadd{As per \mbox{%DIFAUXCMD
+\citetalias{Childress2014} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend we plant seed galaxies with initial masses of \DIFdelbegin \DIFdel{$10^6 \mathrm{M}_{\odot}$ }\DIFdelend \DIFaddbegin \DIFadd{$10^6 ~\mathrm{M}_{\odot}$ }\DIFaddend at intervals of 50 Myr for look-back times $1 \leq t_f \leq 10$ Gyr, and 25 Myr for look-back times $10 \leq t_f \leq 13$ Gyr \DIFdelbegin \DIFdel{, and evaluate the model with a time step }\DIFdelend \DIFaddbegin \DIFadd{to achieved a more detailed model at early times with high SFR. For each seed galaxy, we evaluate Eq. \ref{eq:sfh_model} at time steps }\DIFaddend of 0.5 Myr \DIFdelbegin \DIFdel{.
 }\DIFdelend \DIFaddbegin \DIFadd{and record the total mass formed and lost in each of the time steps -- this defines our model SFH to be used as input to Eq. \ref{eq:galaxy_rate}.
 }\DIFaddend 
 
@@ -642,19 +696,19 @@ The result of our toy model is shown in Fig. \ref{fig:SFHs}. Galaxies with high 
 \DIFaddend 
 
 \DIFaddbegin \DIFadd{As noted in \mbox{%DIFAUXCMD
-\citet{Childress2014}}\hspace{0pt}%DIFAUXCMD
+\citetalias{Childress2014}}\hspace{0pt}%DIFAUXCMD
 , this toy model by construction follows several empirical relations derived from galaxy observations: model galaxies follow the SMz relation and obey quenching prescriptions motivated by observed galaxies. Here we make two further checks to validate to show that the model can be used to approximate the stellar age distribution of SN Ia host galaxies in DES.
 }
 
 \DIFadd{Firstly, we follow \mbox{%DIFAUXCMD
-\citet{Childress2014} }\hspace{0pt}%DIFAUXCMD
+\citetalias{Childress2014} }\hspace{0pt}%DIFAUXCMD
 by summing our SFHs and weighting by the galaxy stellar mass function at $z=0$ to estimate the CSFH. We approximate the present-day stellar mass function according to a double Schechter function with parameters from the Galaxy and Mass Assembly survey \mbox{%DIFAUXCMD
 \citet{Baldry2018}}\hspace{0pt}%DIFAUXCMD
 : $\log(M^*)=10.66$, $\phi^*_1=3.96\times10^{-3}$, $\alpha_1=-0.35$, $\phi^*_2=0.79\times10^{-3}$, $\alpha_2=-1.47$.
 The comparison of our approximate CSFH with that measured from observations \mbox{%DIFAUXCMD
 \citep{Madau2014} }\hspace{0pt}%DIFAUXCMD
 is shown in Fig. \ref{fig:csfh}. As was found in \mbox{%DIFAUXCMD
-\citet{Childress2014}}\hspace{0pt}%DIFAUXCMD
+\citetalias{Childress2014}}\hspace{0pt}%DIFAUXCMD
 , the two functions show a good qualitative agreement -- in fact, we find a closer match between the model and observed CSFH, accurately reproducing the peak of cosmic star formation around $z\sim2$ and tracing the declining SFR to the present day.
 }
 
@@ -723,8 +777,9 @@ The majority of works in the field have constrained the DTD power-law slope, and
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_DTD_fit_beta_norm_Qerf1.1_split_x1.png}
-    \caption{As per Fig. \ref{fig:rate_fitted} but with the data split by their stretch parameter $x_1$. \DIFaddbeginFL \DIFaddFL{Fits were performed with the DTD slope $\beta$ and normalisation $A$ as free parameters, and prompt time $t_{\mathrm{p}}$ fixed at 0.04 Gyr.}\DIFaddendFL %The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
-    \label{fig:rate_fitted_split_x1}}
+    \caption{As per Fig. \ref{fig:rate_fitted} but with the data split by their stretch parameter $x_1$. %DIF < The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \DIFaddbeginFL \DIFaddFL{Fits were performed with the DTD slope $\beta$ and normalisation $A$ as free parameters, and prompt time $t_{\mathrm{p}}$ fixed at 0.04 Gyr.%DIF > The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
+    }\DIFaddendFL \label{fig:rate_fitted_split_x1}}
 \end{figure}
 
 \renewcommand{\arraystretch}{1.2}
@@ -753,7 +808,11 @@ The use of SN Ia rate measurements to constrain the SN Ia DTD has consistently l
 
 The toy model of stellar mass assembly used in this work includes several assumptions about the evolution of galaxies. In particular, it is assumed that galaxies evolve independent of each other, growing up the \DIFdelbegin \DIFdel{SFMS }\DIFdelend \DIFaddbegin \DIFadd{star formation main sequence }\DIFaddend until they reach a mass at which they quench and star formation ceases. While these simplifications describe the average properties of galaxies well \citep{Zahid2012, Childress2014}, they struggle to describe the more stochastic nature of galaxy evolution that occurs at the low and high mass ends: starbursts and quenching episodes, respectively. 
 
-At some point along the evolutionary pathway, galaxies begin to cease star formation due to a combination of processes that together are known as quenching. In our model of mass assembly the characteristic mass at which quenching occurs is described by Eq. \ref{eq:mq}, and the rate of the transition from star forming to passive (as a function of the stellar mass) is determined by the transition scale $\sigma_{\mathrm{Q}}$ which we set to 1.1 based on GAMA observations. It is possible that this transition is too narrow and that quenching happens too fast in our model, leading to an under-prediction of the prompt fraction of SNe in the highest mass galaxies. To address this issue we rerun the mass assembly model with $\sigma_{\mathrm{Q}} = 1.5$ as per the nominal analysis of \citet{Childress2014} and refit the SN Ia rate data. We find that the adapted quenching model does not change the ability of the model to adequately fit the high-mass turnover in the SN rate.
+At some point along the evolutionary pathway, galaxies begin to cease star formation due to a combination of processes that together are known as quenching. In our model of mass assembly the characteristic mass at which quenching occurs is described by Eq. \ref{eq:mq}, and the rate of the transition from star forming to passive (as a function of the stellar mass) is determined by the transition scale $\sigma_{\mathrm{Q}}$ which we set to 1.1 based on GAMA observations. It is possible that this transition is too narrow and that quenching happens too fast in our model, leading to an under-prediction of the prompt fraction of SNe in the highest mass galaxies. To address this issue we rerun the mass assembly model with $\sigma_{\mathrm{Q}} = 1.5$ as per the nominal analysis of \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citet{Childress2014} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citetalias{Childress2014} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend and refit the SN Ia rate data. We find that the adapted quenching model does not change the ability of the model to adequately fit the high-mass turnover in the SN rate.
 
 \subsubsection{Effects of stellar metallicity}
 
@@ -786,7 +845,8 @@ found no evidence for a change in volumetric rate evolution (expected due to the
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_DTD_fit_beta_norm_Qerf1.1_split_x1_fitjoint.png}
-    \caption{As per Fig. \ref{fig:rate_fitted_split_x1} but with the data fit \DIFaddbeginFL \DIFaddFL{simultaneously }\DIFaddendFL by a \DIFaddbeginFL \DIFaddFL{single }\DIFaddendFL two-component DTD\DIFaddbeginFL \DIFaddFL{, with fixed slope $\beta = -1$ and a prompt fraction that is 1 at short delay times, 0 at large delay times, and a linear function of time between $t_1$ and $t_2$}\DIFaddendFL .%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \caption{As per Fig. \ref{fig:rate_fitted_split_x1} but with the data fit \DIFaddbeginFL \DIFaddFL{simultaneously }\DIFaddendFL by a \DIFaddbeginFL \DIFaddFL{single }\DIFaddendFL two-component DTD\DIFaddbeginFL \DIFaddFL{, with fixed slope $\beta = -1$ and a prompt fraction that is 1 at short delay times, 0 at large delay times, and a linear function of time between $t_1$ and $t_2$}\DIFaddendFL .%DIF < The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    %DIF > The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
     \label{fig:rate_fitted_split_x1_2c_DTD}}
 \end{figure}
 The SN Ia rate as a function of stellar mass \DIFaddbegin \DIFadd{for }\DIFaddend SNe split by stretch is shown in Fig. \ref{fig:rate_fitted_split_x1}. The evolution of the rate with stellar mass is significantly different for the two sub-samples: high-stretch SNe dominate the rate at low stellar mass but tail off in the higher mass galaxies, while low-stretch SNe are subdominant in low mass galaxies but display a much steeper dependence on stellar mass and make up the vast majority of SNe in high-mass hosts. These measurements reflect the observed correlations of $x_1$ with stellar mass and sSFR (and by inference, stellar age) as been seen by \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
@@ -840,7 +900,8 @@ One possibility is that sub-luminous SNe are more numerous in such predominantly
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{figs/rate_vs_mass_DTD_fit_beta_norm_Qerf1.1_split_c.png}
-    \caption{As per Fig. \ref{fig:rate_fitted_split_x1} but with the data split by their colour parameter $c$.%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \caption{As per Fig. \ref{fig:rate_fitted_split_x1} but with the data split by their colour parameter $c$.%DIF < The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    %DIF > The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
     \label{fig:rate_fitted_split_c}}
 \end{figure}
 
@@ -849,7 +910,7 @@ In the previous section, we have showed that the slope of the SN Ia rate vs stel
 The predictions from the DTD model diverge from the data at low stellar mass ($M_* <10^{9.25}$ M$_{\odot}$), where the rate becomes dominated by blue SNe. Although this is where the data is noisiest, it is worth investigating the possible causes of this divergence. A slight preference for SN to be bluer in lower-mass galaxies has been observed \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
 \citep{Scolnic2018,Brout2019,Smith2020,Kelsey2020} }\hspace{0pt}%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-\citep{Scolnic2018,Brout2019,Smith2020,kelsey2021} }\hspace{0pt}%DIFAUXCMD
+\citep{Scolnic2018,Brout2019,Smith2020,Kelsey2021} }\hspace{0pt}%DIFAUXCMD
 }\DIFaddend and could be the same effect seen at low stellar masses here. Physically, the dominance of blue SNe at low stellar masses could either be an intrinsic property of the SNe such as a hotter photosphere in explosions of younger, more massive progenitors, or an extrinsic effect such as a lower average dust column density in low-mass host galaxies. An intermediate explanation is that the SNe in low-mass hosts have a smaller dust column density in the immediate vicinity of the progenitor system, either due to the shorter evolutionary timescale or the higher mass and thus brighter system being less conducive to dust production. A detailed exploration of the effects of environment on SN colour will be presented in Kelsey et al. \textit{in prep}.
 
 \section{Conclusions}
@@ -860,7 +921,11 @@ Here, we summarise the key findings presented in this paper:
 \begin{itemize}
 \item We have measured the rate of SNe Ia per galaxy based on a sample of over 800 SNe and 40,000 galaxies detected by DES. We have recovered the relationship between SN rate and galaxy stellar mass seen in SNLS \citep{Sullivan2006} and SDSS \citep{Smith2012} and are mildly consistent with both of those works. The power-law slope being less than unity indicates that the rate of SNe is not solely driven by stellar mass, but also other factors such as the star-formation history
 
-\item By simulating the stellar mass assembly of average galaxies across cosmic time following the prescription of \citet{Childress2014} we have recovered an estimate of the SN Ia DTD, finding a good fit to a power-law distribution with an index of \DIFdelbegin \DIFdel{$-1.18 \pm0.09$}\DIFdelend \DIFaddbegin \DIFadd{$-1.14 \pm0.05$}\DIFaddend . Our measurement of the DTD is fairly consistent with previous measurements \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\item By simulating the stellar mass assembly of average galaxies across cosmic time following the prescription of \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citet{Childress2014} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citetalias{Childress2014} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend we have recovered an estimate of the SN Ia DTD, finding a good fit to a power-law distribution with an index of \DIFdelbegin \DIFdel{$-1.18 \pm0.09$}\DIFdelend \DIFaddbegin \DIFadd{$-1.14 \pm0.05$}\DIFaddend . Our measurement of the DTD is fairly consistent with previous measurements \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
 \citep[e.g.][]{Graur2013,Maoz2012} }\hspace{0pt}%DIFAUXCMD
 }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
 \citep[e.g.][]{Graur2013,Maoz2017} }\hspace{0pt}%DIFAUXCMD
@@ -934,7 +999,8 @@ The joint posterior distribution for the slope and intercept of the overall SN r
 
 %\section{Changes to the nominal SFH model}
 %\label{appendix:model_adjustments}
-%In Section \ref{sec:model} we describe our toy model of galaxy SFHs based on the work of %\citet{Childress2014}. Here we 
+%DIF < In Section \ref{sec:model} we describe our toy model of galaxy SFHs based on the work of %\citet{Childress2014}. Here we 
+%DIF > In Section \ref{sec:model} we describe our toy model of galaxy SFHs based on the work of %\citetalias{Childress2014}. Here we 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
