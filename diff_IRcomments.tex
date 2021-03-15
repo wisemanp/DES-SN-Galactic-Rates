@@ -1,7 +1,7 @@
 % mnras_template.tex 
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL ../draft.tex   Mon Mar  8 17:19:32 2021
-%DIF ADD draft.tex      Mon Mar 15 11:13:15 2021
+%DIF ADD draft.tex      Mon Mar 15 11:25:53 2021
 %
 % LaTeX template for creating an MNRAS paper
 %
@@ -602,7 +602,13 @@ for each SN $i$ and galaxy $j$.
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{figs/SNuM.png}
-    \caption{SN Ia rate per unit stellar mass as function of galaxy stellar mass. Error bars are the same as Fig. \ref{fig:rate_raw}. SDSS data (orange squares) are taken from \citet{Graur2013}. The systematically higher SNuM in DES is caused by the higher redshift of the sample, as illustrated by the DTD model prediction (coloured curves) }%DIF < The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
+    \caption{SN Ia rate per unit stellar mass as function of galaxy stellar mass. Error bars are the same as Fig. \ref{fig:rate_raw}. \DIFdelbeginFL \DIFdelFL{SDSS }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Literature }\DIFaddendFL data \DIFaddbeginFL \DIFaddFL{are that from SDSS spectra }\DIFaddendFL (orange squares\DIFaddbeginFL \DIFaddFL{; \mbox{%DIFAUXCMD
+\citealt{Graur2013}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddendFL ) \DIFdelbeginFL \DIFdelFL{are taken from \mbox{%DIFAUXCMD
+\citet{Graur2013}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{and the LOSS sample (grey dotted; \mbox{%DIFAUXCMD
+\citealt{Li2011a}}\hspace{0pt}%DIFAUXCMD
+)}\DIFaddendFL . The systematically higher SNuM in DES is caused by the higher redshift of the sample, as illustrated by the  \DIFdelbeginFL \DIFdelFL{DTD model }\DIFdelendFL prediction \DIFaddbeginFL \DIFaddFL{of the model using our best fit DTD from Section \ref{subsec:results_dtd} }\DIFaddendFL (coloured curves)\DIFaddbeginFL \DIFaddFL{. }\DIFaddendFL }%DIF < The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citet{Childress2014} model}
     %DIF > The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
     \label{fig:snum}
 \end{figure}
@@ -843,7 +849,7 @@ An alternative view on how the \DIFdelbegin \DIFdel{rate of SNe }\DIFdelend \DIF
 \citet{Li2011a}}\hspace{0pt}%DIFAUXCMD
 }\DIFaddend . We also calculate the SNuM predicuted by our model for each simulated galaxy at a range of redshifts and plot these as curves in Fig.~\ref{fig:snum}. Our model accurately recovers the SNuM measured in DES for the redshift and stellar mass range of the data. While the data from \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
 \citet{Graur2013} }\hspace{0pt}%DIFAUXCMD
-}\DIFdelend \DIFaddbegin \DIFadd{LOSS and SDSS }\DIFaddend lies slightly higher than our model prediction, the difference is consistent with differences in assumed SFHs\DIFaddbegin \DIFadd{, IMFs }\DIFaddend and stellar population templates as well as SN detection method. \DIFaddbegin \DIFadd{Any true difference between predicted and observed SNuM could be caused by an evolution of the SN Ia production efficiency as a function of redshift; we defer such an investigation to future work with more refined models and measurements.
+lies }\DIFdelend \DIFaddbegin \DIFadd{LOSS and SDSS spectra lie }\DIFaddend slightly higher than our model prediction, the difference is consistent with differences in assumed SFHs\DIFaddbegin \DIFadd{, IMFs }\DIFaddend and stellar population templates as well as SN detection method. \DIFaddbegin \DIFadd{Any true residual difference between predicted and observed SNuM at different redshifts could be caused by an evolution of the SN Ia production efficiency as a function of redshift; we defer such an investigation to future work with more refined models and measurements.
 }\DIFaddend \section{The delay-time distribution as a function of supernova properties}
 \label{sec:split_x1_c}
 
