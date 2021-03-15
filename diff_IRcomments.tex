@@ -1,7 +1,7 @@
 % mnras_template.tex 
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL ../draft.tex   Mon Mar  8 17:19:32 2021
-%DIF ADD draft.tex      Mon Mar 15 11:25:53 2021
+%DIF ADD draft.tex      Mon Mar 15 12:03:05 2021
 %
 % LaTeX template for creating an MNRAS paper
 %
@@ -329,7 +329,7 @@ In order to measure the rate of SNe Ia per galaxy per year, we require a sample 
 ), which comprises galaxies targetted as DES-SN hosts with the OzDES programme as well as redshifts from legacy catalogues in the DES-SN fields.
 }\DIFaddend \subsection{Supernovae \label{subsec:host_sample}}
 \subsubsection{Photometric classification and quality cuts \label{subsubsec:sn_classify}}
-With over 30,000 transients passing ML \DIFdelbegin \DIFdel{cuts }\DIFdelend \DIFaddbegin \DIFadd{selection }\DIFaddend it was not possible to obtain spectral follow up of every object. Instead we make use of photometric classification in the form of the recurrent neural network classifier \texttt{superNNova} (SNN; \citealt{Moller2019}), \DIFdelbegin \DIFdel{mirroring }\DIFdelend \DIFaddbegin \DIFadd{foloowing }\DIFaddend the approach of \citet{Scolnic2020}. \DIFaddbegin \DIFadd{A full description of the training and fitting of SNN will be presented in Vincenzi et al. }\textit{\DIFadd{in prep}} \DIFadd{and M\"{o}ller et al. }\textit{\DIFadd{in prep}}\DIFadd{; we provide a brief overview here.
+With over 30,000 transients passing ML \DIFdelbegin \DIFdel{cuts }\DIFdelend \DIFaddbegin \DIFadd{selection }\DIFaddend it was not possible to obtain spectral follow up of every object. Instead we make use of photometric classification in the form of the recurrent neural network classifier \texttt{superNNova} (SNN; \citealt{Moller2019}), \DIFdelbegin \DIFdel{mirroring }\DIFdelend \DIFaddbegin \DIFadd{following }\DIFaddend the approach of \citet{Scolnic2020}. \DIFaddbegin \DIFadd{A full description of the training and fitting of SNN will be presented in Vincenzi et al. }\textit{\DIFadd{in prep}} \DIFadd{and M\"{o}ller et al. }\textit{\DIFadd{in prep}}\DIFadd{; we provide a brief overview here.
 }
 
 \DIFaddend We train SNN using a large suite of simulated multi-band SN light curves. \DIFdelbegin \textbf{\DIFdel{Waiting on final sample and a few words from Maria/Anais to complete this bit.}} %DIFAUXCMD
@@ -383,7 +383,11 @@ estimated photo-$z$s using the }\texttt{\DIFadd{eaZy}} \DIFadd{code \mbox{%DIFAU
 \begin{figure}
     \centering
     \includegraphics[width=.5\textwidth]{figs/mass_hist_linlog_sn_field_BC03.png}
-    \caption{Upper: Distribution of the stellar mass of the SN host \DIFaddbeginFL \DIFaddFL{galaxies. The raw }\DIFaddendFL (green \DIFdelbeginFL \DIFdelFL{dot-dashed}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{dashed}\DIFaddendFL ) and \DIFdelbeginFL \DIFdelFL{field galaxies }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{spectroscopic-efficiency-weighted }\DIFaddendFL (\DIFdelbeginFL \DIFdelFL{orange solid}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{blue dot-dashed; Section \ref{subsec:incompletenss_SN_hosts}}\DIFaddendFL ) \DIFdelbeginFL \DIFdelFL{used in the analysis}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{histograms are both normalised}\DIFaddendFL . Lower: As upper \DIFaddbeginFL \DIFaddFL{but }\DIFaddendFL for field galaxies, \DIFdelbeginFL \DIFdelFL{but }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{and }\DIFaddendFL shown on a log scale.  The distribution closely matches data from the ZFOURGE survey at \DIFdelbeginFL \DIFdelFL{$0.2<z<0.5$ (cyan dashes) and }\DIFdelendFL $0.5<z<0.75$ (magenta dots). \DIFdelbeginFL %DIFDELCMD < \MBLOCKRIGHTBRACE
+    \caption{Upper: Distribution of the stellar mass of the SN host \DIFaddbeginFL \DIFaddFL{galaxies. The raw }\DIFaddendFL (green \DIFaddbeginFL \DIFaddFL{dashed) and spectroscopic-efficiency-weighted (blue }\DIFaddendFL dot-dashed\DIFaddbeginFL \DIFaddFL{; Section \ref{subsec:incompletenss_SN_hosts}}\DIFaddendFL ) \DIFaddbeginFL \DIFaddFL{histograms are both normalised. Comparison samples are PTF (purple; \mbox{%DIFAUXCMD
+\citealt{Pan2014}}\hspace{0pt}%DIFAUXCMD
+) }\DIFaddendFL and \DIFdelbeginFL \DIFdelFL{field galaxies }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Pantheon }\DIFaddendFL (orange\DIFdelbeginFL \DIFdelFL{solid}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{; \mbox{%DIFAUXCMD
+\citealt{Scolnic2018}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddendFL )\DIFdelbeginFL \DIFdelFL{used in the analysis}\DIFdelendFL . Lower: As upper \DIFaddbeginFL \DIFaddFL{but }\DIFaddendFL for field galaxies, \DIFdelbeginFL \DIFdelFL{but }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{and }\DIFaddendFL shown on a log scale.  The distribution closely matches data from the ZFOURGE survey at \DIFdelbeginFL \DIFdelFL{$0.2<z<0.5$ (cyan dashes) and }\DIFdelendFL $0.5<z<0.75$ (magenta dots). \DIFdelbeginFL %DIFDELCMD < \MBLOCKRIGHTBRACE
 %DIFDELCMD <     %%%
 \DIFdelendFL \DIFaddbeginFL \DIFaddFL{The difference between the raw counts (grey dotted) and the $V_{\mathrm{max}}$ corrected counts (orange solid; see Section \ref{sec:incompleteness}) is minimal. 
     }\DIFaddendFL \label{fig:mass_hist_hosts_field}\DIFaddbeginFL }
@@ -463,7 +467,15 @@ We estimate global galaxy properties for both the SN host and field galaxies tha
 \citet{Sullivan2006}}\hspace{0pt}%DIFAUXCMD
 }\DIFaddend . To check that the choice of templates \DIFdelbegin \DIFdel{do }\DIFdelend \DIFaddbegin \DIFadd{does }\DIFaddend not bias the result, we also fit the galaxies using the P\'EGASE.2 templates \citep{Fioc1997,LeBorgne2002} and a \citet{Kroupa2001} IMF, and find results consistent within measurement uncertainties. This is consistent with the findings of \citet{Smith2020}. 
 
-The results of our SED fitting are shown in Fig. \ref{fig:mass_hist_hosts_field}. The \DIFdelbegin \DIFdel{upper panel, with both the SN hosts and field galaxies displayed, shows the }\DIFdelend \DIFaddbegin \DIFadd{figure showcases the }\DIFaddend vastly different distributions of the two samples. SN hosts are preferentially high mass galaxies, whereas the field galaxy \DIFdelbegin \DIFdel{distributions }\DIFdelend \DIFaddbegin \DIFadd{distribution }\DIFaddend increases down to lower masses, peaking around $10^{8.5}~\mathrm{M}_{\odot}$. \DIFdelbegin \DIFdel{In the bottom panel, the same }\DIFdelend \DIFaddbegin \DIFadd{The SN host stellar mass distribution is plotted twice: once as raw counts; once weighted by the host galaxy spectroscopic efficiency (Section \ref{subsec:incompletenss_SN_hosts}). The }\DIFaddend field galaxy stellar mass distribution is shown on a log scale, along with the stellar mass function (SMF) from the ZFOURGE survey \citep{Tomczak2014} \DIFaddbegin \DIFadd{scaled to match at $\log (M/\mathrm{M}_{\odot}) = 10$}\DIFaddend , whose stellar masses are derived with the same photo-$z$ code, IMF and template library as used here. Above $10^{8.5}~\mathrm{M}_{\odot}$, the DES field galaxy distribution closely follows the ZFOURGE SMF for $0.5<z<0.75$, indicating that the DES sample is representative of field galaxies in this \DIFaddbegin \DIFadd{mass and }\DIFaddend redshift range.%To estimate uncertainties on the physical properties, we resample the photometry from a Gaussian distribution formed by the flux measurements and their uncertainties and rerun the SED fit. This procedure is repeated 1000 times. 
+The results of our SED fitting are shown in Fig. \ref{fig:mass_hist_hosts_field}. The \DIFdelbegin \DIFdel{upper panel, with both the SN hosts and field galaxies displayed, shows the }\DIFdelend \DIFaddbegin \DIFadd{figure showcases the }\DIFaddend vastly different distributions of the two samples. SN hosts are preferentially high mass galaxies, whereas the field galaxy \DIFdelbegin \DIFdel{distributions }\DIFdelend \DIFaddbegin \DIFadd{distribution }\DIFaddend increases down to lower masses, peaking around $10^{8.5}~\mathrm{M}_{\odot}$. \DIFdelbegin \DIFdel{In the bottom panel, the same }\DIFdelend \DIFaddbegin \DIFadd{The SN host stellar mass distribution is plotted twice: once as raw counts; once weighted by the host galaxy spectroscopic efficiency (Section \ref{subsec:incompletenss_SN_hosts}). As shown in Fig. \ref{fig:mass_hist_hosts_field}, the host stellar mass distribution of the DES-SN sample used in this analysis is qualitatively similar to that from the low redshift Palomar Transient Factory (PTF) sample \mbox{%DIFAUXCMD
+\citep{Pan2014} }\hspace{0pt}%DIFAUXCMD
+as well as the large cosmological Pantheon sample \mbox{%DIFAUXCMD
+\citep{Scolnic2018}}\hspace{0pt}%DIFAUXCMD
+. This consistency reflects that seen in the smaller spectroscopically confirmed samples presented in \mbox{%DIFAUXCMD
+\citet{Wiseman2020} }\hspace{0pt}%DIFAUXCMD
+and \mbox{%DIFAUXCMD
+\citet{Smith2020}}\hspace{0pt}%DIFAUXCMD
+. The }\DIFaddend field galaxy stellar mass distribution is shown on a log scale, along with the stellar mass function (SMF) from the ZFOURGE survey \citep{Tomczak2014} \DIFaddbegin \DIFadd{scaled to match at $\log (M/\mathrm{M}_{\odot}) = 10$}\DIFaddend , whose stellar masses are derived with the same photo-$z$ code, IMF and template library as used here. Above $10^{8.5}~\mathrm{M}_{\odot}$, the DES field galaxy distribution closely follows the ZFOURGE SMF for $0.5<z<0.75$, indicating that the DES sample is representative of field galaxies in this \DIFaddbegin \DIFadd{mass and }\DIFaddend redshift range.%To estimate uncertainties on the physical properties, we resample the photometry from a Gaussian distribution formed by the flux measurements and their uncertainties and rerun the SED fit. This procedure is repeated 1000 times. 
 %%%% INCOMPLETENESS %%%%
 
 
