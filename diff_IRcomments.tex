@@ -1,7 +1,7 @@
 % mnras_template.tex 
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL ../draft.tex   Mon Mar  8 17:19:32 2021
-%DIF ADD draft.tex      Mon Mar 15 12:03:05 2021
+%DIF ADD draft.tex      Mon Mar 15 12:22:30 2021
 %
 % LaTeX template for creating an MNRAS paper
 %
@@ -487,7 +487,7 @@ The simple ratio of the number of SN hosts and field galaxies presented at the e
 
 Incompleteness in a SN survey arises from a number of sources. The primary source of incompleteness is caused by the magnitude limit of the survey: SNe with apparent magnitudes below the survey limit will not be detected. Since SNe Ia are relatively uniform in absolute luminosity, this form of incompleteness is primarily redshift dependent. On the other hand, DES-SN comprises 10 separate pointings, each with different visibility and thus airmass throughout the observing season. These differences lead to different detection efficiencies across the fields.
 
-To correct for these incompleteness, we follow a similar method to that used in the \DIFdelbegin \DIFdel{PTF }\DIFdelend \DIFaddbegin \DIFadd{Palomar Transient Factory }\DIFaddend rates analyses of \citet{Frohmaier2019} and \citet{Frohmaier2020}\DIFaddbegin \DIFadd{, outlined in \mbox{%DIFAUXCMD
+To correct for these incompleteness, we follow a similar method to that used in the PTF rates analyses of \citet{Frohmaier2019} and \citet{Frohmaier2020}\DIFaddbegin \DIFadd{, outlined in \mbox{%DIFAUXCMD
 \citet{Frohmaier2017}}\hspace{0pt}%DIFAUXCMD
 }\DIFaddend . We run a suite of simulations using an identical method to that described in detail in \citet{Vincenzi2020}. We simulate SNe using the SuperNova ANAlysis software (\texttt{SNANA}\DIFaddbegin \DIFadd{; }\DIFaddend \citealt{Kessler2009a}) integrated into the \texttt{pippin} framework \citep{Hinton2020}. We simulate \DIFdelbegin \textbf{\DIFdel{size of final sim}} %DIFAUXCMD
 \DIFdelend \DIFaddbegin \DIFadd{$1.1\times 10^6$ }\DIFaddend SNe in the redshift range $0.05 \leq z_{\mathrm{SN}} \leq 1.3$. The SNe are generated and trained in the same way as for the training of SNN. SALT2 parameters $x_1$ (stretch) and $c$ (colour) are drawn randomly from the intrinsic asymmetric Gaussian distributions described in \citet{Scolnic2016} and "blurred" following the intrinsic scatter model of \citet{Guy2010}, while redshifts are drawn following the volumetric rate evolution of \citet{Frohmaier2019}. The SNe are simulated with explosion epochs $t_0$ uniformly distributed between two months before DES-SN began and two months after it finished \DIFaddbegin \DIFadd{in order to account for all SNe that could have been observed by DES-SN}\DIFaddend . We run mock versions of the DES-SN survey, using the exact cadence, conditions, and zeropoints from the survey itself. All of the detected simulated SNe are passed through the light curve fit of SALT2 \citep{Betoule2014}, as per the implementation in \texttt{SNANA}, and those that fail the light curve cuts outlined in Section \ref{subsubsec:sn_classify} are discarded. We are left with a fraction of the original simulated SNe, and that fraction is dependent on a combination of sky location, explosion epoch, redshift, stretch, and colour. The fraction of recovered SNe (the efficiency) is thus described by a 5-dimensional surface. For the $i$th SN the efficiency $\eta_{\mathrm{SN}, i}$ in field $F$, exploding at time $t_0$ at redshift $z$, with stretch $x_1$ and colour $c$, is:
