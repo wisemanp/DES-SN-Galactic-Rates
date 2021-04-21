@@ -477,7 +477,7 @@ At the beginning of this Section, we showed how the rate of SNe Ia is driven by 
 
 We assume a DTD $\Phi(\tau)$ with a power-law form described by index $\beta$ (Eq. \ref{eq:dtd}), normalisation $A$ and effective after prompt time $t_{\mathrm{p}}$. As per Section \ref{sec:rates}, we constrain the parameters via Bayesian inference, using HMC to explore the posterior distribution. At each step of the sampling procedure the model is re-calculated via Eq. \ref{eq:galaxy_rate}, we evaluate the likelihood assuming that the rate measurements $R_{\mathrm{G}, M_*}$ are described by a Gaussian PDF with mean $\hat R_{\mathrm{G}, M_*}$ and standard deviation $\sigma_{R_{\mathrm{G}, M_*}}$. For $\beta$ we adopt a Gaussian prior with hyper-parameters $p(\beta) \sim \mathcal{N}(-1\,,0.5)$. We fit for $A$ in log space, and adopt a Gaussian prior (in log space) with hyper-parameters $p(\log(A)) \sim \mathcal{N}(-12.7\,, 0.5)$.
 
-SNe Ia do not occur instantaneously after an episode of star formation. Instead stars with zero-age main-sequence (ZAMS) masses less than $8~\mathrm{M}_{\odot}$ take time to evolve along the main sequence and form WDs and this time is not well constrained. In many works this ``prompt time" which we denote $t_{\mathrm{p}}$ is fixed to some value expected to be the minimum time for a star to evolve off the main sequence and become a WD, such as 40~Myr \citep{Maoz2012,Graur2013,Graur2014}. Other studies have left $t_{\mathrm{p}}$ as a free parameter \citep{Heringer2019,Castrillo2020}. We perform three fits: one with $t_{\mathrm{p}}$ fixed at 40 Myr, one with it as a free parameter along with $\beta$ and $A$, and a third with $\beta$ and $A$ fixed and  $t_{\mathrm{p}}$ free. We fit $t_{\mathrm{p}}$ in log space and adopt a Gaussian prior with hyper-parameters $p(\log(t_{\mathrm{p}})) \sim \mathcal{N}(-1.3\,,0.5)$, which corresponds to being centred around 50~Myr. Choosing this regime to fit allows more prior weight to be placed on shorter prompt times as per the majority of the literature. We use the $\hat{R}$ diagnostic of \citep{Vehtari2019} to assess the convergence of MC chains. When including $t_{\mathrm{p}}$ as a free parameter, we find that the strong degeneracy between $t_{\mathrm{p}}$ and $A$ cause the sampler to fail to converge with $\hat{R} = 1.3$ for the chains of those two parameters. In subsequent analyses we adopt as our fiducial model that with fixed $t_{\mathrm{p}} =0.04$~Gyr.
+SNe Ia do not occur instantaneously after an episode of star formation. Instead stars with zero-age main-sequence (ZAMS) masses less than $8~\mathrm{M}_{\odot}$ take time to evolve along the main sequence and form WDs and this time is not well constrained. In many works this ``prompt time" which we denote $t_{\mathrm{p}}$ is fixed to some value expected to be the minimum time for a star to evolve off the main sequence and become a WD, such as 40~Myr \citep{Maoz2012,Graur2013,Graur2014}. Other studies have left $t_{\mathrm{p}}$ as a free parameter \citep{Heringer2019,Castrillo2020}. We perform three fits: one with $t_{\mathrm{p}}$ fixed at 40 Myr, one with it as a free parameter along with $\beta$ and $A$, and a third with $\beta$ and $A$ fixed and  $t_{\mathrm{p}}$ free. We fit $t_{\mathrm{p}}$ in log space and adopt a Gaussian prior with hyper-parameters $p(\log(t_{\mathrm{p}})) \sim \mathcal{N}(-1.3\,,0.5)$, which corresponds to being centred around 50~Myr. Choosing this regime to fit allows more prior weight to be placed on shorter prompt times as per the majority of the literature. We use the $\hat{R}$ diagnostic of \citep{Vehtari2019} to assess the convergence of MC chains. When including $t_{\mathrm{p}}$ as a free parameter, we find that the strong degeneracy between $t_{\mathrm{p}}$ and $A$ cause the sampler to fail to converge with $\hat{R} \sim 1.3$ for the chains of those two parameters. In subsequent analyses we adopt as our fiducial model that with fixed $t_{\mathrm{p}} =0.04$~Gyr.
 
 The joint and marginal posterior distributions for the fit parameters are found in Fig. \ref{fig:corner_beta_norm}, and the posterior means and standard deviations are summarised in Table \ref{tab:dtd_results}.  Fig. \ref{fig:corner_beta_norm} shows that there is a mild correlation between $\beta$ and $A$. In Fig. \ref{fig:rate_fitted} we show the SN rate per galaxy predicted by the model assuming the best fitting DTD parameters from Table \ref{tab:dtd_results} compared to the data as presented in Section \ref{sec:rates}. Visually, the model provides a good fit across a wide range of stellar mass. The model clearly diverges from the simple log-linear fit, describing better the enhanced rate around $10^{10}$ M$_{\odot}$ and suppression at high masses. This improvement provides evidence to support the DTD*SFH model. However, the model prediction still diverges from the data at high stellar masses ($>10^{11.25}$ M$_{\odot}$), suggesting that these data cannot be explained by our model, but are driven by further processes that we have not included. We discuss these in Section \ref{subsec:discussion}. 
 
@@ -690,14 +690,34 @@ We model the relation with the linear relationship:
     R_{\mathrm{G}} = \frac{\mathrm{d}R}{\mathrm{d}M_*} M_* + c \,,
 \label{eq:rate_fit}
 \end{equation}
-where $dR/dM_*$ signifies the change of the rate of SNe as a function of the stellar mass, $c$ is a constant that sets the normalisation of the rate. We fit the model assuming a normal likelihood, such that the observed rate in each stellar mass bin is itself modelled as a Gaussian distribution described by the mean and standard deviation of the data in that bin. We adopt weakly informative normal priors on the slope and intercept: $p\left(\frac{\mathrm{d}R}{\mathrm{d}M_*}\right) \sim \mathcal{N}\left(0,5\right)$ and  $p\left(c\right) \sim \mathcal{N}\left(-12,5\right)$ respectively. We sample using 4 chains, each with 2000 warm up and 2000 sampling iterations. We report parameter estimates based on the mean and standard deviation of their posterior samples.
+where $dR/dM_*$ signifies the change of the rate of SNe as a function of the stellar mass, $c$ is a constant that sets the normalisation of the rate. We fit the model assuming a normal likelihood, such that the observed rate in each stellar mass bin is itself modelled as a Gaussian distribution described by the mean and standard deviation of the data in that bin. We adopt weakly informative normal priors on the slope and intercept: $p\left(\frac{\mathrm{d}R}{\mathrm{d}M_*}\right) \sim \mathcal{N}\left(0,5\right)$ and  $p\left(c\right) \sim \mathcal{N}\left(-12,5\right)$ respectively. We sample using 4 chains, each with 2000 warm up and 2000 sampling iterations. We report parameter estimates based on the mean and standard deviation of their posterior samples. We use the $\hat{R}$ diagnostic of \citep{Vehtari2019} to assess the convergence of MC chains, and only report fits where $\hat{R}\let1.05$
 
-The joint posterior distribution for the slope and intercept of the overall SN rate vs stellar mass are shown in Fig. \ref{fig:corner_slope_int}. The two parameters are highly degenerate, yet well constrained. This degeneracy manifests as the spread of potential linear fits as drawn in light blue on Fig. \ref{fig:rate_fitted}.
+The joint posterior distribution for the slope and intercept of the overall SN rate vs stellar mass are shown in Fig. \ref{fig:corner_slope_int}. The two parameters are highly degenerate, yet well constrained. This degeneracy manifests as the spread of potential linear fits as drawn in light green on Fig. \ref{fig:rate_fitted}.
 
-%\section{Changes to the nominal SFH model}
-%\label{appendix:model_adjustments}
-%In Section \ref{sec:model} we describe our toy model of galaxy SFHs based on the work of %\citetalias{Childress2014}. Here we 
+\section{Posterior distributions for DTD fits}
 
+In this section we present the joint and marginal posterior distributions for the various fits of the DTD presented in Section \ref{sec:split_x1_c}. Posteriors have been displayed using v0.33.0 of \texttt{ChainConsumer} \citep{Hinton2016}.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.5\textwidth]{figs/fit_dtd_split_x1_A_beta_corner.png}
+    \caption{Posterior distributions for DTD slope $\beta$ and normalisation $A$ for SNe Ia split by their $x_1$ parameter.%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
+    \label{fig:corner_beta_norm_split_x1}}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.5\textwidth]{figs/fit_dtd_split_c_A_beta_corner.png}
+    \caption{Posterior distributions for DTD slope $\beta$ and normalisation $A$ for SNe Ia split by their $c$ parameter.%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
+    \label{fig:corner_beta_norm_split_c}}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=.5\textwidth]{figs/fitjoint_t1_t2_corner.png}
+    \caption{Posterior distributions for $t_1$ and $t_2$ of the model presented in Section \ref{subsec:split_x1}.%The blue lines indicate the best fitting model based on a $t^{\beta}$ power law DTD convolved with SFHs based on the \citetalias{Childress2014} model}
+    \label{fig:corner_t1_t2}}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
