@@ -53,6 +53,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
+\usepackage{eso-pic}% http://ctan.org/pkg/eso-pic
+
+\AddToShipoutPictureBG*{%
+  \AtPageUpperLeft{%
+    \hspace{0.75\paperwidth}%
+    \raisebox{-4.5\baselineskip}{%
+      \makebox[0pt][l]{\textnormal{DES-2021-0642}}
+}}}%
+
+\AddToShipoutPictureBG*{%
+  \AtPageUpperLeft{%
+    \hspace{0.75\paperwidth}%
+    \raisebox{-5.5\baselineskip}{%
+      \makebox[0pt][l]{\textnormal{FERMILAB-PUB-21-245-AE}}
+}}}%
 
 % Please keep new commands to a minimum, and use \newcommand not \def to avoid
 % overwriting existing commands. Example:
@@ -73,37 +88,38 @@
 P.~Wiseman,$^{1}$
 M.~Sullivan,$^{1}$
 M.~Smith,$^{2,1}$
-C.~Frohmaier,$^{1,3}$
+C.~Frohmaier,$^{3,1}$
 M.~Vincenzi,$^{3}$
 O.~Graur,$^{3}$
 B.~Popovic,$^{4}$
 P.~Armstrong,$^{5}$
 D.~Brout,$^{6,7}$
-D.~Carollo,$^{8}$
-T.~M.~Davis,$^{9}$
-L.~Galbany,$^{10}$
-S.~R.~Hinton,$^{9}$
+T.~M.~Davis,$^{8}$
+L.~Galbany,$^{9}$
+S.~R.~Hinton,$^{8}$
 L.~Kelsey,$^{1}$
-R.~Kessler,$^{11,12}$
-G.~F.~Lewis,$^{13}$
-C.~Lidman,$^{14,5}$
-A.~M\"oller,$^{15}$
+R.~Kessler,$^{10,11}$
+C.~Lidman,$^{12,5}$
+A.~M\"oller,$^{13}$
 R.~C.~Nichol,$^{3}$
 B.~Rose,$^{4}$
 D.~Scolnic,$^{4}$
 M.~Toy,$^{1}$
-B.~E.~Tucker,$^{5}$
 Z.~Zontou,$^{1}$
-J.~Asorey,$^{16}$
-T.~M.~C.~Abbott,$^{17}$
-M.~Aguena,$^{18,19}$
+J.~Asorey,$^{14}$
+D.~Carollo,$^{15}$
+K.~Glazebrook,$^{16}$
+G.~F.~Lewis,$^{17}$
+B.~E.~Tucker,$^{5}$
+T.~M.~C.~Abbott,$^{18}$
+M.~Aguena,$^{19}$
 S.~Allam,$^{20}$
 F.~Andrade-Oliveira,$^{21,19}$
 J.~Annis,$^{20}$
 D.~Bacon,$^{3}$
 E.~Bertin,$^{22,23}$
 D.~Brooks,$^{24}$
-E.~Buckley-Geer,$^{11,20}$
+E.~Buckley-Geer,$^{10,20}$
 D.~L.~Burke,$^{25,26}$
 A.~Carnero~Rosell,$^{27,19,28}$
 M.~Carrasco~Kind,$^{29,30}$
@@ -118,7 +134,7 @@ S.~Everett,$^{38}$
 I.~Ferrero,$^{39}$
 B.~Flaugher,$^{20}$
 P.~Fosalba,$^{40,41}$
-J.~Frieman,$^{20,12}$
+J.~Frieman,$^{20,11}$
 J.~Garc\'ia-Bellido,$^{42}$
 E.~Gaztanaga,$^{40,41}$
 T.~Giannantonio,$^{43,44}$
@@ -140,24 +156,25 @@ F.~Menanteau,$^{29,30}$
 R.~Miquel,$^{56,31}$
 R.~Morgan,$^{57}$
 R.~L.~C.~Ogando,$^{19,35}$
-A.~Palmese,$^{20,12}$
+A.~Palmese,$^{20,11}$
 F.~Paz-Chinch\'{o}n,$^{29,43}$
 D.~Petravick,$^{29}$
 A.~Pieres,$^{19,35}$
 A.~A.~Plazas~Malag\'on,$^{58}$
 A.~K.~Romer,$^{59}$
-E.~Sanchez,$^{16}$
+E.~Sanchez,$^{14}$
 V.~Scarpine,$^{20}$
 M.~Schubnell,$^{36}$
 S.~Serrano,$^{40,41}$
-I.~Sevilla-Noarbe,$^{16}$
+I.~Sevilla-Noarbe,$^{14}$
+M.~Soares-Santos,$^{36}$
 E.~Suchyta,$^{60}$
 M.~E.~C.~Swanson,$^{29}$
 G.~Tarle,$^{36}$
 D.~Thomas,$^{3}$
 C.~To,$^{45,25,26}$
 T.~N.~Varga,$^{49,61}$
-and A.~R.~Walker$^{17}$
+and A.~R.~Walker$^{18}$
 \begin{center} (DES Collaboration) \end{center}
 }
 \vspace{0.4cm}
