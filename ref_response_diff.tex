@@ -192,10 +192,11 @@ and A.~R.~Walker$^{18}$
 
 % Don't change these lines
 %DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
-%DIF CHANGEBAR PREAMBLE %DIF PREAMBLE
-\RequirePackage[dvips]{changebar} %DIF PREAMBLE
-\providecommand{\DIFadd}[1]{\protect\cbstart{#1}\protect\cbend} %DIF PREAMBLE
-\providecommand{\DIFdel}[1]{\protect\cbdelete} %DIF PREAMBLE
+%DIF CFONT PREAMBLE %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue} \sf #1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red} \scriptsize #1}} %DIF PREAMBLE
 %DIF SAFE PREAMBLE %DIF PREAMBLE
 \providecommand{\DIFaddbegin}{} %DIF PREAMBLE
 \providecommand{\DIFaddend}{} %DIF PREAMBLE
@@ -255,9 +256,9 @@ and A.~R.~Walker$^{18}$
 \RequirePackage{listings} %DIF PREAMBLE
 \RequirePackage{color} %DIF PREAMBLE
 \lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
-%DIF DIFCODE_CHANGEBAR %DIF PREAMBLE
-  moredelim=[il][\color{white}\tiny]{\%DIF\ <\ }, %DIF PREAMBLE
-  moredelim=[il]{\%DIF\ >\ } %DIF PREAMBLE
+%DIF DIFCODE_CFONT %DIF PREAMBLE
+  moredelim=[il][\color{red}\scriptsize]{\%DIF\ <\ }, %DIF PREAMBLE
+  moredelim=[il][\color{blue}\sffamily]{\%DIF\ >\ } %DIF PREAMBLE
 } %DIF PREAMBLE
 \lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
 	language=DIFcode, %DIF PREAMBLE
