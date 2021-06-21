@@ -301,6 +301,15 @@ Photo-$z$s are taken, from the DES Y3A2\_DEEP catalogue of \citet{Hartley2020}. 
     \label{fig:SN_efficiency}}
 \end{figure}
 
+
+\begin{figure}
+    \centering
+    %\includegraphics[width=0.5\textwidth]{figs/SN_efficiencies.png}
+    \includegraphics[width=0.5\textwidth]{figs/eff_z.png}
+    \caption{SN host galaxy spectroscopic efficiencies as a function of redshift $z$. Efficiency curves are grouped by shallow (\{F\}12) and deep (\{F\}3) fields, and averaged over the 5 years of the survey. The lower and upper redshift limits for this analysis are indicated by $z_{\mathrm{min}}$ and $z_{\mathrm{max}}$ respectively.
+    \label{fig:eff_z}}
+\end{figure}
+
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{figs/completeness_combined.png}
@@ -366,7 +375,9 @@ The distribution of efficiency as a function of redshift is shown in Figure \ref
 The deep fields show non-zero efficiencies approaching $z=1$, whereas the shallow fields typically reach $z=0.8$. Since fractional uncertainty is large at such low efficiencies, we choose to make a redshift cut of $z=0.6$ where the efficiency is well above 0.1 in all fields. 
 
 \subsection{Supernova hosts \label{subsec:incompletenss_SN_hosts}}
-A further limiting factor in the SN host sample is the requirement of a spectroscopic redshift. The majority of SN host spectroscopic redshifts in DES are provided by the dedicated follow-up survey OzDES, for which the limiting magnitude is around 24 to 24.5 mag in the $r$ band \citep{Lidman2020}. The rate at which a host redshift is successfully measured given an apparent magnitude has been extensively modelled by \citet{Vincenzi2020} who provide the spectroscopic redshift efficiency $\epsilon_{z_{\mathrm{spec}}} (m^{\mathrm{host}}_{r,i})$ as a function of host $r$-band magnitude, host galaxy colour, and the year in which the SN was discovered in order to allow for a longer possible spectroscopic exposure time for hosts of SNe discovered earlier in the survey. The effects of the host galaxy spectroscopic efficiency are displayed in the upper panel of Fig. \ref{fig:mass_hist_hosts_field}, where the normalised histogram weighted by the efficiency is skewed towards lower masses when compared to the unweighted distribution. So that we reduce any bias towards SNe in bright hosts that are easier to obtain spectroscopic redshifts for, the host galaxy spectroscopic redshift efficiency is multiplied by that derived from the SN detection efficiency (Section \ref{subsec:incompleteness_SNe}) to arrive at the final efficiency for the $i$th SN:
+A further limiting factor in the SN host sample is the requirement of a spectroscopic redshift. The majority of SN host spectroscopic redshifts in DES are provided by the dedicated follow-up survey OzDES, for which the limiting magnitude is around 24 to 24.5 mag in the $r$ band \citep{Lidman2020}. The rate at which a host redshift is successfully measured given an apparent magnitude has been extensively modelled by \citet{Vincenzi2020} who provide the spectroscopic redshift efficiency $\epsilon_{z_{\mathrm{spec}}} (m^{\mathrm{host}}_{r,i})$ as a function of host $r$-band magnitude, host galaxy colour, and the year in which the SN was discovered in order to allow for a longer possible spectroscopic exposure time for hosts of SNe discovered earlier in the survey.  To assess how $\epsilon_{z_{\mathrm{spec}}} (m^{\mathrm{host}}_{r,i})$ translates into an efficiency as a function of redshift $\epsilon_{z_{\mathrm{spec}}} (z)$ within the redshift limits of our survey, we use a simulation of host galaxies as described in \citet{Vincenzi2020}. The simulation uses galaxy photometry from DES Science Verification images, and then selects them as potential SN hosts according a weighting driven by previously measured SN rate - host galaxy relationships. We note that this is for display purposes only, so the relationships built into the simulation are not propagated to the final rate measurements. For bins in redshift, we find the mean efficiency for measuring a spec-$z$ of all galaxies in the bin via $\epsilon_{z_{\mathrm{spec}}} (m^{\mathrm{host}}_{r,i})$. The resulting $\epsilon_{z_{\mathrm{spec}}} (z)$ curves are displayed in Fig. \ref{fig:eff_z} and show a high spectroscopic efficiency within the redshift limits of this analysis.
+
+The effects of the host galaxy spectroscopic efficiency are displayed in the upper panel of Fig. \ref{fig:mass_hist_hosts_field}, where the normalised histogram weighted by the efficiency is skewed towards lower masses when compared to the unweighted distribution. So that we reduce any bias towards SNe in bright hosts that are easier to obtain spectroscopic redshifts for, the host galaxy spectroscopic redshift efficiency is multiplied by that derived from the SN detection efficiency (Section \ref{subsec:incompleteness_SNe}) to arrive at the final efficiency for the $i$th SN:
 \begin{equation}
     \eta_{\mathrm{SN},i} = \eta_{\mathrm{SN},i} (F_i,z_i,t_{0,i},x_{1,i},c_i)\times \epsilon_{z_{\mathrm{spec}}} (m^{\mathrm{host}}_{r,i})\,.
 \end{equation}
@@ -627,6 +638,8 @@ The mass-metallicity relation (MZR) is a strong observed correlation between gal
 \subsection{Rate per unit stellar mass \label{subsec:snum}}
 
 An alternative view on how the SN Ia rate relates to environment can be gained by calculating the rate of SNe per year per unit stellar mass: SNuM. A measurement of the SNuM is achieved by summing the number of SNe in each stellar mass bin, and dividing by the total stellar mass of field galaxies in that bin. We show the SNuM as a function of galaxy stellar mass in Fig.~ \ref{fig:snum}, along with the measurements from SNe discovered in SDSS spectra \citep{Graur2013} at $z\sim0.1$ and at $z\sim0$ in LOSS as presented in \citet{Li2011a}. We also calculate the SNuM predicuted by our model for each simulated galaxy at a range of redshifts and plot these as curves in Fig.~\ref{fig:snum}. Our model accurately recovers the SNuM measured in DES for the redshift and stellar mass range of the data. While the data from LOSS and SDSS spectra lie slightly higher than our model prediction, the difference is consistent with differences in assumed SFHs, IMFs and stellar population templates as well as SN detection method. Any true residual difference between predicted and observed SNuM at different redshifts could be caused by an evolution of the SN Ia production efficiency as a function of redshift; we defer such an investigation to future work with more refined models and measurements.
+
+There is tentative evidence in the data for a flattening of the SNum vs stellar mass at $\log(M/\mathrm{M}_{\odot})\leq9.5$, which is broadly predicted by the model and is qualitatively consistent with the shape of the analytic fit of \citet{Kistler2013} while standing in slight tension with the conclusions of \citet{Brown2019}. The uncertainty of the measured rates at these low stellar masses prevents us from drawing further conclusions at this stage.
 \section{The delay-time distribution as a function of supernova properties}
 \label{sec:split_x1_c}
 
